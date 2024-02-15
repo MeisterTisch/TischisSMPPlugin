@@ -1,0 +1,6 @@
+color:
+  color1: 9
+  color2: b
+
+# !FROM HERE ON DO NOT CHANGE ANYTHING, EXCEPT YOU KNOW WHAT YOU DO!
+firstTimeSetupDone: false
