@@ -1,0 +1,7 @@
+name: TischisSMPPlugin
+version: '${version}'
+main: user.meistertisch.tischissmpplugin.Main
+api-version: '1.20'
+authors: [MeisterTisch]
+description: Das ist ein Plugin für sogenannte Survival Multiplayer Server, kurz SMPs genannt.
+website: https://github.com/MeisterTisch/TischisSMPPlugin
