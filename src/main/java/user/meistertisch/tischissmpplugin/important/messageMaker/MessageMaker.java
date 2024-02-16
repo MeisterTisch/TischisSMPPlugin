@@ -12,7 +12,7 @@ public class MessageMaker {
             ChatColor color1 = ChatColor.getByChar((Character) Main.getPlugin().getConfig().get("color.color1"));
             ChatColor color2 = ChatColor.getByChar((Character) Main.getPlugin().getConfig().get("color.color2"));
         } else {
-//            makedMessage =
+            makedMessage = null; //TODO: AFTER MAKING LANGUAGE FILES, DO THE ERROR MESSAGE.
         }
 
         switch(type){

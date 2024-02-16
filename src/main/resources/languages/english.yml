@@ -1,0 +1,2 @@
+# The language files are reset each time the plugin is loaded. Changes are useless.
+testCommand: 'English File is written from'
