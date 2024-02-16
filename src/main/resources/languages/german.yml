@@ -1,5 +1,15 @@
 # The language files are reset each time the plugin is loaded. Changes are useless.
 # Die Sprachdateien werden beim jeden Laden des Plugins zurückgesetzt. Änderungen sind nutzlos.
+accentColor:
+  invalidAccentColor1: 'Akzentfarbe 1 ist ungültig! Setze es auf "9" zurück. Stell sicher, dass du nur Farben benutzt.'
+  invalidAccentColor2: 'Akzentfarbe 2 ist ungültig! Setze es auf "b" zurück. Stell sicher, dass du nur Farben benutzt.'
 language:
-  invalidLanguage: Ungültige Sprache erkannt. Die Sprache wurde auf Englisch eingestellt. # Eigentlich unnötig, weil es eigentlich nur auf English sein kann... :O
-testCommand: Deutschland über allem
+  invalidLanguage: 'Ungültige Sprache erkannt. Die Sprache wurde auf Englisch eingestellt.' # Eigentlich unnötig, weil es eigentlich nur auf English sein kann... :O
+staff:
+  announcement: 'Ankündigung'
+  commands:
+    announcement:
+      invalidMessageLength: 'Ungültige Nachricht!'
+  error: 'Fehler'
+  important: 'Wichtig'
+testCommand: 'Deutschland über allem'

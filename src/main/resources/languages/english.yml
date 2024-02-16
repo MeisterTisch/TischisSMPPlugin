@@ -1,4 +1,14 @@
 # The language files are reset each time the plugin is loaded. Changes are useless.
+accentColor:
+  invalidAccentColor1: 'Accent color 1 is invalid! Setting it back to "9". Make sure you only use colors.'
+  invalidAccentColor2: 'Accent color 2 is invalid! Setting it back to "b". Make sure you only use colors.'
 language:
-  invalidLanguage: Invalid language detected. Language has been set to English.
-testCommand: English File is written from
+  invalidLanguage: 'Invalid language detected. Language has been set to English.'
+staff:
+  announcement: 'Announcement'
+  commands:
+    announcement:
+      invalidMessageLength: 'Invalid message!'
+  error: 'Error'
+  important: 'Important'
+testCommand: 'English file is written from'

@@ -7,3 +7,4 @@ description: Das ist ein Plugin für sogenannte Survival Multiplayer Server, kur
 website: https://github.com/MeisterTisch/TischisSMPPlugin
 commands:
   test:
+  announce:

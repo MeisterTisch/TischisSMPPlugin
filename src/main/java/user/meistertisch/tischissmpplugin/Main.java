@@ -5,6 +5,14 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import user.meistertisch.tischissmpplugin.forTesting.TestCommand;
 import user.meistertisch.tischissmpplugin.languages.Languages;
+import user.meistertisch.tischissmpplugin.languages.Text;
+import user.meistertisch.tischissmpplugin.listeners.ListenerChat;
+import user.meistertisch.tischissmpplugin.messageMaker.MessageMaker;
+import user.meistertisch.tischissmpplugin.messageMaker.TextTypes;
+import user.meistertisch.tischissmpplugin.staff.CommandAnnouncement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public final class Main extends JavaPlugin {
     private static Main plugin;
@@ -25,20 +33,18 @@ public final class Main extends JavaPlugin {
 
         //Some checks
             //LANGUAGE CHECK
-        if(!checkLanguages()){
-            language = Languages.ENGLISH;
-            System.out.println("ERROR: Invalid Language. Setting to english!");
-            //TODO: WRITE ERROR WITH PREFIX :)
-        }
+        checkLanguages();
             //ACCENT COLOR CHECK
-        colorsWork = this.getConfig().get("color.color1") instanceof Character && this.getConfig().get("color.color2") instanceof Character;
+        checkAccentColor1();
+        checkAccentColor2();
 
 
         //Commands
         getCommand("test").setExecutor(new TestCommand());
+        getCommand("announce").setExecutor(new CommandAnnouncement());
 
         //Listeners
-
+        pluginManager.registerEvents(new ListenerChat(), this);
 
         //Misc
 
@@ -62,8 +68,8 @@ public final class Main extends JavaPlugin {
         return language;
     }
 
-    //Methods for here
-    private boolean checkLanguages(){
+    //Checking Methods
+    private void checkLanguages(){
         boolean languageMatches = false;
         for(Languages language : Languages.values()){
             if(language.getConfigValue().equals(this.getConfig().getString("language"))) {
@@ -72,6 +78,60 @@ public final class Main extends JavaPlugin {
                 break;
             }
         }
-        return languageMatches;
+        if(!languageMatches){
+            language = Languages.ENGLISH;
+            this.getConfig().set("language", "english");
+            this.saveConfig();
+            this.reloadConfig();
+
+            //invalid language error
+            System.out.println(MessageMaker.makeMessage(Text.getText(Text.language_invalidLanguage), TextTypes.ERROR));
+        }
+    }
+    private void checkAccentColor1(){
+        //Input is String
+        if(this.getConfig().getString("color.color1") != null) {
+            //String has only one character
+            if(this.getConfig().getString("color.color1").toCharArray().length == 1){
+                //Only Colors
+                List<Character> validColorChars = new ArrayList<>();
+                for (char c = '0'; c <= '9'; c++) {
+                    validColorChars.add(c);
+                }
+                validColorChars.addAll(List.of('a', 'b', 'c', 'd', 'e', 'f', 'A', 'B', 'C', 'D', 'E', 'F'));
+                for(char chara : this.getConfig().getString("color.color1").toCharArray()){
+                    if(validColorChars.contains(chara))
+                        return;
+                }
+            }
+        }
+        //Accent Color invalid
+        this.getConfig().set("color.color1", "9");
+        this.saveConfig();
+        this.reloadConfig();
+        System.out.println(MessageMaker.makeMessage(Text.getText(Text.color_invalidAccentColor1), TextTypes.ERROR));
+    }
+    private void checkAccentColor2(){
+        //Input is String
+        if(this.getConfig().getString("color.color2") != null)
+            return;
+        //String has only one character
+        if(this.getConfig().getString("color.color2").toCharArray().length == 1)
+            return;
+        //Only Colors
+        List<Character> validColorChars = new ArrayList<>();
+        for (char c = '0'; c <= '9'; c++) {
+            validColorChars.add(c);
+        }
+        validColorChars.addAll(List.of('a', 'b', 'c', 'd', 'e', 'f', 'A', 'B', 'C', 'D', 'E', 'F'));
+        for(char chara : this.getConfig().getString("color.color2").toCharArray()){
+            if(validColorChars.contains(chara))
+                return;
+        }
+        //Accent Color invalid
+        this.getConfig().set("color.color2", 'b');
+        this.saveConfig();
+        this.reloadConfig();
+        System.out.println(MessageMaker.makeMessage(Text.getText(Text.color_invalidAccentColor2), TextTypes.ERROR));
     }
 }
