@@ -1,3 +1,5 @@
 # The language files are reset each time the plugin is loaded. Changes are useless.
 # Die Sprachdateien werden beim jeden Laden des Plugins zurückgesetzt. Änderungen sind nutzlos.
-testCommand: 'Deutschland über allem'
+language:
+  invalidLanguage: Ungültige Sprache erkannt. Die Sprache wurde auf Englisch eingestellt. # Eigentlich unnötig, weil es eigentlich nur auf English sein kann... :O
+testCommand: Deutschland über allem

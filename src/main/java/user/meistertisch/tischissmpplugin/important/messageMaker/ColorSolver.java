@@ -12,8 +12,10 @@ public class ColorSolver {
         solvedMessage = message.replace("%color1%", ""+color1);
         solvedMessage = solvedMessage.replace("%color2%" , ""+color2);
 
-        for(ChatColor color : ChatColor.values()){
-            solvedMessage = solvedMessage.replace("%"+"", ""); //TODO: Color solver :)
+
+
+        for(char color : ChatColor.ALL_CODES.toCharArray()){
+            solvedMessage = solvedMessage.replace("§"+color, ChatColor.getByChar(color)+"");
         }
 
         return null;
