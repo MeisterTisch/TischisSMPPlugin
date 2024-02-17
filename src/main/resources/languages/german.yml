@@ -10,6 +10,21 @@ staff:
   commands:
     announcement:
       invalidMessageLength: 'Ungültige Nachricht!'
+    dimension:
+      invalidDimension: 'Ungültige Dimension! Bitte überprüfe deine Eingabe!'
+      noDimension: 'Keine Dimension ausgewählt!'
+      invalidAllowance: 'Ungültige Erlaubnis! Bitte überprüfe deine Eingabe!'
+      noAllowance: 'Keine Erlaubnis ausgewählt!'
+      invalidArgsLength: 'Ungültige Anzahl an Argumenten!'
+      successfulExecution:
+        text: 'Dimension %dimension% wurde erfolgreich %allowance%.'
+        announceText: 'Dimension %dimension% wurde %allowance%.'
+        dimension:
+          nether: 'Nether'
+          end: 'End'
+        allowance:
+          allow: 'geöffnet'
+          disallow: 'geschlossen'
   error: 'Fehler'
   important: 'Wichtig'
 testCommand: 'Deutschland über allem'

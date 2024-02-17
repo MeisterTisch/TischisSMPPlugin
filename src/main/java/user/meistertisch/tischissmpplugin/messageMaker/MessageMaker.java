@@ -12,10 +12,6 @@ public class MessageMaker {
         ChatColor color1 = ChatColor.getByChar(Main.getPlugin().getConfig().getString("color.color1").charAt(0));
         ChatColor color2 = ChatColor.getByChar(Main.getPlugin().getConfig().getString("color.color2").charAt(0));
 
-
-
-
-
         switch(type){
             case NORMAL -> {
                 makedMessage = Main.getPlugin().getConfig().getString("prefix") + ChatColor.WHITE + message;
@@ -33,7 +29,7 @@ public class MessageMaker {
                 makedMessage = Main.getPlugin().getConfig().getString("prefix") + ChatColor.GOLD + "[" + Text.getText(Text.staff_announcement) + "]" + ChatColor.WHITE + ": \n" + message;
             }
             case DM -> {
-                //TODO: Need Command
+                //TODO: Need Command, need somehow Players for it.
             }
             case DEBUG -> {
                 makedMessage = Main.getPlugin().getConfig().getString("prefix") + ChatColor.GRAY + "[DEBUG]" + ChatColor.WHITE + ": \n" + message;

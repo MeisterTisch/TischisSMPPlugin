@@ -8,3 +8,4 @@ website: https://github.com/MeisterTisch/TischisSMPPlugin
 commands:
   test:
   announce:
+  dimension:

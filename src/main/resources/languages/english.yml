@@ -9,6 +9,21 @@ staff:
   commands:
     announcement:
       invalidMessageLength: 'Invalid message!'
+    dimension:
+      invalidDimension: 'Invalid dimension! Please check your input!'
+      noDimension: 'No dimension selected!'
+      invalidAllowance: 'Invalid allowance! Please check your input!'
+      noAllowance: 'No allowance selected!'
+      invalidArgsLength: 'Invalid length of arguments!'
+      successfulExecution:
+        text: 'Dimension %dimension% was successfully %allowance%.'
+        announceText: 'Dimension %dimension% was %allowance%.'
+        dimension:
+          nether: 'Nether'
+          end: 'End'
+        allowance:
+          allow: 'opened'
+          disallow: 'closed'
   error: 'Error'
   important: 'Important'
 testCommand: 'English file is written from'

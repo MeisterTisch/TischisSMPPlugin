@@ -10,6 +10,7 @@ import user.meistertisch.tischissmpplugin.listeners.ListenerChat;
 import user.meistertisch.tischissmpplugin.messageMaker.MessageMaker;
 import user.meistertisch.tischissmpplugin.messageMaker.TextTypes;
 import user.meistertisch.tischissmpplugin.staff.CommandAnnouncement;
+import user.meistertisch.tischissmpplugin.staff.CommandDimensionAllowance;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +43,7 @@ public final class Main extends JavaPlugin {
         //Commands
         getCommand("test").setExecutor(new TestCommand());
         getCommand("announce").setExecutor(new CommandAnnouncement());
+        getCommand("dimension").setExecutor(new CommandDimensionAllowance());
 
         //Listeners
         pluginManager.registerEvents(new ListenerChat(), this);
