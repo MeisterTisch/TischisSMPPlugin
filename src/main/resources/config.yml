@@ -1,9 +1,16 @@
+# chatDisabled: This sets if the chat is disabled for normal players or not.
+chatDisabled: false
 # color: This sets you color accent of the plugin. You can set it what you want.
 # If you change it here, please check here the color codes: https://htmlcolorcodes.com/minecraft-color-codes/
 # Only use the character, !DON'T! write the & or §, only the character!
 color:
   color1: '9'
   color2: 'b'
+# dimensionAllowance: Here you can set, if the players are allowed to go to the nether or in the end.
+# You can change it here, or with the command /dimension in-game or in the console.
+dimensionAllowance:
+  nether: true
+  end: false
 # language: self-explanatory, following languages are available and need to be written exactly like that.
 # german, english
 # For easier changing, do it with the /language command in-game or in the console.
@@ -16,11 +23,7 @@ language: german
 # - accent color 2: %color2%
 # - individual colors: %CharOfTheColor% (check here: https://htmlcolorcodes.com/minecraft-color-codes/)
 prefix: '%color1%[%color2%Tische SMP%color1%] %8%| '
-# dimensionAllowance: Here you can set, if the players are allowed to go to the nether or in the end.
-# You can change it here, or with the command /dimension in-game or in the console.
-dimensionAllowance:
-  nether: true
-  end: false
+
 
 # !FROM HERE ON DO NOT CHANGE ANYTHING, EXCEPT YOU KNOW WHAT YOU DO!
 # If you change something here and the plugin breaks as a result, then it is either due to your change or to my programming skills.

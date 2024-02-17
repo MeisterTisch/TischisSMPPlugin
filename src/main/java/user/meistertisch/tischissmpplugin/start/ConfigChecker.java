@@ -92,6 +92,15 @@ public class ConfigChecker {
             Main.getPlugin().reloadConfig();
         }
     }
+    private static void checkChatDisabling(){
+        if(!(Main.getPlugin().getConfig().get("chatDisabled") instanceof Boolean)){
+            System.out.println(MessageMaker.makeMessage(Text.getText(Text.dimensionAllowance_invalidAllowance)
+                    .replace("%dimension%", "Nether"), TextTypes.ERROR));
+            Main.getPlugin().getConfig().set("chatDisabled", false);
+            Main.getPlugin().saveConfig();
+            Main.getPlugin().reloadConfig();
+        }
+    }
 
     //OVERALL CHECKER
     public static void checkEverything(){

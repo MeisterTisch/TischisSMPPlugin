@@ -4,6 +4,8 @@ accentColor:
   invalidAccentColor1: 'Akzentfarbe 1 ist ungültig! Setze es auf "9" zurück. Stell sicher, dass du nur Farben benutzt.'
   invalidAccentColor2: 'Akzentfarbe 2 ist ungültig! Setze es auf "b" zurück. Stell sicher, dass du nur Farben benutzt.'
 announcement: 'Ankündigung'
+chatDisabling:
+  invalidInput: 'Ungültige Eingabe bei der Chatsperre. Setze es auf "false" zurück.'
 dimensionAllowance:
   invalidAllowance: 'Ungültige Erlaubnis bei der Dimension %dimension%. Setze es auf "true" zurück.'
   netherNotAllowed: 'Nether ist zurzeit gesperrt!'
@@ -37,4 +39,11 @@ staff:
       reloadSuccessful: 'Config wurde erfolgreich neu geladen!'
       reloadUnsuccessful: 'Config konnte nicht neu geladen werden!'
       fileNotFound: 'Die Config Datei konnte nicht gefunden werden, stelle wieder her.'
+    chatDisabling:
+      statusAsking: 'Chat ist derzeit %status%.'
+      enabled: 'Chat wurde aktiviert.'
+      disabled: 'Chat wurde deaktiviert.'
+      status:
+        enabled: 'aktiviert'
+        disabled: 'deaktiviert'
 testCommand: 'Deutschland über allem'

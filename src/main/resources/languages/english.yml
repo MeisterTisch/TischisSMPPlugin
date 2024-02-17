@@ -3,6 +3,8 @@ accentColor:
   invalidAccentColor1: 'Accent color 1 is invalid! Setting it back to "9". Make sure you only use colors.'
   invalidAccentColor2: 'Accent color 2 is invalid! Setting it back to "b". Make sure you only use colors.'
 announcement: 'Announcement'
+chatDisabling:
+  invalidInput: 'Invalid input at the chat disablement. Setting it back to "false".'
 dimensionAllowance:
   invalidAllowance: 'Invalid permission for the dimension %dimension%. Setting it back to "true".'
   netherNotAllowed: 'Nether is currently closed!'
@@ -36,4 +38,11 @@ staff:
       reloadSuccessful: 'Config was reloaded successfully.'
       reloadUnsuccessful: 'Config could not be reloaded!'
       fileNotFound: 'The config file could not be found, restoring file.'
+    chatDisabling:
+      statusAsking: 'Chat is %status%.'
+      enabled: 'Chat has been enabled.'
+      disabled: 'Chat has been disabled.'
+      status:
+        enabled: 'enabled'
+        disabled: 'disabled'
 testCommand: 'English file is written from'

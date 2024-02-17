@@ -4,6 +4,7 @@ public enum Text {
     accentColor_invalidAccentColor1("accentColor.invalidAccentColor1"),
     accentColor_invalidAccentColor2("accentColor.invalidAccentColor2"),
     announcement("announcement"),
+    chatDisabled_invalidInput("chatDisabled.invalidInput"),
     dimensionAllowance_invalidAllowance("dimensionAllowance.invalidAllowance"),
     dimensionAllowance_netherNotAllowed("dimensionAllowance.netherNotAllowed"),
     dimensionAllowance_endNotAllowed("dimensionAllowance.endNotAllowed"),
@@ -27,7 +28,11 @@ public enum Text {
     staff_commands_reloadConfig_reloadSuccessful("staff.commands.reloadConfig.reloadSuccessful"),
     staff_commands_reloadConfig_reloadUnsuccessful("staff.commands.reloadConfig.reloadUnsuccessful"),
     staff_commands_reloadConfig_fileNotFound("staff.commands.reloadConfig.fileNotFound"),
-
+    staff_commands_chatDisabling_statusAsking("staff.commands.chatDisabling.statusAsking"),
+    staff_commands_chatDisabling_enabled("staff.commands.chatDisabling.enabled"),
+    staff_commands_chatDisabling_disabled("staff.commands.chatDisabling.disabled"),
+    staff_commands_chatDisabling_status_enabled("staff.commands.chatDisabling.status.enabled"),
+    staff_commands_chatDisabling_status_disabled("staff.commands.chatDisabling.status.disabled"),
     testCommand("testCommand");
 
     private String languageFilePath;
