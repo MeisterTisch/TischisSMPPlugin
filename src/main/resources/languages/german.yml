@@ -36,4 +36,5 @@ staff:
     reloadConfig:
       reloadSuccessful: 'Config wurde erfolgreich neu geladen!'
       reloadUnsuccessful: 'Config konnte nicht neu geladen werden!'
+      fileNotFound: 'Die Config Datei konnte nicht gefunden werden, stelle wieder her.'
 testCommand: 'Deutschland über allem'

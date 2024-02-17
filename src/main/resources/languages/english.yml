@@ -35,4 +35,5 @@ staff:
     reloadConfig:
       reloadSuccessful: 'Config was reloaded successfully.'
       reloadUnsuccessful: 'Config could not be reloaded!'
+      fileNotFound: 'The config file could not be found, restoring file.'
 testCommand: 'English file is written from'

@@ -25,7 +25,9 @@ public enum Text {
     staff_commands_dimension_successfulExecution_allowance_allow("staff.commands.dimension.successfulExecution.allowance.allow"),
     staff_commands_dimension_successfulExecution_allowance_disallow("staff.commands.dimension.successfulExecution.allowance.disallow"),
     staff_commands_reloadConfig_reloadSuccessful("staff.commands.reloadConfig.reloadSuccessful"),
-    getStaff_commands_reloadConfig_reloadUnsuccessful("staff.commands.reloadConfig.reloadUnsuccessful"),
+    staff_commands_reloadConfig_reloadUnsuccessful("staff.commands.reloadConfig.reloadUnsuccessful"),
+    staff_commands_reloadConfig_fileNotFound("staff.commands.reloadConfig.fileNotFound"),
+
     testCommand("testCommand");
 
     private String languageFilePath;
