@@ -9,3 +9,4 @@ commands:
   test:
   announce:
   dimension:
+  reloadconfig:

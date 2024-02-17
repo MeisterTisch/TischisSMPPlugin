@@ -58,7 +58,7 @@ public class CommandDimensionAllowance implements TabExecutor {
         }
         //Mehr als zwei oder nichts geschrieben
         else {
-            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_invalidArgsLength), TextTypes.ERROR));
+            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_invalidArgsLength), TextTypes.ERROR));
         }
         return true;
     }

@@ -8,6 +8,7 @@ language:
 staff:
   announcement: 'Ankündigung'
   commands:
+    invalidArgsLength: 'Ungültige Anzahl an Argumenten!'
     announcement:
       invalidMessageLength: 'Ungültige Nachricht!'
     dimension:
@@ -15,7 +16,6 @@ staff:
       noDimension: 'Keine Dimension ausgewählt!'
       invalidAllowance: 'Ungültige Erlaubnis! Bitte überprüfe deine Eingabe!'
       noAllowance: 'Keine Erlaubnis ausgewählt!'
-      invalidArgsLength: 'Ungültige Anzahl an Argumenten!'
       successfulExecution:
         text: 'Dimension %dimension% wurde erfolgreich %allowance%.'
         announceText: 'Dimension %dimension% wurde %allowance%.'
@@ -25,6 +25,9 @@ staff:
         allowance:
           allow: 'geöffnet'
           disallow: 'geschlossen'
+    reloadConfig:
+      reloadSuccessful: 'Config wurde erfolgreich neu geladen!'
+      reloadUnsuccessful: 'Config konnte nicht neu geladen werden!'
   error: 'Fehler'
   important: 'Wichtig'
 testCommand: 'Deutschland über allem'

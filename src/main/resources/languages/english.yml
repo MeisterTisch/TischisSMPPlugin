@@ -7,6 +7,7 @@ language:
 staff:
   announcement: 'Announcement'
   commands:
+    invalidArgsLength: 'Invalid length of arguments!'
     announcement:
       invalidMessageLength: 'Invalid message!'
     dimension:
@@ -14,7 +15,6 @@ staff:
       noDimension: 'No dimension selected!'
       invalidAllowance: 'Invalid allowance! Please check your input!'
       noAllowance: 'No allowance selected!'
-      invalidArgsLength: 'Invalid length of arguments!'
       successfulExecution:
         text: 'Dimension %dimension% was successfully %allowance%.'
         announceText: 'Dimension %dimension% was %allowance%.'
@@ -24,6 +24,9 @@ staff:
         allowance:
           allow: 'opened'
           disallow: 'closed'
+    reloadConfig:
+      reloadSuccessful: 'Config was reloaded successfully.'
+      reloadUnsuccessful: 'Config could not be reloaded!'
   error: 'Error'
   important: 'Important'
 testCommand: 'English file is written from'
