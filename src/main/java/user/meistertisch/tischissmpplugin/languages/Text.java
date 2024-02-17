@@ -11,6 +11,8 @@ public enum Text {
     staff_commands_dimension_invalidAllowance("staff.commands.dimension.invalidAllowance"),
     staff_commands_dimension_noAllowance("staff.commands.dimension.noAllowance"),
     staff_commands_invalidArgsLength("staff.commands.invalidArgsLength"),
+    staff_commands_dimension_alreadyAllowed("staff.commands.dimension.alreadyAllowed"),
+    staff_commands_dimension_alreadyDisallowed("staff.commands.dimension.alreadyDisallowed"),
     staff_commands_dimension_successfulExecution_text("staff.commands.dimension.successfulExecution.text"),
     staff_commands_dimension_successfulExecution_announceText("staff.commands.dimension.successfulExecution.announceText"),
     staff_commands_dimension_successfulExecution_dimension_nether("staff.commands.dimension.successfulExecution.dimension.nether"),

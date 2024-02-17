@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
+import user.meistertisch.tischissmpplugin.Main;
 import user.meistertisch.tischissmpplugin.languages.Text;
 import user.meistertisch.tischissmpplugin.messageMaker.MessageMaker;
 import user.meistertisch.tischissmpplugin.messageMaker.TextTypes;
@@ -32,8 +33,26 @@ public class CommandDimensionAllowance implements TabExecutor {
             if(dimensions.contains(strings[0].toLowerCase(Locale.ROOT))){
                 //Dimension passt
                 if(allowance.contains(strings[1].toLowerCase(Locale.ROOT))){
-                    //TODO: CHeck if its already opened or closed
+                    //Check for same thing
+                    boolean allowing = strings[1].equals("allow");
+                    if(Main.getPlugin().getConfig().getBoolean("dimensionAllowance." + strings[0].toLowerCase(Locale.ROOT)) == allowing){
+                        String message;
+                        if(allowing){
+                            message = Text.getText(Text.staff_commands_dimension_alreadyAllowed)
+                                    .replace("%dimension%", Text.getText("staff_commands_dimension_successfulExecution_dimension_"+strings[0]));
+                        } else {
+                            message = Text.getText(Text.staff_commands_dimension_alreadyDisallowed)
+                                    .replace("%dimension%", Text.getText("staff_commands_dimension_successfulExecution_dimension_"+strings[0]));
+                        }
+                        commandSender.sendMessage(MessageMaker.makeMessage(message, TextTypes.IMPORTANT));
+                        return true;
+                    }
+
                     //allowance passt
+                    Main.getPlugin().getConfig().set("dimensionAllowance."+strings[0].toLowerCase(Locale.ROOT), allowing);
+                    Main.getPlugin().saveConfig();
+                    Main.getPlugin().reloadConfig();
+
                     String successfulExecution = Text.getText(Text.staff_commands_dimension_successfulExecution_text)
                             .replace("%dimension%", Text.getText("staff_commands_dimension_successfulExecution_dimension_"+strings[0]))
                             .replace("%allowance%", Text.getText("staff_commands_dimension_successfulExecution_allowance_"+strings[1]));;
@@ -44,9 +63,6 @@ public class CommandDimensionAllowance implements TabExecutor {
 
                     commandSender.sendMessage(MessageMaker.makeMessage(successfulExecution, TextTypes.NORMAL));
                     Bukkit.broadcastMessage(MessageMaker.makeMessage(announcement, TextTypes.ANNOUNCEMENT));
-
-                    //TODO: Actually let it make something
-
                 } else {
                     //allowance passt nicht
                     commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_invalidAllowance), TextTypes.ERROR));
@@ -58,7 +74,11 @@ public class CommandDimensionAllowance implements TabExecutor {
         }
         //Mehr als zwei oder nichts geschrieben
         else {
+            if(strings.length == 0){
+                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_noDimension), TextTypes.ERROR));
+            } else {
             commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_invalidArgsLength), TextTypes.ERROR));
+            }
         }
         return true;
     }

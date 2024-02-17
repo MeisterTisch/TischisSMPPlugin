@@ -16,6 +16,8 @@ staff:
       noDimension: 'Keine Dimension ausgewählt!'
       invalidAllowance: 'Ungültige Erlaubnis! Bitte überprüfe deine Eingabe!'
       noAllowance: 'Keine Erlaubnis ausgewählt!'
+      alreadyAllowed: '%dimension% ist bereits geöffnet!'
+      alreadyDisallowed: '%dimension% ist bereits geschlossen!'
       successfulExecution:
         text: 'Dimension %dimension% wurde erfolgreich %allowance%.'
         announceText: 'Dimension %dimension% wurde %allowance%.'

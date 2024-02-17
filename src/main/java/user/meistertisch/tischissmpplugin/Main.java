@@ -39,6 +39,7 @@ public final class Main extends JavaPlugin {
             //ACCENT COLOR CHECK
         checkAccentColor1();
         checkAccentColor2();
+            //TODO: Nether and End Allowance check for only boolean in config
 
 
         //Commands

@@ -15,6 +15,8 @@ staff:
       noDimension: 'No dimension selected!'
       invalidAllowance: 'Invalid allowance! Please check your input!'
       noAllowance: 'No allowance selected!'
+      alreadyAllowed: '%dimension% ist already open!'
+      alreadyDisallowed: '%dimension% ist already closed!'
       successfulExecution:
         text: 'Dimension %dimension% was successfully %allowance%.'
         announceText: 'Dimension %dimension% was %allowance%.'
