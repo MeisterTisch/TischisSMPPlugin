@@ -1,10 +1,15 @@
 package user.meistertisch.tischissmpplugin.languages;
 
 public enum Text {
-    color_invalidAccentColor1("accentColor.invalidAccentColor1"),
-    color_invalidAccentColor2("accentColor.invalidAccentColor2"),
+    accentColor_invalidAccentColor1("accentColor.invalidAccentColor1"),
+    accentColor_invalidAccentColor2("accentColor.invalidAccentColor2"),
+    announcement("announcement"),
+    dimensionAllowance_invalidAllowance("dimensionAllowance.invalidAllowance"),
+    dimensionAllowance_netherNotAllowed("dimensionAllowance.netherNotAllowed"),
+    dimensionAllowance_endNotAllowed("dimensionAllowance.endNotAllowed"),
+    error("error"),
+    important("important"),
     language_invalidLanguage("language.invalidLanguage"),
-    staff_announcement("staff.announcement"),
     staff_commands_announcement_invalidMessageLength("staff.commands.announcement.invalidMessageLength"),
     staff_commands_dimension_invalidDimension("staff.commands.dimension.invalidDimension"),
     staff_commands_dimension_noDimension("staff.commands.dimension.noDimension"),
@@ -21,8 +26,6 @@ public enum Text {
     staff_commands_dimension_successfulExecution_allowance_disallow("staff.commands.dimension.successfulExecution.allowance.disallow"),
     staff_commands_reloadConfig_reloadSuccessful("staff.commands.reloadConfig.reloadSuccessful"),
     getStaff_commands_reloadConfig_reloadUnsuccessful("staff.commands.reloadConfig.reloadUnsuccessful"),
-    staff_error("staff.error"),
-    staff_important("staff.important"),
     testCommand("testCommand");
 
     private String languageFilePath;

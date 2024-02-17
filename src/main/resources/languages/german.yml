@@ -3,10 +3,16 @@
 accentColor:
   invalidAccentColor1: 'Akzentfarbe 1 ist ungültig! Setze es auf "9" zurück. Stell sicher, dass du nur Farben benutzt.'
   invalidAccentColor2: 'Akzentfarbe 2 ist ungültig! Setze es auf "b" zurück. Stell sicher, dass du nur Farben benutzt.'
+announcement: 'Ankündigung'
+dimensionAllowance:
+  invalidAllowance: 'Ungültige Erlaubnis bei der Dimension %dimension%. Setze es auf "true" zurück.'
+  netherNotAllowed: 'Nether ist zurzeit gesperrt!'
+  endNotAllowed: 'End ist zurzeit gesperrt!'
+error: 'Fehler'
+important: 'Wichtig'
 language:
   invalidLanguage: 'Ungültige Sprache erkannt. Die Sprache wurde auf Englisch eingestellt.' # Eigentlich unnötig, weil es eigentlich nur auf English sein kann... :O
 staff:
-  announcement: 'Ankündigung'
   commands:
     invalidArgsLength: 'Ungültige Anzahl an Argumenten!'
     announcement:
@@ -30,6 +36,4 @@ staff:
     reloadConfig:
       reloadSuccessful: 'Config wurde erfolgreich neu geladen!'
       reloadUnsuccessful: 'Config konnte nicht neu geladen werden!'
-  error: 'Fehler'
-  important: 'Wichtig'
 testCommand: 'Deutschland über allem'

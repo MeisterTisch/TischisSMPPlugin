@@ -7,6 +7,7 @@ import user.meistertisch.tischissmpplugin.forTesting.TestCommand;
 import user.meistertisch.tischissmpplugin.languages.Languages;
 import user.meistertisch.tischissmpplugin.languages.Text;
 import user.meistertisch.tischissmpplugin.listeners.ListenerChat;
+import user.meistertisch.tischissmpplugin.listeners.ListenerDimensionAllowance;
 import user.meistertisch.tischissmpplugin.messageMaker.MessageMaker;
 import user.meistertisch.tischissmpplugin.messageMaker.TextTypes;
 import user.meistertisch.tischissmpplugin.staff.CommandAnnouncement;
@@ -39,7 +40,8 @@ public final class Main extends JavaPlugin {
             //ACCENT COLOR CHECK
         checkAccentColor1();
         checkAccentColor2();
-            //TODO: Nether and End Allowance check for only boolean in config
+            //DIMENSION ALLOWANCE CHECK
+        checkDimensionAllowance();
 
 
         //Commands
@@ -50,10 +52,13 @@ public final class Main extends JavaPlugin {
 
         //Listeners
         pluginManager.registerEvents(new ListenerChat(), this);
+        pluginManager.registerEvents(new ListenerDimensionAllowance(), this);
 
         //Misc
 
     }
+
+
 
     @Override
     public void onDisable() {
@@ -114,7 +119,7 @@ public final class Main extends JavaPlugin {
         this.getConfig().set("color.color1", "9");
         this.saveConfig();
         this.reloadConfig();
-        System.out.println(MessageMaker.makeMessage(Text.getText(Text.color_invalidAccentColor1), TextTypes.ERROR));
+        System.out.println(MessageMaker.makeMessage(Text.getText(Text.accentColor_invalidAccentColor1), TextTypes.ERROR));
     }
     private void checkAccentColor2(){
         //Input is String
@@ -137,6 +142,22 @@ public final class Main extends JavaPlugin {
         this.getConfig().set("color.color2", 'b');
         this.saveConfig();
         this.reloadConfig();
-        System.out.println(MessageMaker.makeMessage(Text.getText(Text.color_invalidAccentColor2), TextTypes.ERROR));
+        System.out.println(MessageMaker.makeMessage(Text.getText(Text.accentColor_invalidAccentColor2), TextTypes.ERROR));
+    }
+    private void checkDimensionAllowance() {
+        if(!(this.getConfig().get("dimensionAllowance.nether") instanceof Boolean)){
+            System.out.println(MessageMaker.makeMessage(Text.getText(Text.dimensionAllowance_invalidAllowance)
+                    .replace("%dimension%", "Nether"), TextTypes.ERROR));
+            this.getConfig().set("dimensionAllowance.nether", true);
+            this.saveConfig();
+            this.reloadConfig();
+        }
+        if(!(this.getConfig().get("dimensionAllowance.end") instanceof Boolean)){
+            System.out.println(MessageMaker.makeMessage(Text.getText(Text.dimensionAllowance_invalidAllowance)
+                    .replace("%dimension%", "End"), TextTypes.ERROR));
+            this.getConfig().set("dimensionAllowance.end", true);
+            this.saveConfig();
+            this.reloadConfig();
+        }
     }
 }

@@ -2,10 +2,16 @@
 accentColor:
   invalidAccentColor1: 'Accent color 1 is invalid! Setting it back to "9". Make sure you only use colors.'
   invalidAccentColor2: 'Accent color 2 is invalid! Setting it back to "b". Make sure you only use colors.'
+announcement: 'Announcement'
+dimensionAllowance:
+  invalidAllowance: 'Invalid permission for the dimension %dimension%. Setting it back to "true".'
+  netherNotAllowed: 'Nether is currently closed!'
+  endNotAllowed: 'End is currently closed!'
+error: 'Error'
+important: 'Important'
 language:
   invalidLanguage: 'Invalid language detected. Language has been set to English.'
 staff:
-  announcement: 'Announcement'
   commands:
     invalidArgsLength: 'Invalid length of arguments!'
     announcement:
@@ -29,6 +35,4 @@ staff:
     reloadConfig:
       reloadSuccessful: 'Config was reloaded successfully.'
       reloadUnsuccessful: 'Config could not be reloaded!'
-  error: 'Error'
-  important: 'Important'
 testCommand: 'English file is written from'

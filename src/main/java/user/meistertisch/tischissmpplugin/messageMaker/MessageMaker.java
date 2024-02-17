@@ -20,13 +20,13 @@ public class MessageMaker {
                 //TODO: STILL NEED TEAM ROLES
             }
             case IMPORTANT -> {
-                makedMessage = Main.getPlugin().getConfig().getString("prefix") + ChatColor.GOLD + "[" + Text.getText(Text.staff_important) + "]" + ChatColor.WHITE + ": \n" + message;
+                makedMessage = Main.getPlugin().getConfig().getString("prefix") + ChatColor.GOLD + "[" + Text.getText(Text.important) + "]" + ChatColor.WHITE + ": \n" + message;
             }
             case ERROR -> {
-                makedMessage = Main.getPlugin().getConfig().getString("prefix") + ChatColor.RED + "[" + Text.getText(Text.staff_error) + "]" + ChatColor.WHITE + ": \n" + message;
+                makedMessage = Main.getPlugin().getConfig().getString("prefix") + ChatColor.RED + "[" + Text.getText(Text.error) + "]" + ChatColor.WHITE + ": \n" + message;
             }
             case ANNOUNCEMENT -> {
-                makedMessage = Main.getPlugin().getConfig().getString("prefix") + ChatColor.GOLD + "[" + Text.getText(Text.staff_announcement) + "]" + ChatColor.WHITE + ": \n" + message;
+                makedMessage = Main.getPlugin().getConfig().getString("prefix") + ChatColor.GOLD + "[" + Text.getText(Text.announcement) + "]" + ChatColor.WHITE + ": \n" + message;
             }
             case DM -> {
                 //TODO: Need Command, need somehow Players for it.
