@@ -14,11 +14,11 @@ public class CommandAnnouncement implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if(strings.length > 0){
-            String message = "";
+            StringBuilder message = new StringBuilder();
             for(String string : strings){
-                message = message + " " + string;
+                message.append(" ").append(string);
             }
-            Bukkit.broadcastMessage(MessageMaker.makeMessage(message, TextTypes.ANNOUNCEMENT));
+            Bukkit.broadcastMessage(MessageMaker.makeMessage(message.toString(), TextTypes.ANNOUNCEMENT));
         } else commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_announcement_invalidMessageLength), TextTypes.ERROR));
         return true;
     }
