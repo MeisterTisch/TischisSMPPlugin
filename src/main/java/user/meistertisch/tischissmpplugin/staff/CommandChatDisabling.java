@@ -28,11 +28,11 @@ public class CommandChatDisabling implements TabExecutor {
                    if(strings[0].toLowerCase(Locale.ROOT).equals("disable")){
                        //already disabled
                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_chatDisabling_statusAlreadyThere)
-                                       .replace("%status%", Text.getText(Text.staff_commands_chatDisabling_status_disabled)), TextTypes.COMMAND_NO_SUCCESS));
+                                       .replace("%status%", Text.getText(Text.staff_commands_chatDisabling_status_disabled)), TextTypes.NO_SUCCESS));
                    } else {
                        //already enabled
                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_chatDisabling_statusAlreadyThere)
-                               .replace("%status%", Text.getText(Text.staff_commands_chatDisabling_status_enabled)), TextTypes.COMMAND_NO_SUCCESS));
+                               .replace("%status%", Text.getText(Text.staff_commands_chatDisabling_status_enabled)), TextTypes.NO_SUCCESS));
                    }
                 } else {
                     //we can change
@@ -41,18 +41,18 @@ public class CommandChatDisabling implements TabExecutor {
                         Main.getPlugin().getConfig().set("chatDisabled", true);
                         Main.getPlugin().saveConfig();
                         Main.getPlugin().reloadConfig();
-                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_chatDisabling_disabled), TextTypes.COMMAND_SUCCESS));
+                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_chatDisabling_disabled), TextTypes.SUCCESS));
                     } else {
                         //making enabled
                         Main.getPlugin().getConfig().set("chatDisabled", false);
                         Main.getPlugin().saveConfig();
                         Main.getPlugin().reloadConfig();
-                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_chatDisabling_enabled), TextTypes.COMMAND_SUCCESS));
+                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_chatDisabling_enabled), TextTypes.SUCCESS));
                     }
                 }
             } else {
                 //input is wrong
-                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_chatDisabling_invalidStatusInput), TextTypes.COMMAND_NO_SUCCESS));
+                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_chatDisabling_invalidStatusInput), TextTypes.NO_SUCCESS));
             }
         } else if (strings.length == 0){
             //checking able oder not
@@ -65,7 +65,7 @@ public class CommandChatDisabling implements TabExecutor {
             commandSender.sendMessage(MessageMaker.makeMessage(message, TextTypes.NORMAL));
         } else {
             //nichts passt
-            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_invalidArgsLength), TextTypes.COMMAND_NO_SUCCESS));
+            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_invalidArgsLength), TextTypes.NO_SUCCESS));
         }
         return true;
     }

@@ -14,7 +14,7 @@ public class ListenerChat implements Listener {
     public void playerSayInChat(AsyncPlayerChatEvent event){
         if(Main.getPlugin().getConfig().getBoolean("chatDisabled")){
             event.setCancelled(true);
-            event.getPlayer().sendMessage(MessageMaker.makeMessage(Text.getText(Text.chatDisabled_chatIsDisabled), TextTypes.COMMAND_NO_SUCCESS));
+            event.getPlayer().sendMessage(MessageMaker.makeMessage(Text.getText(Text.chatDisabled_chatIsDisabled), TextTypes.NO_SUCCESS));
             return;
         }
         //TODO: Adding Teams

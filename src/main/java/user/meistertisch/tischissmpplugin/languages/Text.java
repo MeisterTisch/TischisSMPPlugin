@@ -18,6 +18,7 @@ public enum Text {
     staff_commands_dimension_invalidAllowance("staff.commands.dimension.invalidAllowance"),
     staff_commands_dimension_noAllowance("staff.commands.dimension.noAllowance"),
     staff_commands_invalidArgsLength("staff.commands.invalidArgsLength"),
+    staff_commands_onlyPlayers("staff.commands.onlyPlayers"),
     staff_commands_dimension_alreadyAllowed("staff.commands.dimension.alreadyAllowed"),
     staff_commands_dimension_alreadyDisallowed("staff.commands.dimension.alreadyDisallowed"),
     staff_commands_dimension_successfulExecution_text("staff.commands.dimension.successfulExecution.text"),
@@ -36,6 +37,11 @@ public enum Text {
     staff_commands_chatDisabling_status_disabled("staff.commands.chatDisabling.status.disabled"),
     staff_commands_chatDisabling_statusAlreadyThere("staff.commands.chatDisabling.statusAlreadyThere"),
     staff_commands_chatDisabling_invalidStatusInput("staff.commands.chatDisabling.invalidStatusInput"),
+    staff_commands_prefix_anvilTitle("staff.commands.prefix.anvilTitle"),
+    staff_commands_prefix_changeSuccessful("staff.commands.prefix.changeSuccessful"),
+    staff_commands_prefix_changeFailed("staff.commands.prefix.changeFailed"),
+    staff_commands_prefix_changeIsTheSame("staff.commands.prefix.changeIsTheSame"),
+    staff_commands_prefix_someoneAlreadyChanging("staff.commands.prefix.someoneAlreadyChanging"),
     testCommand("testCommand");
 
     private String languageFilePath;

@@ -16,10 +16,10 @@ public class MessageMaker {
             case NORMAL -> {
                 makedMessage = Main.getPlugin().getConfig().getString("prefix") + ChatColor.WHITE + message;
             }
-            case COMMAND_SUCCESS -> {
+            case SUCCESS -> {
                 makedMessage = Main.getPlugin().getConfig().getString("prefix") + ChatColor.GREEN + message;
             }
-            case COMMAND_NO_SUCCESS -> {
+            case NO_SUCCESS -> {
                 makedMessage = Main.getPlugin().getConfig().getString("prefix") + ChatColor.RED + message;
             }
             case CHAT_TEAM -> {

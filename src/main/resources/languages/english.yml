@@ -17,6 +17,7 @@ language:
 staff:
   commands:
     invalidArgsLength: 'Invalid length of arguments!'
+    onlyPlayers: 'Only a player can execute this command.'
     announcement:
       invalidMessageLength: 'Invalid message!'
     dimension:
@@ -48,4 +49,10 @@ staff:
       status:
         enabled: 'enabled'
         disabled: 'disabled'
+    prefix:
+      anvilTitle: 'Your new prefix:'
+      changeSuccessful: 'Prefix has been changed!'
+      changeFailed: 'Prefix could not be changed!'
+      changeIsTheSame: 'Prefix could not be changed as it is the same as before.'
+      someoneAlreadyChanging: '%player% is changing the prefix right now. Please try later again!'
 testCommand: 'English file is written from'

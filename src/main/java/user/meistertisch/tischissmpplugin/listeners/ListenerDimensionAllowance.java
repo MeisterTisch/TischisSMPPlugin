@@ -38,7 +38,7 @@ public class ListenerDimensionAllowance implements Listener {
     public void playerLanded(PlayerMoveEvent event){
         if(thrownPlayers.containsKey(event.getPlayer())){
             event.getPlayer().sendMessage(MessageMaker.makeMessage(Text.getText("dimensionAllowance_"
-                    + thrownPlayers.get(event.getPlayer())+"NotAllowed"), TextTypes.IMPORTANT));
+                    + thrownPlayers.get(event.getPlayer())+"NotAllowed"), TextTypes.NO_SUCCESS));
             thrownPlayers.remove(event.getPlayer());
         }
     }

@@ -3,33 +3,29 @@ package user.meistertisch.tischissmpplugin.staff;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
-import user.meistertisch.tischissmpplugin.Main;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import user.meistertisch.tischissmpplugin.languages.Text;
 import user.meistertisch.tischissmpplugin.messageMaker.MessageMaker;
 import user.meistertisch.tischissmpplugin.messageMaker.TextTypes;
-import user.meistertisch.tischissmpplugin.start.ConfigChecker;
+import user.meistertisch.tischissmpplugin.staff.commandPrefix.InventoryMaker;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommandReloadConfig implements TabExecutor {
+public class CommandPrefix implements TabExecutor {
+    //TODO: ONLY STAFF
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if(strings.length == 0){
-            //keine args (good)
-            if(new File(Main.getPlugin().getDataFolder(), "config.yml").exists()){
-                Main.getPlugin().reloadConfig();
-                ConfigChecker.checkEverything();
-                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_reloadConfig_reloadSuccessful), TextTypes.SUCCESS));
-            } else {
-                Main.getPlugin().saveDefaultConfig();
-                Main.getPlugin().reloadConfig();
-                ConfigChecker.checkEverything();
-                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_reloadConfig_fileNotFound), TextTypes.NO_SUCCESS));
+            //args passen
+            if(commandSender instanceof Player player){
+                //player passt, open Inv
+                Inventory oldInv = player.getInventory();
+                player.openInventory(InventoryMaker.getAnvilInventory());
             }
         } else {
-            //some args (not good)
+            //invalid args length
             commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_invalidArgsLength), TextTypes.NO_SUCCESS));
         }
         return true;

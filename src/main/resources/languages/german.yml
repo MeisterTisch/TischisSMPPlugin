@@ -18,6 +18,7 @@ language:
 staff:
   commands:
     invalidArgsLength: 'Ungültige Anzahl an Argumenten!'
+    onlyPlayers: 'Diesen Command kann nur ein Spieler ausführen.'
     announcement:
       invalidMessageLength: 'Ungültige Nachricht!'
     dimension:
@@ -49,4 +50,10 @@ staff:
       status:
         enabled: 'aktiviert'
         disabled: 'deaktiviert'
+    prefix:
+      anvilTitle: 'Dein neuer Prefix:'
+      changeSuccessful: 'Prefix wurde geändert!'
+      changeFailed: 'Prefix konnte nicht geändert werden!'
+      changeIsTheSame: 'Prefix konnte nicht geändert werden, da es der selbe ist wie vorher.'
+      someoneAlreadyChanging: '%player% ändert gerade das Prefix. Bitte versuche es später erneut!'
 testCommand: 'Deutschland über allem'
