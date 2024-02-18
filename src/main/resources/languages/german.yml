@@ -6,6 +6,7 @@ accentColor:
 announcement: 'Ankündigung'
 chatDisabling:
   invalidInput: 'Ungültige Eingabe bei der Chatsperre. Setze es auf "false" zurück.'
+  chatIsDisabled: 'Der Chat ist derzeit gesperrt! Versuchs später erneut.'
 dimensionAllowance:
   invalidAllowance: 'Ungültige Erlaubnis bei der Dimension %dimension%. Setze es auf "true" zurück.'
   netherNotAllowed: 'Nether ist zurzeit gesperrt!'
