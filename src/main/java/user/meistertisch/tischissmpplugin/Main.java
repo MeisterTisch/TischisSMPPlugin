@@ -8,6 +8,7 @@ import user.meistertisch.tischissmpplugin.languages.Languages;
 import user.meistertisch.tischissmpplugin.listeners.ListenerChat;
 import user.meistertisch.tischissmpplugin.listeners.ListenerDimensionAllowance;
 import user.meistertisch.tischissmpplugin.staff.CommandAnnouncement;
+import user.meistertisch.tischissmpplugin.staff.CommandChatDisabling;
 import user.meistertisch.tischissmpplugin.staff.CommandDimensionAllowance;
 import user.meistertisch.tischissmpplugin.staff.CommandReloadConfig;
 import user.meistertisch.tischissmpplugin.start.ConfigChecker;
@@ -37,6 +38,7 @@ public final class Main extends JavaPlugin {
         getCommand("announce").setExecutor(new CommandAnnouncement());
         getCommand("dimension").setExecutor(new CommandDimensionAllowance());
         getCommand("reloadconfig").setExecutor(new CommandReloadConfig());
+        getCommand("chat").setExecutor(new CommandChatDisabling());
 
         //Listeners
         pluginManager.registerEvents(new ListenerChat(), this);

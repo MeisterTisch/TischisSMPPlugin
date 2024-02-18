@@ -43,6 +43,8 @@ staff:
       statusAsking: 'Chat ist derzeit %status%.'
       enabled: 'Chat wurde aktiviert.'
       disabled: 'Chat wurde deaktiviert.'
+      statusAlreadyThere: 'Chat ist schon %status%.'
+      invalidStatusInput: 'Ungültiger Status. Bitte überprüfe deine Eingabe!'
       status:
         enabled: 'aktiviert'
         disabled: 'deaktiviert'

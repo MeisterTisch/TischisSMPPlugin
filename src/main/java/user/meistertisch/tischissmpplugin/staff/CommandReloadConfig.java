@@ -21,16 +21,16 @@ public class CommandReloadConfig implements TabExecutor {
             if(new File(Main.getPlugin().getDataFolder(), "config.yml").exists()){
                 Main.getPlugin().reloadConfig();
                 ConfigChecker.checkEverything();
-                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_reloadConfig_reloadSuccessful), TextTypes.NORMAL));
+                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_reloadConfig_reloadSuccessful), TextTypes.COMMAND_SUCCESS));
             } else {
                 Main.getPlugin().saveDefaultConfig();
                 Main.getPlugin().reloadConfig();
                 ConfigChecker.checkEverything();
-                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_reloadConfig_fileNotFound), TextTypes.ERROR));
+                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_reloadConfig_fileNotFound), TextTypes.COMMAND_NO_SUCCESS));
             }
         } else {
             //some args (not good)
-            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_invalidArgsLength), TextTypes.ERROR));
+            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_invalidArgsLength), TextTypes.COMMAND_NO_SUCCESS));
         }
         return true;
     }

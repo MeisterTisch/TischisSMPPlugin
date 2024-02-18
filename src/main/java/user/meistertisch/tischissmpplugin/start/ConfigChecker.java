@@ -94,7 +94,7 @@ public class ConfigChecker {
     }
     private static void checkChatDisabling(){
         if(!(Main.getPlugin().getConfig().get("chatDisabled") instanceof Boolean)){
-            System.out.println(MessageMaker.makeMessage(Text.getText(Text.dimensionAllowance_invalidAllowance)
+            System.out.println(MessageMaker.makeMessage(Text.getText(Text.chatDisabled_invalidInput)
                     .replace("%dimension%", "Nether"), TextTypes.ERROR));
             Main.getPlugin().getConfig().set("chatDisabled", false);
             Main.getPlugin().saveConfig();
@@ -111,5 +111,7 @@ public class ConfigChecker {
         checkAccentColor2();
         //DIMENSION ALLOWANCE CHECK
         checkDimensionAllowance();
+        //CHAT DISABLEMENT CHECK
+        checkChatDisabling();
     }
 }

@@ -33,6 +33,8 @@ public enum Text {
     staff_commands_chatDisabling_disabled("staff.commands.chatDisabling.disabled"),
     staff_commands_chatDisabling_status_enabled("staff.commands.chatDisabling.status.enabled"),
     staff_commands_chatDisabling_status_disabled("staff.commands.chatDisabling.status.disabled"),
+    staff_commands_chatDisabling_statusAlreadyThere("staff.commands.chatDisabling.statusAlreadyThere"),
+    staff_commands_chatDisabling_invalidStatusInput("staff.commands.chatDisabling.invalidStatusInput"),
     testCommand("testCommand");
 
     private String languageFilePath;

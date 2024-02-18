@@ -42,6 +42,8 @@ staff:
       statusAsking: 'Chat is %status%.'
       enabled: 'Chat has been enabled.'
       disabled: 'Chat has been disabled.'
+      statusAlreadyThere: 'Chat is already %status%.'
+      invalidStatusInput: 'Invalid status. Please check your input!'
       status:
         enabled: 'enabled'
         disabled: 'disabled'

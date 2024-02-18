@@ -19,7 +19,7 @@ public class CommandAnnouncement implements CommandExecutor {
                 message.append(" ").append(string);
             }
             Bukkit.broadcastMessage(MessageMaker.makeMessage(message.toString(), TextTypes.ANNOUNCEMENT));
-        } else commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_announcement_invalidMessageLength), TextTypes.ERROR));
+        } else commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_announcement_invalidMessageLength), TextTypes.COMMAND_NO_SUCCESS));
         return true;
     }
 }

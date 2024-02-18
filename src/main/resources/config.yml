@@ -1,19 +1,25 @@
+# PLEASE, IF YOU WANT TO CHANGE SOMETHING, USE THE COMMANDS FOR BETTER USE!
+
 # chatDisabled: This sets if the chat is disabled for normal players or not.
+# command: /chat <enable/disable>
 chatDisabled: false
 # color: This sets you color accent of the plugin. You can set it what you want.
 # If you change it here, please check here the color codes: https://htmlcolorcodes.com/minecraft-color-codes/
 # Only use the character, !DON'T! write the & or §, only the character!
+# command: /color <color1/color2> <colorChar> TODO
 color:
   color1: '9'
   color2: 'b'
 # dimensionAllowance: Here you can set, if the players are allowed to go to the nether or in the end.
 # You can change it here, or with the command /dimension in-game or in the console.
+# command: /dimension <nether/end> <enable/disable>
 dimensionAllowance:
   nether: true
   end: false
 # language: self-explanatory, following languages are available and need to be written exactly like that.
 # german, english
 # For easier changing, do it with the /language command in-game or in the console.
+# command: /language <language> TODO
 language: german
 # prefix: This is the prefix of your plugin. You can change it here or easier in-game or in the console with the command /prefix
 # Leave after the prefix a blank space!!!
@@ -22,6 +28,7 @@ language: german
 # - accent color 1: %color1%
 # - accent color 2: %color2%
 # - individual colors: %CharOfTheColor% (check here: https://htmlcolorcodes.com/minecraft-color-codes/)
+# command: /prefix (It will open a anvil inventory, so you can type it in) TODO
 prefix: '%color1%[%color2%Tische SMP%color1%] %8%| '
 
 

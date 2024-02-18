@@ -22,10 +22,10 @@ public class CommandDimensionAllowance implements TabExecutor {
         if(strings.length == 1){
             if(dimensions.contains(strings[0].toLowerCase(Locale.ROOT))){
                 //Dimension passt
-                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_noAllowance), TextTypes.ERROR));
+                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_noAllowance), TextTypes.COMMAND_NO_SUCCESS));
             } else {
                 //Dimension passt nicht
-                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_invalidDimension), TextTypes.ERROR));
+                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_invalidDimension), TextTypes.COMMAND_NO_SUCCESS));
             }
         }
         //Dimension und Erlaubnis geschrieben
@@ -61,23 +61,23 @@ public class CommandDimensionAllowance implements TabExecutor {
                             .replace("%dimension%", Text.getText("staff_commands_dimension_successfulExecution_dimension_"+strings[0]))
                             .replace("%allowance%", Text.getText("staff_commands_dimension_successfulExecution_allowance_"+strings[1]));
 
-                    commandSender.sendMessage(MessageMaker.makeMessage(successfulExecution, TextTypes.NORMAL));
+                    commandSender.sendMessage(MessageMaker.makeMessage(successfulExecution, TextTypes.COMMAND_SUCCESS));
                     Bukkit.broadcastMessage(MessageMaker.makeMessage(announcement, TextTypes.ANNOUNCEMENT));
                 } else {
                     //allowance passt nicht
-                    commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_invalidAllowance), TextTypes.ERROR));
+                    commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_invalidAllowance), TextTypes.COMMAND_NO_SUCCESS));
                 }
             } else {
                 //Dimension passt nicht
-                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_invalidDimension), TextTypes.ERROR));
+                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_invalidDimension), TextTypes.COMMAND_NO_SUCCESS));
             }
         }
         //Mehr als zwei oder nichts geschrieben
         else {
             if(strings.length == 0){
-                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_noDimension), TextTypes.ERROR));
+                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_noDimension), TextTypes.COMMAND_NO_SUCCESS));
             } else {
-            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_invalidArgsLength), TextTypes.ERROR));
+            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_invalidArgsLength), TextTypes.COMMAND_NO_SUCCESS));
             }
         }
         return true;

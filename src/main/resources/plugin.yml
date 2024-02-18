@@ -10,3 +10,4 @@ commands:
   announce:
   dimension:
   reloadconfig:
+  chat:
