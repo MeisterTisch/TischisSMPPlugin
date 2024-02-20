@@ -35,8 +35,6 @@ public class CommandDimensionAllowance implements TabExecutor {
                                 .replace("%status%", status);
                 commandSender.sendMessage(
                         MessageMaker.makeMessage(message, TextTypes.NORMAL));
-                //TODO: CHECKING ALLOWANCE
-//                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_noAllowance), TextTypes.NO_SUCCESS));
             } else {
                 //Dimension passt nicht
                 commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_invalidDimension), TextTypes.NO_SUCCESS));
