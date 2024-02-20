@@ -25,8 +25,8 @@ staff:
       noDimension: 'No dimension selected!'
       invalidAllowance: 'Invalid allowance! Please check your input!'
       noAllowance: 'No allowance selected!'
-      alreadyAllowed: '%dimension% ist already open!'
-      alreadyDisallowed: '%dimension% ist already closed!'
+      alreadySameAllowance: '%dimension% is already %allowance%!'
+      statusCheck: '%dimension% ist %status%.'
       successfulExecution:
         text: 'Dimension %dimension% was successfully %allowance%.'
         announceText: 'Dimension %dimension% was %allowance%.'
@@ -50,9 +50,5 @@ staff:
         enabled: 'enabled'
         disabled: 'disabled'
     prefix:
-      anvilTitle: 'Your new prefix:'
-      changeSuccessful: 'Prefix has been changed!'
-      changeFailed: 'Prefix could not be changed!'
-      changeIsTheSame: 'Prefix could not be changed as it is the same as before.'
-      someoneAlreadyChanging: '%player% is changing the prefix right now. Please try later again!'
+      changeInConfig: 'You can change the prefix in the config.'
 testCommand: 'English file is written from'

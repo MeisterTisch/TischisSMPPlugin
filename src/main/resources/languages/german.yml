@@ -26,8 +26,8 @@ staff:
       noDimension: 'Keine Dimension ausgewählt!'
       invalidAllowance: 'Ungültige Erlaubnis! Bitte überprüfe deine Eingabe!'
       noAllowance: 'Keine Erlaubnis ausgewählt!'
-      alreadyAllowed: '%dimension% ist bereits geöffnet!'
-      alreadyDisallowed: '%dimension% ist bereits geschlossen!'
+      alreadySameAllowance: '%dimension% ist bereits %allowance%!'
+      statusCheck: '%dimension% ist %status%.'
       successfulExecution:
         text: 'Dimension %dimension% wurde erfolgreich %allowance%.'
         announceText: 'Dimension %dimension% wurde %allowance%.'
@@ -51,9 +51,5 @@ staff:
         enabled: 'aktiviert'
         disabled: 'deaktiviert'
     prefix:
-      anvilTitle: 'Dein neuer Prefix:'
-      changeSuccessful: 'Prefix wurde geändert!'
-      changeFailed: 'Prefix konnte nicht geändert werden!'
-      changeIsTheSame: 'Prefix konnte nicht geändert werden, da es der selbe ist wie vorher.'
-      someoneAlreadyChanging: '%player% ändert gerade das Prefix. Bitte versuche es später erneut!'
+      changeInConfig: 'Prefix kannst du in der Config ändern.'
 testCommand: 'Deutschland über allem'

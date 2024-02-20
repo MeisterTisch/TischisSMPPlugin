@@ -1,5 +1,6 @@
 package user.meistertisch.tischissmpplugin.staff;
 
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -22,7 +23,20 @@ public class CommandDimensionAllowance implements TabExecutor {
         if(strings.length == 1){
             if(dimensions.contains(strings[0].toLowerCase(Locale.ROOT))){
                 //Dimension passt
-                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_noAllowance), TextTypes.NO_SUCCESS));
+                String status;
+                if(Main.getPlugin().getConfig().getBoolean("dimensionAllowance."+strings[0].toLowerCase(Locale.ROOT))){
+                    status = ChatColor.GREEN + Text.getText(Text.staff_commands_dimension_successfulExecution_allowance_allow) + ChatColor.RESET;
+                } else {
+                    status = ChatColor.RED + Text.getText(Text.staff_commands_dimension_successfulExecution_allowance_disallow) + ChatColor.RESET;
+                }
+
+                String message = Text.getText(Text.staff_commands_dimension_statusCheck);
+                message = message.replace("%dimension%", Text.getText("staff_commands_dimension_successfulExecution_dimension_" +strings[0].toLowerCase(Locale.ROOT)))
+                                .replace("%status%", status);
+                commandSender.sendMessage(
+                        MessageMaker.makeMessage(message, TextTypes.NORMAL));
+                //TODO: CHECKING ALLOWANCE
+//                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_noAllowance), TextTypes.NO_SUCCESS));
             } else {
                 //Dimension passt nicht
                 commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_invalidDimension), TextTypes.NO_SUCCESS));
@@ -36,15 +50,11 @@ public class CommandDimensionAllowance implements TabExecutor {
                     //Check for same thing
                     boolean allowing = strings[1].equals("allow");
                     if(Main.getPlugin().getConfig().getBoolean("dimensionAllowance." + strings[0].toLowerCase(Locale.ROOT)) == allowing){
-                        String message;
-                        if(allowing){
-                            message = Text.getText(Text.staff_commands_dimension_alreadyAllowed)
-                                    .replace("%dimension%", Text.getText("staff_commands_dimension_successfulExecution_dimension_"+strings[0]));
-                        } else {
-                            message = Text.getText(Text.staff_commands_dimension_alreadyDisallowed)
-                                    .replace("%dimension%", Text.getText("staff_commands_dimension_successfulExecution_dimension_"+strings[0]));
-                        }
-                        commandSender.sendMessage(MessageMaker.makeMessage(message, TextTypes.IMPORTANT));
+                        //Allowance is already the same
+                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_alreadySameAllowance)
+                                        .replace("%dimension%", Text.getText("staff_commands_dimension_successfulExecution_dimension_"+strings[0].toLowerCase(Locale.ROOT)))
+                                        .replace("%allowance%", Text.getText("staff_commands_dimension_successfulExecution_allowance_"+strings[1].toLowerCase(Locale.ROOT)))
+                                , TextTypes.NO_SUCCESS));
                         return true;
                     }
 

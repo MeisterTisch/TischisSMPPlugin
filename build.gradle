@@ -31,6 +31,10 @@ java {
     }
 }
 
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 
@@ -46,7 +50,4 @@ processResources {
     filesMatching('plugin.yml') {
         expand props
     }
-}
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
 }
