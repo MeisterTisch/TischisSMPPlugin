@@ -1,0 +1,31 @@
+displayName: MeisterTisch
+UUID: diesdas
+team: curse
+    isLeader: false
+isAdmin: true
+logoutLocation:
+    x: 123
+    y: 131
+    z: 5234
+    world: worldwdadaw
+homes:
+    home1:
+        name: Haus
+        x: 123
+        y: 623
+        z: 235
+        world: wadoaw
+    home2:
+        name: Haus
+        x: 123
+        y: 623
+        z: 235
+        world: wadoaw
+ban:
+    isBanned: true
+    until: DATE TODO: angucken wie es geht
+    reason: "Du idiot"
+mute:
+    isMuted: true
+    until: DATE
+    reason: "Du opfa"

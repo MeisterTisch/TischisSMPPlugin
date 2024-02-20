@@ -30,6 +30,13 @@ language: german
 # - individual colors: %CharOfTheColor% (check here: https://htmlcolorcodes.com/minecraft-color-codes/)
 # No command for this, only here changeable.
 prefix: '%color1%[%color2%Tische SMP%color1%] %8%| '
+# homes: Here you can set up the homes system as you like.
+# If you like you can turn them off. If you like to use them, then you can set up following aspects:
+# - status: want to use the system? Type in 'true', if not then 'false'.
+# - maxNumber: this rules the maximum number of homes that each player is allowed to have.
+homes:
+  status: true
+  maxNumber: 5
 
 
 # !FROM HERE ON DO NOT CHANGE ANYTHING, EXCEPT YOU KNOW WHAT YOU DO!

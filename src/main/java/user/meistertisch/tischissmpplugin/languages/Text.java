@@ -43,6 +43,8 @@ public enum Text {
     staff_commands_language_statusCheck("staff.commands.language.statusCheck"),
     staff_commands_language_statusAlreadyThere("staff.commands.language.statusAlreadyThere"),
     prefix_noSpaceAtTheEnd("prefix.noSpaceAtTheEnd"),
+    homes_invalidStatus("homes.invalidStatus"),
+    homes_invalidNumber("homes.invalidNumber"),
     testCommand("testCommand");
 
     private String languageFilePath;

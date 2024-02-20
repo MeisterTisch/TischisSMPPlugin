@@ -112,6 +112,21 @@ public class ConfigChecker {
         }
     }
 
+    private static void checkHomes(){
+        if(!Main.getPlugin().getConfig().isBoolean("homes.status")){
+            System.out.println(MessageMaker.makeMessage(Text.getText(Text.homes_invalidStatus), TextTypes.ERROR));
+            Main.getPlugin().getConfig().set("homes.status", true);
+            Main.getPlugin().saveConfig();
+            Main.getPlugin().reloadConfig();
+        }
+        if(!Main.getPlugin().getConfig().isInt("homes.maxNumber")){
+            System.out.println(MessageMaker.makeMessage(Text.getText(Text.homes_invalidNumber), TextTypes.ERROR));
+            Main.getPlugin().getConfig().set("homes.maxNumber", 5);
+            Main.getPlugin().saveConfig();
+            Main.getPlugin().reloadConfig();
+        }
+    }
+
     //OVERALL CHECKER
     public static void checkEverything(){
         //LANGUAGE CHECK
@@ -125,5 +140,7 @@ public class ConfigChecker {
         checkChatDisabling();
         //PREFIX CHECKER FOR SPACE AFTER PREFIX
         checkPrefix();
+        //CHECK FOR HOMES
+        checkHomes();
     }
 }

@@ -13,6 +13,9 @@ dimensionAllowance:
   netherNotAllowed: 'Nether ist zurzeit gesperrt!'
   endNotAllowed: 'End ist zurzeit gesperrt!'
 error: 'Fehler'
+homes:
+  invalidStatus: 'Ungültiger Status! Setze es auf "true" zurück.'
+  invalidNumber: 'Ungültige maximale Anzahl. Setze es auf 5 zurück.'
 important: 'Wichtig'
 language:
   invalidLanguage: 'Ungültige Sprache erkannt. Die Sprache wurde auf Englisch eingestellt.' # Eigentlich unnötig, weil es eigentlich nur auf English sein kann... :O
