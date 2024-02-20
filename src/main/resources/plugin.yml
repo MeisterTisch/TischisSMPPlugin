@@ -12,3 +12,6 @@ commands:
   reloadconfig:
   chat:
   prefix:
+  language:
+    aliases:
+      - lang

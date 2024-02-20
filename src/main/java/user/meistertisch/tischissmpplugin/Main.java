@@ -38,6 +38,7 @@ public final class Main extends JavaPlugin {
         getCommand("reloadconfig").setExecutor(new CommandReloadConfig());
         getCommand("chat").setExecutor(new CommandChatDisabling());
         getCommand("prefix").setExecutor(new CommandPrefix());
+        getCommand("language").setExecutor(new CommandLanguage());
 
         //Listeners
         pluginManager.registerEvents(new ListenerChat(), this);

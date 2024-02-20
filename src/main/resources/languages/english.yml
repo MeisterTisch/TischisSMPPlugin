@@ -1,4 +1,5 @@
 # The language files are reset each time the plugin is loaded. Changes are useless.
+# TODO: Check everything on punkte setzen und so
 accentColor:
   invalidAccentColor1: 'Accent color 1 is invalid! Setting it back to "9". Make sure you only use colors.'
   invalidAccentColor2: 'Accent color 2 is invalid! Setting it back to "b". Make sure you only use colors.'
@@ -51,4 +52,9 @@ staff:
         disabled: 'disabled'
     prefix:
       changeInConfig: 'You can change the prefix in the config.'
+    language:
+      invalidLanguage: 'Invalid language. Please check your input!'
+      languageChanged: 'Language has been successfully changed to English.'
+      statusAlreadyThere: 'The language is already in English!'
+      statusCheck: 'The language is currently set to English.'
 testCommand: 'English file is written from'

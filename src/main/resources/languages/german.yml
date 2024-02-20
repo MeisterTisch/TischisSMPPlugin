@@ -1,5 +1,6 @@
 # The language files are reset each time the plugin is loaded. Changes are useless.
 # Die Sprachdateien werden beim jeden Laden des Plugins zurückgesetzt. Änderungen sind nutzlos.
+# TODO: Check everything on punkte setzen und so
 accentColor:
   invalidAccentColor1: 'Akzentfarbe 1 ist ungültig! Setze es auf "9" zurück. Stell sicher, dass du nur Farben benutzt.'
   invalidAccentColor2: 'Akzentfarbe 2 ist ungültig! Setze es auf "b" zurück. Stell sicher, dass du nur Farben benutzt.'
@@ -52,4 +53,9 @@ staff:
         disabled: 'deaktiviert'
     prefix:
       changeInConfig: 'Prefix kannst du in der Config ändern.'
+    language:
+      invalidLanguage: 'Ungültige Sprache! Bitte überprüfe deine Eingabe!'
+      languageChanged: 'Sprache wurde erfolgreich auf Deutsch umgestellt.'
+      statusAlreadyThere: 'Die Sprache ist schon auf Deutsch!'
+      statusCheck: 'Die Sprache ist derzeit auf Deutsch gestellt.'
 testCommand: 'Deutschland über allem'

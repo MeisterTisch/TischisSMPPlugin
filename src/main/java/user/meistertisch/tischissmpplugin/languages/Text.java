@@ -38,6 +38,10 @@ public enum Text {
     staff_commands_chatDisabling_statusAlreadyThere("staff.commands.chatDisabling.statusAlreadyThere"),
     staff_commands_chatDisabling_invalidStatusInput("staff.commands.chatDisabling.invalidStatusInput"),
     staff_commands_prefix_changeInConfig("staff.commands.prefix.changeInConfig"),
+    staff_commands_language_invalidLanguage("staff.commands.language.invalidLanguage"),
+    staff_commands_language_languageChanged("staff.commands.language.languageChanged"),
+    staff_commands_language_statusCheck("staff.commands.language.statusCheck"),
+    staff_commands_language_statusAlreadyThere("staff.commands.language.statusAlreadyThere"),
     testCommand("testCommand");
 
     private String languageFilePath;

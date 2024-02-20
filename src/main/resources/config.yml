@@ -28,7 +28,7 @@ language: german
 # - accent color 1: %color1%
 # - accent color 2: %color2%
 # - individual colors: %CharOfTheColor% (check here: https://htmlcolorcodes.com/minecraft-color-codes/)
-# command: /prefix (It will open a anvil inventory, so you can type it in) TODO
+# No command for this, only here changeable.
 prefix: '%color1%[%color2%Tische SMP%color1%] %8%| '
 
 
