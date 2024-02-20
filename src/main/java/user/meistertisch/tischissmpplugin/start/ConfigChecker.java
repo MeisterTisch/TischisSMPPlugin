@@ -102,6 +102,16 @@ public class ConfigChecker {
         }
     }
 
+    private static void checkPrefix(){
+        String prefix = Main.getPlugin().getConfig().getString("prefix");
+        if(!String.valueOf(prefix.charAt(prefix.length() - 1)).equals(" ")){
+            System.out.println(MessageMaker.makeMessage(Text.getText(Text.prefix_noSpaceAtTheEnd), TextTypes.ERROR));
+            Main.getPlugin().getConfig().set("prefix", Main.getPlugin().getConfig().getString("prefix") + " ");
+            Main.getPlugin().saveConfig();
+            Main.getPlugin().reloadConfig();
+        }
+    }
+
     //OVERALL CHECKER
     public static void checkEverything(){
         //LANGUAGE CHECK
@@ -113,5 +123,7 @@ public class ConfigChecker {
         checkDimensionAllowance();
         //CHAT DISABLEMENT CHECK
         checkChatDisabling();
+        //PREFIX CHECKER FOR SPACE AFTER PREFIX
+        checkPrefix();
     }
 }

@@ -42,6 +42,7 @@ public enum Text {
     staff_commands_language_languageChanged("staff.commands.language.languageChanged"),
     staff_commands_language_statusCheck("staff.commands.language.statusCheck"),
     staff_commands_language_statusAlreadyThere("staff.commands.language.statusAlreadyThere"),
+    prefix_noSpaceAtTheEnd("prefix.noSpaceAtTheEnd"),
     testCommand("testCommand");
 
     private String languageFilePath;

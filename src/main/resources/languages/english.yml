@@ -15,6 +15,8 @@ error: 'Error'
 important: 'Important'
 language:
   invalidLanguage: 'Invalid language detected. Language has been set to English.'
+prefix:
+  noSpaceAtTheEnd: 'No space was found at the end of the prefix. Adding one.'
 staff:
   commands:
     invalidArgsLength: 'Invalid length of arguments!'
