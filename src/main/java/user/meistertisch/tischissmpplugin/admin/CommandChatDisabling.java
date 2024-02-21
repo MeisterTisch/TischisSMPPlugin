@@ -1,4 +1,4 @@
-package user.meistertisch.tischissmpplugin.staff;
+package user.meistertisch.tischissmpplugin.admin;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -27,12 +27,12 @@ public class CommandChatDisabling implements TabExecutor {
                    //already disabled or enabled
                    if(strings[0].toLowerCase(Locale.ROOT).equals("disable")){
                        //already disabled
-                       commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_chatDisabling_statusAlreadyThere)
-                                       .replace("%status%", Text.getText(Text.staff_commands_chatDisabling_status_disabled)), TextTypes.NO_SUCCESS));
+                       commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_chatDisabling_statusAlreadyThere)
+                                       .replace("%status%", Text.getText(Text.admin_commands_chatDisabling_status_disabled)), TextTypes.NO_SUCCESS));
                    } else {
                        //already enabled
-                       commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_chatDisabling_statusAlreadyThere)
-                               .replace("%status%", Text.getText(Text.staff_commands_chatDisabling_status_enabled)), TextTypes.NO_SUCCESS));
+                       commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_chatDisabling_statusAlreadyThere)
+                               .replace("%status%", Text.getText(Text.admin_commands_chatDisabling_status_enabled)), TextTypes.NO_SUCCESS));
                    }
                 } else {
                     //we can change
@@ -41,31 +41,31 @@ public class CommandChatDisabling implements TabExecutor {
                         Main.getPlugin().getConfig().set("chatDisabled", true);
                         Main.getPlugin().saveConfig();
                         Main.getPlugin().reloadConfig();
-                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_chatDisabling_disabled), TextTypes.SUCCESS));
+                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_chatDisabling_disabled), TextTypes.SUCCESS));
                     } else {
                         //making enabled
                         Main.getPlugin().getConfig().set("chatDisabled", false);
                         Main.getPlugin().saveConfig();
                         Main.getPlugin().reloadConfig();
-                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_chatDisabling_enabled), TextTypes.SUCCESS));
+                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_chatDisabling_enabled), TextTypes.SUCCESS));
                     }
                 }
             } else {
                 //input is wrong
-                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_chatDisabling_invalidStatusInput), TextTypes.NO_SUCCESS));
+                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_chatDisabling_invalidStatusInput), TextTypes.NO_SUCCESS));
             }
         } else if (strings.length == 0){
             //checking able oder not
-            String message = Text.getText(Text.staff_commands_chatDisabling_statusAsking);
+            String message = Text.getText(Text.admin_commands_chatDisabling_statusAsking);
             if(Main.getPlugin().getConfig().getBoolean("chatDisabled")){
-                message = message.replace("%status%", ChatColor.RED+Text.getText(Text.staff_commands_chatDisabling_status_disabled)+ChatColor.RESET);
+                message = message.replace("%status%", ChatColor.RED+Text.getText(Text.admin_commands_chatDisabling_status_disabled)+ChatColor.RESET);
             } else {
-                message = message.replace("%status%", ChatColor.GREEN+Text.getText(Text.staff_commands_chatDisabling_status_enabled)+ChatColor.RESET);
+                message = message.replace("%status%", ChatColor.GREEN+Text.getText(Text.admin_commands_chatDisabling_status_enabled)+ChatColor.RESET);
             }
             commandSender.sendMessage(MessageMaker.makeMessage(message, TextTypes.NORMAL));
         } else {
             //nichts passt
-            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_invalidArgsLength), TextTypes.NO_SUCCESS));
+            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_invalidArgsLength), TextTypes.NO_SUCCESS));
         }
         return true;
     }

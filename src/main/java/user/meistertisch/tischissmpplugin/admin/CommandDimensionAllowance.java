@@ -1,4 +1,4 @@
-package user.meistertisch.tischissmpplugin.staff;
+package user.meistertisch.tischissmpplugin.admin;
 
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
@@ -25,19 +25,19 @@ public class CommandDimensionAllowance implements TabExecutor {
                 //Dimension passt
                 String status;
                 if(Main.getPlugin().getConfig().getBoolean("dimensionAllowance."+strings[0].toLowerCase(Locale.ROOT))){
-                    status = ChatColor.GREEN + Text.getText(Text.staff_commands_dimension_successfulExecution_allowance_allow) + ChatColor.RESET;
+                    status = ChatColor.GREEN + Text.getText(Text.admin_commands_dimension_successfulExecution_allowance_allow) + ChatColor.RESET;
                 } else {
-                    status = ChatColor.RED + Text.getText(Text.staff_commands_dimension_successfulExecution_allowance_disallow) + ChatColor.RESET;
+                    status = ChatColor.RED + Text.getText(Text.admin_commands_dimension_successfulExecution_allowance_disallow) + ChatColor.RESET;
                 }
 
-                String message = Text.getText(Text.staff_commands_dimension_statusCheck);
-                message = message.replace("%dimension%", Text.getText("staff_commands_dimension_successfulExecution_dimension_" +strings[0].toLowerCase(Locale.ROOT)))
+                String message = Text.getText(Text.admin_commands_dimension_statusCheck);
+                message = message.replace("%dimension%", Text.getText("admin_commands_dimension_successfulExecution_dimension_" +strings[0].toLowerCase(Locale.ROOT)))
                                 .replace("%status%", status);
                 commandSender.sendMessage(
                         MessageMaker.makeMessage(message, TextTypes.NORMAL));
             } else {
                 //Dimension passt nicht
-                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_invalidDimension), TextTypes.NO_SUCCESS));
+                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_dimension_invalidDimension), TextTypes.NO_SUCCESS));
             }
         }
         //Dimension und Erlaubnis geschrieben
@@ -49,9 +49,9 @@ public class CommandDimensionAllowance implements TabExecutor {
                     boolean allowing = strings[1].equals("allow");
                     if(Main.getPlugin().getConfig().getBoolean("dimensionAllowance." + strings[0].toLowerCase(Locale.ROOT)) == allowing){
                         //Allowance is already the same
-                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_alreadySameAllowance)
-                                        .replace("%dimension%", Text.getText("staff_commands_dimension_successfulExecution_dimension_"+strings[0].toLowerCase(Locale.ROOT)))
-                                        .replace("%allowance%", Text.getText("staff_commands_dimension_successfulExecution_allowance_"+strings[1].toLowerCase(Locale.ROOT)))
+                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_dimension_alreadySameAllowance)
+                                        .replace("%dimension%", Text.getText("admin_commands_dimension_successfulExecution_dimension_"+strings[0].toLowerCase(Locale.ROOT)))
+                                        .replace("%allowance%", Text.getText("admin_commands_dimension_successfulExecution_allowance_"+strings[1].toLowerCase(Locale.ROOT)))
                                 , TextTypes.NO_SUCCESS));
                         return true;
                     }
@@ -61,31 +61,31 @@ public class CommandDimensionAllowance implements TabExecutor {
                     Main.getPlugin().saveConfig();
                     Main.getPlugin().reloadConfig();
 
-                    String successfulExecution = Text.getText(Text.staff_commands_dimension_successfulExecution_text)
-                            .replace("%dimension%", Text.getText("staff_commands_dimension_successfulExecution_dimension_"+strings[0]))
-                            .replace("%allowance%", Text.getText("staff_commands_dimension_successfulExecution_allowance_"+strings[1]));;
+                    String successfulExecution = Text.getText(Text.admin_commands_dimension_successfulExecution_text)
+                            .replace("%dimension%", Text.getText("admin_commands_dimension_successfulExecution_dimension_"+strings[0]))
+                            .replace("%allowance%", Text.getText("admin_commands_dimension_successfulExecution_allowance_"+strings[1]));;
 
-                    String announcement = Text.getText(Text.staff_commands_dimension_successfulExecution_announceText)
-                            .replace("%dimension%", Text.getText("staff_commands_dimension_successfulExecution_dimension_"+strings[0]))
-                            .replace("%allowance%", Text.getText("staff_commands_dimension_successfulExecution_allowance_"+strings[1]));
+                    String announcement = Text.getText(Text.admin_commands_dimension_successfulExecution_announceText)
+                            .replace("%dimension%", Text.getText("admin_commands_dimension_successfulExecution_dimension_"+strings[0]))
+                            .replace("%allowance%", Text.getText("admin_commands_dimension_successfulExecution_allowance_"+strings[1]));
 
                     commandSender.sendMessage(MessageMaker.makeMessage(successfulExecution, TextTypes.SUCCESS));
                     Bukkit.broadcastMessage(MessageMaker.makeMessage(announcement, TextTypes.ANNOUNCEMENT));
                 } else {
                     //allowance passt nicht
-                    commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_invalidAllowance), TextTypes.NO_SUCCESS));
+                    commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_dimension_invalidAllowance), TextTypes.NO_SUCCESS));
                 }
             } else {
                 //Dimension passt nicht
-                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_invalidDimension), TextTypes.NO_SUCCESS));
+                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_dimension_invalidDimension), TextTypes.NO_SUCCESS));
             }
         }
         //Mehr als zwei oder nichts geschrieben
         else {
             if(strings.length == 0){
-                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_dimension_noDimension), TextTypes.NO_SUCCESS));
+                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_dimension_noDimension), TextTypes.NO_SUCCESS));
             } else {
-            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_invalidArgsLength), TextTypes.NO_SUCCESS));
+            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_invalidArgsLength), TextTypes.NO_SUCCESS));
             }
         }
         return true;

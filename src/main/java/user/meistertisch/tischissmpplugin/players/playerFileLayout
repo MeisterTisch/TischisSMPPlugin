@@ -2,7 +2,7 @@ displayName: MeisterTisch
 UUID: diesdas
 team: curse
     isLeader: false
-isAdmin: true
+isStaff: true
 logoutLocation:
     x: 123
     y: 131

@@ -21,7 +21,7 @@ language:
   invalidLanguage: 'Ungültige Sprache erkannt. Die Sprache wurde auf Englisch eingestellt.' # Eigentlich unnötig, weil es eigentlich nur auf English sein kann... :O
 prefix:
   noSpaceAtTheEnd: 'Beim Prefix wurde keine Leertaste am Ende gefunden. Füge eins hinzu.'
-staff:
+admin:
   commands:
     invalidArgsLength: 'Ungültige Anzahl an Argumenten!'
     onlyPlayers: 'Diesen Command kann nur ein Spieler ausführen.'
@@ -63,4 +63,16 @@ staff:
       languageChanged: 'Sprache wurde erfolgreich auf Deutsch umgestellt.'
       statusAlreadyThere: 'Die Sprache ist schon auf Deutsch!'
       statusCheck: 'Die Sprache ist derzeit auf Deutsch gestellt.'
+    admin:
+      playerAdded: '%player% wurde als Admin hinzugefügt.'
+      playerRemoved: '%player% wurde als Admin entfernt.'
+      playerAlreadyAdmin: '%player% ist bereits Admin.'
+      playerNotAdmin: '%player% ist kein Admin.'
+      noPlayerForAdding: 'Wähle einen Spieler zum Hinzufügen aus.'
+      noPlayerForRemoving: 'Wähle einen Spieler zum Entfernen aus.'
+      invalidAction: 'Ungültige Eingabe! Bitte überprüfe deine Eingabe!'
+      target:
+        addedToAdmin: 'Du wurdest als Admin hinzugefügt.'
+        removedFromAdmin: 'Du wurdest als Admin entfernt.'
+        sameAsSender: 'Du kannst dich nicht als Ziel eintragen.'
 testCommand: 'Deutschland über allem'

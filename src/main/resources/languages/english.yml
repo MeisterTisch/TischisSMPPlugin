@@ -20,7 +20,7 @@ language:
   invalidLanguage: 'Invalid language detected. Language has been set to English.'
 prefix:
   noSpaceAtTheEnd: 'No space was found at the end of the prefix. Adding one.'
-staff:
+admin:
   commands:
     invalidArgsLength: 'Invalid length of arguments!'
     onlyPlayers: 'Only a player can execute this command.'
@@ -62,4 +62,16 @@ staff:
       languageChanged: 'Language has been successfully changed to English.'
       statusAlreadyThere: 'The language is already in English!'
       statusCheck: 'The language is currently set to English.'
+    admin:
+      playerAdded: '%player% was added as an admin.'
+      playerRemoved: '%player% has been removed as an admin.'
+      playerAlreadyAdmin: '%player% is already an admin.'
+      playerNotAdmin: '%player% is not an admin.'
+      noPlayerForAdding: 'Select a player to add.'
+      noPlayerForRemoving: 'Select a player to remove.'
+      invalidAction: 'Invalid input! Please check your input!'
+      target:
+        addedToAdmin: 'You have been added as an admin.'
+        removedFromAdmin: 'You have been removed as admin.'
+        sameAsSender: 'You cannot register as a target.'
 testCommand: 'English file is written from'

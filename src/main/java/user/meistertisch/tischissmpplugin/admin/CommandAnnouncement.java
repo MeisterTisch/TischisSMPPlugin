@@ -1,4 +1,4 @@
-package user.meistertisch.tischissmpplugin.staff;
+package user.meistertisch.tischissmpplugin.admin;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -17,7 +17,7 @@ public class CommandAnnouncement implements CommandExecutor {
                 message.append(" ").append(string);
             }
             Bukkit.broadcastMessage(MessageMaker.makeMessage(message.toString(), TextTypes.ANNOUNCEMENT));
-        } else commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_announcement_invalidMessageLength), TextTypes.NO_SUCCESS));
+        } else commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_announcement_invalidMessageLength), TextTypes.NO_SUCCESS));
         return true;
     }
 }

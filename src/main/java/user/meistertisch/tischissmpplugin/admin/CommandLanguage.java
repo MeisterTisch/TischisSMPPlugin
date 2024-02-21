@@ -1,4 +1,4 @@
-package user.meistertisch.tischissmpplugin.staff;
+package user.meistertisch.tischissmpplugin.admin;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -19,7 +19,7 @@ public class CommandLanguage implements TabExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if(strings.length == 0){
-            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_language_statusCheck), TextTypes.NORMAL));
+            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_language_statusCheck), TextTypes.NORMAL));
         } else if(strings.length == 1){
             //Getting all possible languages
             List<String> langList = new ArrayList<>();
@@ -31,7 +31,7 @@ public class CommandLanguage implements TabExecutor {
                 //gültige lang
                 if(Main.getPlugin().getConfig().getString("language").equals(strings[0].toLowerCase(Locale.ROOT))){
                     //Lang dasselbe
-                    commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_language_statusAlreadyThere), TextTypes.NO_SUCCESS));
+                    commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_language_statusAlreadyThere), TextTypes.NO_SUCCESS));
                 } else {
                     //Lang nicht dasselbe
                     Main.getPlugin().getConfig().set("language", strings[0].toLowerCase(Locale.ROOT));
@@ -39,14 +39,14 @@ public class CommandLanguage implements TabExecutor {
                     Main.getPlugin().reloadConfig();
                     ConfigChecker.checkEverything();
 
-                    commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_language_languageChanged), TextTypes.SUCCESS));
+                    commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_language_languageChanged), TextTypes.SUCCESS));
                 }
             } else {
                 //NICHT gültige lang
-                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_language_invalidLanguage), TextTypes.NO_SUCCESS));
+                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_language_invalidLanguage), TextTypes.NO_SUCCESS));
             }
         } else {
-            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_invalidArgsLength), TextTypes.NO_SUCCESS));
+            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_invalidArgsLength), TextTypes.NO_SUCCESS));
         }
         return true;
     }

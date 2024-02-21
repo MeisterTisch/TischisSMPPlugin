@@ -1,4 +1,4 @@
-package user.meistertisch.tischissmpplugin.staff;
+package user.meistertisch.tischissmpplugin.admin;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -14,7 +14,7 @@ public class CommandPrefix implements TabExecutor {
     //TODO: ONLY STAFF
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_prefix_changeInConfig),
+        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_prefix_changeInConfig),
                 TextTypes.NO_SUCCESS));
         return true;
     }

@@ -1,4 +1,4 @@
-package user.meistertisch.tischissmpplugin.staff;
+package user.meistertisch.tischissmpplugin.admin;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -21,16 +21,16 @@ public class CommandReloadConfig implements TabExecutor {
             if(new File(Main.getPlugin().getDataFolder(), "config.yml").exists()){
                 Main.getPlugin().reloadConfig();
                 ConfigChecker.checkEverything();
-                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_reloadConfig_reloadSuccessful), TextTypes.SUCCESS));
+                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_reloadConfig_reloadSuccessful), TextTypes.SUCCESS));
             } else {
                 Main.getPlugin().saveDefaultConfig();
                 Main.getPlugin().reloadConfig();
                 ConfigChecker.checkEverything();
-                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_reloadConfig_fileNotFound), TextTypes.NO_SUCCESS));
+                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_reloadConfig_fileNotFound), TextTypes.NO_SUCCESS));
             }
         } else {
             //some args (not good)
-            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.staff_commands_invalidArgsLength), TextTypes.NO_SUCCESS));
+            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_invalidArgsLength), TextTypes.NO_SUCCESS));
         }
         return true;
     }
