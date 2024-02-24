@@ -4,6 +4,8 @@ public enum Text {
     accentColor_invalidAccentColor1("accentColor.invalidAccentColor1"),
     accentColor_invalidAccentColor2("accentColor.invalidAccentColor2"),
     announcement("announcement"),
+    ban_withoutDuration("ban.withoutDuration"),
+    ban_withDuration("ban.withDuration"),
     chatDisabled_invalidInput("chatDisabled.invalidInput"),
     chatDisabled_chatIsDisabled("chatDisabling.chatIsDisabled"),
     dimensionAllowance_invalidAllowance("dimensionAllowance.invalidAllowance"),

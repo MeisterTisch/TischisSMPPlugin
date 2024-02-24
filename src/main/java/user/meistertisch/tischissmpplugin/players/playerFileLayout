@@ -8,6 +8,9 @@ logoutLocation:
     y: 131
     z: 5234
     world: worldwdadaw
+oldNames:
+ - TischGamerTV
+ - SuperBoyGamer
 homes:
     home1:
         name: Haus
@@ -23,9 +26,13 @@ homes:
         world: wadoaw
 ban:
     isBanned: true
-    until: DATE TODO: angucken wie es geht
     reason: "Du idiot"
+    duration: true
+    bannedTime: DATE
+    until: DATE TODO:     
 mute:
     isMuted: true
-    until: DATE
     reason: "Du opfa"
+    duration: false
+    until: DATE
+

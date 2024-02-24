@@ -22,11 +22,12 @@ public final class Main extends JavaPlugin {
         //First
         plugin = this;
         pluginManager = Bukkit.getPluginManager();
-        this.saveDefaultConfig();
 
-        //Loading Language Files
-        plugin.saveResource("languages/english.yml", true);
-        plugin.saveResource("languages/german.yml", true);
+        //Loading Files
+        this.saveDefaultConfig();
+        this.saveResource("languages/english.yml", true);
+        this.saveResource("languages/german.yml", true);
+        this.saveResource("bannedPlayers.yml", false);
 
         //Some checks
         ConfigChecker.checkEverything();

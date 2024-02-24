@@ -4,6 +4,9 @@ accentColor:
   invalidAccentColor1: 'Accent color 1 is invalid! Setting it back to "9". Make sure you only use colors.'
   invalidAccentColor2: 'Accent color 2 is invalid! Setting it back to "b". Make sure you only use colors.'
 announcement: 'Announcement'
+ban:
+  withoutDuration: 'You are currently banned!\nReason: %reason%'
+  withDuration: 'You are currently banned!\nReason: %reason%\nDuration left: %duration%'
 chatDisabling:
   invalidInput: 'Invalid input at the chat disablement. Setting it back to "false".'
   chatIsDisabled: 'Chat is currently disabled! Try again later.'
