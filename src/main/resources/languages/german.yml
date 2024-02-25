@@ -11,6 +11,29 @@ ban:
 chatDisabling:
   invalidInput: 'Ungültige Eingabe bei der Chatsperre. Setze es auf "false" zurück.'
   chatIsDisabled: 'Der Chat ist derzeit gesperrt! Versuchs später erneut.'
+commands:
+  onlyPlayers: 'Diesen Command kann nur ein Spieler ausführen.'
+  invalidArgsLength: 'Ungültige Anzahl an Argumenten!'
+  home:
+    creation:
+      created: 'Home %home% wurde erstellt.'
+      noName: 'Bitte füg einen Namen hinzu, um ein Home zu erstellen.'
+      sameName: 'Home %home% existiert bereits!'
+      maxAmountReached: 'Du hast die maximale Anzahl von Homes erreicht. Das Maximum ist %max% und du hast %amount%. Bitte lösche ein Haus, bevor du ein neues erstellst.'
+    teleportion:
+      teleported: 'Du wurdest zu deinem Home %home% teleportiert.'
+      invalidHome: 'Diesen Home hast du nicht. Bitte wähle ein gültiges aus.'
+    deletion:
+      deleted: 'Home %home% wurde gelöscht.'
+      invalidHome: 'Diesen Home hast du nicht. Bitte wähle ein gültiges aus.'
+      noName: 'Bitte füge einen Namen hinzu, um ein Home zu löschen.'
+      confirm: "Bist du sicher? Dann schreibe '/home delete %home% confirm'."
+    renaming:
+      renamed: 'Home %oldHome% wurde umbenannt zu %home%.'
+      noHome: 'Bitte füge deinen Home hinzu, um es umzubenennen.'
+      invalidHome: 'Diesen Home hast du nicht. Bitte wähle ein gültiges aus.'
+      noName: 'Bitte füge einen neuen Namen hinzu, um es umzubenennen.'
+    combatTimer: "Du kannst dich nicht teleportieren, während du in einem Kampf bist."
 dimensionAllowance:
   invalidAllowance: 'Ungültige Erlaubnis bei der Dimension %dimension%. Setze es auf "true" zurück.'
   netherNotAllowed: 'Nether ist zurzeit gesperrt!'
@@ -27,9 +50,16 @@ prefix:
 admin:
   commands:
     invalidArgsLength: 'Ungültige Anzahl an Argumenten!'
-    onlyPlayers: 'Diesen Command kann nur ein Spieler ausführen.'
     announcement:
       invalidMessageLength: 'Ungültige Nachricht!'
+    ban:
+      playerAlreadyBanned: '%player% ist schon gebannt!'
+      playerBanned: '%player% wurde gebannt!'
+      playerNotBanned: '%player% ist nicht gebannt!'
+      playerUnbanned: '%player% wurde entbannt!'
+      noReason: 'Grund: Kein Grund angegeben'
+      withReason: 'Grund: %reason%'
+      noPlayer: 'Bitte wähle einen Spieler aus!'
     dimension:
       invalidDimension: 'Ungültige Dimension! Bitte überprüfe deine Eingabe!'
       noDimension: 'Keine Dimension ausgewählt!'

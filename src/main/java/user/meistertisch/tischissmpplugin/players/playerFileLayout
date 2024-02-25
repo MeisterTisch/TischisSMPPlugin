@@ -12,8 +12,10 @@ oldNames:
  - TischGamerTV
  - SuperBoyGamer
 homes:
+    amount: 2
     home1:
         name: Haus
+        loc: LOCATION
         x: 123
         y: 623
         z: 235
@@ -26,8 +28,9 @@ homes:
         world: wadoaw
 ban:
     isBanned: true
+    withReason: false
     reason: "Du idiot"
-    duration: true
+    withDuration: true
     bannedTime: DATE
     until: DATE TODO:     
 mute:

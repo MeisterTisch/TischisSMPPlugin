@@ -10,6 +10,29 @@ ban:
 chatDisabling:
   invalidInput: 'Invalid input at the chat disablement. Setting it back to "false".'
   chatIsDisabled: 'Chat is currently disabled! Try again later.'
+commands:
+  onlyPlayers: 'Only a player can execute this command.'
+  invalidArgsLength: 'Invalid length of arguments!'
+  home:
+    creation:
+      created: 'Home %home% has been created.'
+      noName: 'Please add a name for your home to create one.'
+      sameName: 'Home %home% exists already!'
+      maxAmountReached: 'You have reached the maximum amount of homes. The maximum is %max% and you have %amount%. Please delete one before creating another.'
+    teleportion:
+      teleported: 'You have been teleported to your Home %home%.'
+      invalidHome: "You don't have this home. Please choose a valid one."
+    deletion:
+      deleted: 'Home %home% has been deleted.'
+      invalidHome: "You don't have this home. Please choose a valid one."
+      noName: 'Please add a name of your home to delete it.'
+      confirm: "Are you sure? Then write '/home delete %home% confirm'."
+    renaming:
+      renamed: 'Home %oldHome% has been renamed to %home%.'
+      noHome: "You don't have this home. Please choose a valid one."
+      invalidHome: "You don't have this home. Please choose a valid one."
+      noName: 'Please add a name of your home to rename it.'
+    combatTimer: "You can't teleport while being in combat."
 dimensionAllowance:
   invalidAllowance: 'Invalid permission for the dimension %dimension%. Setting it back to "true".'
   netherNotAllowed: 'Nether is currently closed!'
@@ -26,9 +49,16 @@ prefix:
 admin:
   commands:
     invalidArgsLength: 'Invalid length of arguments!'
-    onlyPlayers: 'Only a player can execute this command.'
     announcement:
       invalidMessageLength: 'Invalid message!'
+    ban:
+      playerAlreadyBanned: '%player% is already banned!'
+      playerBanned: '%player% banned!'
+      playerNotBanned: '%player% is not banned!'
+      playerUnbanned: '%player% unbanned!'
+      noReason: 'Reason: No reason specified'
+      withReason: 'Reason: %reason%'
+      noPlayer: 'Please choose a player!'
     dimension:
       invalidDimension: 'Invalid dimension! Please check your input!'
       noDimension: 'No dimension selected!'

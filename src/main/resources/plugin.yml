@@ -16,3 +16,4 @@ commands:
     aliases:
       - lang
   admin:
+  home:

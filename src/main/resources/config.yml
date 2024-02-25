@@ -34,9 +34,13 @@ prefix: '%color1%[%color2%Tische SMP%color1%] %8%| '
 # If you like you can turn them off. If you like to use them, then you can set up following aspects:
 # - status: want to use the system? Type in 'true', if not then 'false'.
 # - maxNumber: this rules the maximum number of homes that each player is allowed to have.
+# - instant: this rules manages the teleportion. If you want that the player can teleport instantly, then write true.
+#            this rule is helpful, when you want to prevent players, to teleport instantly away from a bad situation (like from fall damage or void) and save themselves.
+#            if set at false, the player needs to stand three seconds still to be teleported.
 homes:
   status: true
   maxNumber: 5
+  instant: false
 
 
 # !FROM HERE ON DO NOT CHANGE ANYTHING, EXCEPT YOU KNOW WHAT YOU DO!
