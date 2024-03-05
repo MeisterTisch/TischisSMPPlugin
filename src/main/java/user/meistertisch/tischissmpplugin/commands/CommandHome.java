@@ -71,7 +71,8 @@ public class CommandHome implements TabExecutor {
                 case "remove", "delete" -> {
                     if(strings.length == 1){
                         player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_home_deletion_noName), TextTypes.NO_SUCCESS));
-                    } else if(strings.length == 2 || strings.length == 3){
+                    }
+                    else if(strings.length == 2 || strings.length == 3){
                         List<String> homes = new ArrayList<>();
                         for (int i = 1; i <= FilePlayers.getConfig().getInt(player.getDisplayName() + ".homes.amount") ; i++) {
                             homes.add(FilePlayers.getConfig().getString(player.getDisplayName() + ".homes.home" + i + ".name"));
@@ -120,9 +121,13 @@ public class CommandHome implements TabExecutor {
                             player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_home_deletion_invalidHome), TextTypes.NO_SUCCESS));
                             player.sendMessage(homes.toString());
                         }
-                    } else {
+                    }
+                    else {
                         player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_invalidArgsLength), TextTypes.NO_SUCCESS));
                     }
+                }
+                case "rename" -> {
+
                 }
             }
         }
