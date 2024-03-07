@@ -33,7 +33,9 @@ commands:
       invalidHome: "You don't have this home. Please choose a valid one."
       noName: 'Please add a name of your home to rename it.'
       sameName: 'You already have a home named %name%!'
-    combatTimer: "You can't teleport while being in combat."
+    teleport:
+      noHome: "Please add your home to rename it."
+      invalidHome: "You don't have this home. Please choose a valid one."
 dimensionAllowance:
   invalidAllowance: 'Invalid permission for the dimension %dimension%. Setting it back to "true".'
   netherNotAllowed: 'Nether is currently closed!'
@@ -108,4 +110,8 @@ admin:
         addedToAdmin: 'You have been added as an admin.'
         removedFromAdmin: 'You have been removed as admin.'
         sameAsSender: 'You cannot register as a target.'
+teleportation:
+  successful: 'You have been teleported!'
+  canceled: 'Teleportation canceled!'
+  dontMove: "Don't move! You will be teleported in three seconds."
 testCommand: 'English file is written from'

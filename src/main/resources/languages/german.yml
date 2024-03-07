@@ -34,7 +34,9 @@ commands:
       invalidHome: 'Diesen Home hast du nicht. Bitte wähle ein gültiges aus.'
       noName: 'Bitte füge einen neuen Namen hinzu, um es umzubenennen.'
       sameName: 'Du hast schon einen Home mit dem Namen %name%!'
-    combatTimer: "Du kannst dich nicht teleportieren, während du in einem Kampf bist."
+    teleport:
+      noHome: 'Bitte füge deinen Home hinzu, um es umzubenennen.'
+      invalidHome: 'Diesen Home hast du nicht. Bitte wähle ein gültiges aus.'
 dimensionAllowance:
   invalidAllowance: 'Ungültige Erlaubnis bei der Dimension %dimension%. Setze es auf "true" zurück.'
   netherNotAllowed: 'Nether ist zurzeit gesperrt!'
@@ -109,4 +111,8 @@ admin:
         addedToAdmin: 'Du wurdest als Admin hinzugefügt.'
         removedFromAdmin: 'Du wurdest als Admin entfernt.'
         sameAsSender: 'Du kannst dich nicht als Ziel eintragen.'
+teleportation:
+  successful: 'Du wurdest teleportiert!'
+  canceled: 'Teleportation abgebrochen'
+  dontMove: 'Nicht bewegen! Du wirst in drei Sekunden teleportiert.'
 testCommand: 'Deutschland über allem'

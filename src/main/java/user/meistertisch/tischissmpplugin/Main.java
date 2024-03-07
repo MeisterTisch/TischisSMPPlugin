@@ -12,6 +12,8 @@ import user.meistertisch.tischissmpplugin.admin.*;
 import user.meistertisch.tischissmpplugin.admin.CommandPrefix;
 import user.meistertisch.tischissmpplugin.listeners.ListenerJoinAndLeave;
 import user.meistertisch.tischissmpplugin.players.FilePlayers;
+import user.meistertisch.tischissmpplugin.players.teleportation.ListenerMove;
+import user.meistertisch.tischissmpplugin.players.teleportation.Teleportation;
 import user.meistertisch.tischissmpplugin.start.ConfigChecker;
 
 public final class Main extends JavaPlugin {
@@ -26,12 +28,13 @@ public final class Main extends JavaPlugin {
         plugin = this;
         pluginManager = Bukkit.getPluginManager();
 
-        //Loading Files
+        //Loading Files and other different things
         this.saveDefaultConfig();
         this.saveResource("languages/english.yml", true);
         this.saveResource("languages/german.yml", true);
         this.saveResource("bannedPlayers.yml", false);
         FilePlayers.setup();
+        Teleportation.setup();
 
         //Some checks
         ConfigChecker.checkEverything();
@@ -51,6 +54,7 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new ListenerChat(), this);
         pluginManager.registerEvents(new ListenerDimensionAllowance(), this);
         pluginManager.registerEvents(new ListenerJoinAndLeave(), this);
+        pluginManager.registerEvents(new ListenerMove(), this);
 
         //Misc
 
@@ -60,7 +64,8 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        //Stopping
+        Teleportation.stopScheduler();
     }
 
     //Some static Getters

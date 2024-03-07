@@ -18,7 +18,8 @@ public enum Text {
     command_home_renaming_noHome("commands.home.renaming.noHome"),
     command_home_renaming_invalidHome("commands.home.renaming.invalidHome"),
     command_home_renaming_noName("commands.home.renaming.noName"),
-    command_home_combatTimer("commands.home.combatTimer"),
+    command_home_teleport_noHome("commands.home.teleport.noHome"),
+    command_home_teleport_invalidHome("commands.home.teleport.invalidHome"),
     command_invalidArgsLength("commands.invalidArgsLength"),
     command_home_creation_maxAmountReached("commands.home.creation.maxAmountReached"),
     command_home_deletion_confirm("commands.home.deletion.confirm"),
@@ -81,6 +82,9 @@ public enum Text {
     admin_commands_admin_noPlayerForRemoving("admin.commands.admin.noPlayerForRemoving"),
     admin_commands_admin_invalidInput("admin.commands.admin.invalidInput"),
     command_home_renaming_sameName("commands.home.renaming.sameName"),
+    teleportation_successful("teleportation.successful"),
+    teleportation_canceled("teleportation.canceled"),
+    teleportation_dontMove("teleportation.dontMove"),
     testCommand("testCommand");
 
     private String languageFilePath;

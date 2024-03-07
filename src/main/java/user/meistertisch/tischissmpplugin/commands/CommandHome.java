@@ -11,6 +11,7 @@ import user.meistertisch.tischissmpplugin.languages.Text;
 import user.meistertisch.tischissmpplugin.messageMaker.MessageMaker;
 import user.meistertisch.tischissmpplugin.messageMaker.TextTypes;
 import user.meistertisch.tischissmpplugin.players.FilePlayers;
+import user.meistertisch.tischissmpplugin.players.teleportation.Teleportation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -180,7 +181,26 @@ public class CommandHome implements TabExecutor {
                     }
                 }
                 case "tp", "teleport" -> {
-
+                    if(strings.length == 1){
+                        player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_home_teleport_noHome), TextTypes.NO_SUCCESS));
+                    } else if(strings.length == 2){
+                        List<String> homes = new ArrayList<>();
+                        for (int i = 1; i <= FilePlayers.getConfig().getInt(player.getDisplayName() + ".homes.amount") ; i++) {
+                            homes.add(FilePlayers.getConfig().getString(player.getDisplayName() + ".homes.home" + i + ".name"));
+                        }
+                        if(homes.contains(strings[1])){
+                            for (int i = 1; i <= FilePlayers.getConfig().getInt(player.getDisplayName() + ".homes.amount") ; i++) {
+                                if(FilePlayers.getConfig().getString(player.getDisplayName() + ".homes.home" + i + ".name").equals(strings[1])){
+                                    Location loc = FilePlayers.getConfig().getLocation(player.getDisplayName() + ".homes.home" + i + ".loc");
+                                    Teleportation.teleport(player, loc);
+                                }
+                            }
+                        } else {
+                            player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_home_teleport_invalidHome), TextTypes.NO_SUCCESS));
+                        }
+                    } else {
+                        player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_invalidArgsLength), TextTypes.NO_SUCCESS));
+                    }
                 }
             }
         }
