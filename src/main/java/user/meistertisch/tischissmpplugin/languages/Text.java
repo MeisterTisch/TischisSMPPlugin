@@ -80,7 +80,7 @@ public enum Text {
     admin_commands_admin_noPlayerForAdding("admin.commands.admin.noPlayerForAddind"),
     admin_commands_admin_noPlayerForRemoving("admin.commands.admin.noPlayerForRemoving"),
     admin_commands_admin_invalidInput("admin.commands.admin.invalidInput"),
-    command_home_renaming_sameName("command.home.renaming.sameName"),
+    command_home_renaming_sameName("commands.home.renaming.sameName"),
     testCommand("testCommand");
 
     private String languageFilePath;

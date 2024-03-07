@@ -163,7 +163,7 @@ public class CommandHome implements TabExecutor {
                                         FilePlayers.saveConfig();
                                         player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_home_renaming_renamed)
                                                 .replace("%oldName%", strings[1])
-                                                .replace("%name%", strings[2]), TextTypes.NO_SUCCESS));
+                                                .replace("%name%", strings[2]), TextTypes.SUCCESS));
                                     }
                                 }
                             } else {
@@ -201,8 +201,9 @@ public class CommandHome implements TabExecutor {
         if(strings.length == 1){
             list.addAll(List.of("create", "remove", "delete", "rename", "tp", "teleport"));
         } else if(strings.length == 2){
-            if(strings[0].toLowerCase(Locale.ROOT).equals("remove") || strings[0].toLowerCase(Locale.ROOT).equals("rename")
-            || strings[0].toLowerCase(Locale.ROOT).equals("tp") || strings[0].toLowerCase(Locale.ROOT).equals("teleport")){
+            if(strings[0].toLowerCase(Locale.ROOT).equals("remove") || strings[0].toLowerCase(Locale.ROOT).equals("delete")
+            || strings[0].toLowerCase(Locale.ROOT).equals("rename") || strings[0].toLowerCase(Locale.ROOT).equals("tp")
+                    || strings[0].toLowerCase(Locale.ROOT).equals("teleport")){
                 for (int i = 1; i <= FilePlayers.getConfig().getInt(player + ".homes.amount"); i++) {
                     list.add(FilePlayers.getConfig().getString(player + ".homes.home" + i + ".name"));
                 }

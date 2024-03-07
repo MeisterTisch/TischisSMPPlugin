@@ -29,7 +29,7 @@ commands:
       confirm: "Are you sure? Then write '/home delete %home% confirm'."
     renaming:
       renamed: 'Home %oldName% has been renamed to %name%.'
-      noHome: "You don't have this home. Please choose a valid one."
+      noHome: "Please add your home to rename it."
       invalidHome: "You don't have this home. Please choose a valid one."
       noName: 'Please add a name of your home to rename it.'
       sameName: 'You already have a home named %name%!'
