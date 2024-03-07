@@ -202,6 +202,22 @@ public class CommandHome implements TabExecutor {
                         player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_invalidArgsLength), TextTypes.NO_SUCCESS));
                     }
                 }
+                case "list" -> {
+                    if(strings.length == 1){
+                        String list = "";
+                        for (int i = 1; i <= FilePlayers.getConfig().getInt(player.getDisplayName() + ".homes.amount") ; i++) {
+                            if(i == FilePlayers.getConfig().getInt(player.getDisplayName() + ".homes.amount")){
+                                list = list + FilePlayers.getConfig().getString(player.getDisplayName() + ".homes.home" + i + ".name") + ".";
+                            } else {
+                                list = list + FilePlayers.getConfig().getString(player.getDisplayName() + ".homes.home" + i + ".name") + ", ";
+                            }
+                        }
+                        player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_home_list)
+                                .replace("%list%", list), TextTypes.NORMAL));
+                    } else {
+                        player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_invalidArgsLength), TextTypes.NO_SUCCESS));
+                    }
+                }
             }
         }
         return true;
@@ -219,7 +235,7 @@ public class CommandHome implements TabExecutor {
         }
 
         if(strings.length == 1){
-            list.addAll(List.of("create", "remove", "delete", "rename", "tp", "teleport"));
+            list.addAll(List.of("create", "remove", "delete", "rename", "tp", "teleport", "list"));
         } else if(strings.length == 2){
             if(strings[0].toLowerCase(Locale.ROOT).equals("remove") || strings[0].toLowerCase(Locale.ROOT).equals("delete")
             || strings[0].toLowerCase(Locale.ROOT).equals("rename") || strings[0].toLowerCase(Locale.ROOT).equals("tp")

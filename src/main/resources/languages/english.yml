@@ -36,6 +36,7 @@ commands:
     teleport:
       noHome: "Please add your home to rename it."
       invalidHome: "You don't have this home. Please choose a valid one."
+    list: 'This is your current list: %list%'
 dimensionAllowance:
   invalidAllowance: 'Invalid permission for the dimension %dimension%. Setting it back to "true".'
   netherNotAllowed: 'Nether is currently closed!'

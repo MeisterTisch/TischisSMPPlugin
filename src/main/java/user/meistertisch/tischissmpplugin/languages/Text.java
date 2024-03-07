@@ -20,6 +20,7 @@ public enum Text {
     command_home_renaming_noName("commands.home.renaming.noName"),
     command_home_teleport_noHome("commands.home.teleport.noHome"),
     command_home_teleport_invalidHome("commands.home.teleport.invalidHome"),
+    command_home_list("commands.home.list"),
     command_invalidArgsLength("commands.invalidArgsLength"),
     command_home_creation_maxAmountReached("commands.home.creation.maxAmountReached"),
     command_home_deletion_confirm("commands.home.deletion.confirm"),
