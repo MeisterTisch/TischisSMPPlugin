@@ -127,6 +127,59 @@ public class CommandHome implements TabExecutor {
                     }
                 }
                 case "rename" -> {
+                    if(strings.length == 1){
+                        //No more args no good
+                        player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_home_renaming_noHome), TextTypes.NO_SUCCESS));
+                    } else if (strings.length == 2){
+                        //Only home not good
+                        List<String> homes = new ArrayList<>();
+                        for (int i = 1; i <= FilePlayers.getConfig().getInt(player.getDisplayName() + ".homes.amount") ; i++) {
+                            homes.add(FilePlayers.getConfig().getString(player.getDisplayName() + ".homes.home" + i + ".name"));
+                        }
+                        if(homes.contains(strings[1])){
+                            //Contains home
+                            player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_home_renaming_noName), TextTypes.NO_SUCCESS));
+                        } else {
+                            //NO Home
+                            player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_home_renaming_invalidHome), TextTypes.NO_SUCCESS));
+                        }
+                    } else if(strings.length == 3){
+                        //Check home exist or not
+                        //then check same name or not AND no other home named the same.
+                        //then rename
+                        List<String> homes = new ArrayList<>();
+                        for (int i = 1; i <= FilePlayers.getConfig().getInt(player.getDisplayName() + ".homes.amount") ; i++) {
+                            homes.add(FilePlayers.getConfig().getString(player.getDisplayName() + ".homes.home" + i + ".name"));
+                        }
+                        if(homes.contains(strings[1])){
+                            //YES Home
+                            //Check for same home name
+                            if (!homes.contains(strings[2])){
+                                //No Home same name, GOOD!
+                                for (int i = 1; i <= FilePlayers.getConfig().getInt(player.getDisplayName() + ".homes.amount") ; i++) {
+                                    if(FilePlayers.getConfig().getString(player.getDisplayName() + ".homes.home" + i + ".name").equals(strings[1])){
+                                        //Home found, renaming
+                                        FilePlayers.getConfig().set(player.getDisplayName() + ".homes.home" + i + ".name", strings[2]);
+                                        FilePlayers.saveConfig();
+                                        player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_home_renaming_renamed)
+                                                .replace("%oldName%", strings[1])
+                                                .replace("%name%", strings[2]), TextTypes.NO_SUCCESS));
+                                    }
+                                }
+                            } else {
+                                //Oh no, Same name! NOT GOOD!
+                                player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_home_renaming_sameName)
+                                        .replace("%name%", strings[2]), TextTypes.NO_SUCCESS));
+                            }
+                        } else {
+                            //NO Home
+                            player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_home_renaming_invalidHome), TextTypes.NO_SUCCESS));
+                        }
+                    } else {
+                        player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_invalidArgsLength), TextTypes.NO_SUCCESS));
+                    }
+                }
+                case "tp", "teleport" -> {
 
                 }
             }

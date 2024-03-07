@@ -29,10 +29,11 @@ commands:
       noName: 'Bitte füge einen Namen hinzu, um ein Home zu löschen.'
       confirm: "Bist du sicher? Dann schreibe '/home delete %home% confirm'."
     renaming:
-      renamed: 'Home %oldHome% wurde umbenannt zu %home%.'
+      renamed: 'Home %oldName% wurde umbenannt zu %name%.'
       noHome: 'Bitte füge deinen Home hinzu, um es umzubenennen.'
       invalidHome: 'Diesen Home hast du nicht. Bitte wähle ein gültiges aus.'
       noName: 'Bitte füge einen neuen Namen hinzu, um es umzubenennen.'
+      sameName: 'Du hast schon einen Home mit dem Namen %name%!'
     combatTimer: "Du kannst dich nicht teleportieren, während du in einem Kampf bist."
 dimensionAllowance:
   invalidAllowance: 'Ungültige Erlaubnis bei der Dimension %dimension%. Setze es auf "true" zurück.'
