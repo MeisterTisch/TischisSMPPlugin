@@ -5,10 +5,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
+import org.bukkit.entity.Player;
 import user.meistertisch.tischissmpplugin.Main;
 import user.meistertisch.tischissmpplugin.languages.Text;
 import user.meistertisch.tischissmpplugin.messageMaker.MessageMaker;
 import user.meistertisch.tischissmpplugin.messageMaker.TextTypes;
+import user.meistertisch.tischissmpplugin.players.FilePlayers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +21,15 @@ public class CommandDimensionAllowance implements TabExecutor {
     List<String> allowance = new ArrayList<>(List.of("allow", "disallow"));
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+        //CHECK FOR ADMIN
+        if(commandSender instanceof Player p){
+            boolean isAdmin = FilePlayers.getConfig().getBoolean(p.getDisplayName() + ".isAdmin");
+            if(!isAdmin){
+                p.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_noAdmin), TextTypes.NO_SUCCESS));
+                return true;
+            }
+        }
+
         //Nur Dimension geschrieben
         if(strings.length == 1){
             if(dimensions.contains(strings[0].toLowerCase(Locale.ROOT))){

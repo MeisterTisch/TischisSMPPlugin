@@ -21,6 +21,7 @@ public enum Text {
     command_home_teleport_noHome("commands.home.teleport.noHome"),
     command_home_teleport_invalidHome("commands.home.teleport.invalidHome"),
     command_home_list("commands.home.list"),
+    admin_noAdmin("admin.noAdmin"),
     command_invalidArgsLength("commands.invalidArgsLength"),
     command_home_creation_maxAmountReached("commands.home.creation.maxAmountReached"),
     command_home_deletion_confirm("commands.home.deletion.confirm"),

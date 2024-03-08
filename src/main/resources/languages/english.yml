@@ -51,6 +51,7 @@ language:
 prefix:
   noSpaceAtTheEnd: 'No space was found at the end of the prefix. Adding one.'
 admin:
+  noAdmin: 'You can only execute this command as a admin!'
   commands:
     invalidArgsLength: 'Invalid length of arguments!'
     announcement:

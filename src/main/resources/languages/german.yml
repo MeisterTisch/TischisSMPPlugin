@@ -52,6 +52,7 @@ language:
 prefix:
   noSpaceAtTheEnd: 'Beim Prefix wurde keine Leertaste am Ende gefunden. Füge eins hinzu.'
 admin:
+  noAdmin: 'Diesen Command kannst du nur als Admin ausführen!'
   commands:
     invalidArgsLength: 'Ungültige Anzahl an Argumenten!'
     announcement:
