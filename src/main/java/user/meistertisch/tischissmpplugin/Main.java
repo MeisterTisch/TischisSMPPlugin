@@ -4,6 +4,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import user.meistertisch.tischissmpplugin.commands.CommandHome;
+import user.meistertisch.tischissmpplugin.commands.dm.CommandDirectMessage;
+import user.meistertisch.tischissmpplugin.commands.dm.DirectMessageScheduler;
 import user.meistertisch.tischissmpplugin.commands.tpr.CommandTeleportRequest;
 import user.meistertisch.tischissmpplugin.commands.tpr.TPRScheduler;
 import user.meistertisch.tischissmpplugin.forTesting.TestCommand;
@@ -38,6 +40,7 @@ public final class Main extends JavaPlugin {
         FilePlayers.setup();
         Teleportation.setup();
         TPRScheduler.setup();
+        DirectMessageScheduler.setup();
 
         //Some checks
         ConfigChecker.checkEverything();
@@ -53,6 +56,7 @@ public final class Main extends JavaPlugin {
         getCommand("admin").setExecutor(new CommandAdmin());
         getCommand("home").setExecutor(new CommandHome());
         getCommand("tpr").setExecutor(new CommandTeleportRequest());
+        getCommand("dm").setExecutor(new CommandDirectMessage());
 
         //Listeners
         pluginManager.registerEvents(new ListenerChat(), this);
@@ -71,6 +75,7 @@ public final class Main extends JavaPlugin {
         //Stopping
         Teleportation.stopScheduler();
         TPRScheduler.stopScheduler();
+        DirectMessageScheduler.stopScheduler();
     }
 
     //Some static Getters

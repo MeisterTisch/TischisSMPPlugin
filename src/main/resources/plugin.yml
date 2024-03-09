@@ -18,3 +18,9 @@ commands:
   admin:
   home:
   tpr:
+  dm:
+    aliases:
+      - msg
+      - r
+      - reply
+      - message

@@ -65,6 +65,14 @@ commands:
       makingOff: 'You are rejecting requests now.'
       alreadyOn: 'You are already accepting now.'
       alreadyOff: 'You are already rejecting now.'
+  dm:
+    noPlayer: 'Please choose a player!'
+    playerOffline: '%player% is currently offline!'
+    noOneToReply: 'You have no one to reply to!'
+    noMessage: 'Please write a message!'
+    youSending: 'You'
+    youReceiving: 'you'
+    senderIsTarget: 'You cannot write yourself!'
 dimensionAllowance:
   invalidAllowance: 'Invalid permission for the dimension %dimension%. Setting it back to "true".'
   netherNotAllowed: 'Nether is currently closed!'

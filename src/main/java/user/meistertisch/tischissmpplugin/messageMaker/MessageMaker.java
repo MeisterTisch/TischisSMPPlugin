@@ -35,7 +35,7 @@ public class MessageMaker {
                 makedMessage = Main.getPlugin().getConfig().getString("prefix") + ChatColor.GOLD + "[" + Text.getText(Text.announcement) + "]" + ChatColor.WHITE + "\n" + message;
             }
             case DM -> {
-                //TODO: Need Command, need somehow Players for it.
+                makedMessage = color1 + "[" + color2 + "%sender%" + color1 + " -> " + color2 + "%target%" + color1 + "]" + ChatColor.WHITE + message;
             }
             case DEBUG -> {
                 makedMessage = Main.getPlugin().getConfig().getString("prefix") + ChatColor.GRAY + "[DEBUG]" + ChatColor.WHITE + "\n" + message;

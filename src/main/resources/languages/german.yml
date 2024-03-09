@@ -66,6 +66,14 @@ commands:
       makingOff: 'Du verweigerst nun Anfragen.'
       alreadyOn: 'Du erlaubst bereits Anfragen.'
       alreadyOff: 'Du verweigerst bereits Anfragen.'
+  dm:
+    noPlayer: 'Bitte gib ein Spieler an!'
+    playerOffline: '%player% ist zurzeit offline!'
+    noOneToReply: 'Du hast keinen zum antworten!'
+    noMessage: 'Bitte gib eine Nachricht ein!'
+    youSending: 'Du'
+    youReceiving: 'dir'
+    senderIsTarget: 'Du kannst dir selbst nicht schreiben!'
 dimensionAllowance:
   invalidAllowance: 'Ungültige Erlaubnis bei der Dimension %dimension%. Setze es auf "true" zurück.'
   netherNotAllowed: 'Nether ist zurzeit gesperrt!'
