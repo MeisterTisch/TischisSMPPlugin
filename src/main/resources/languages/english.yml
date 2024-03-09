@@ -13,6 +13,7 @@ chatDisabling:
 commands:
   onlyPlayers: 'Only a player can execute this command.'
   invalidArgsLength: 'Invalid length of arguments!'
+  invalidInput: 'Invalid argument. Please check your input!'
   home:
     creation:
       created: 'Home %home% has been created.'
@@ -37,6 +38,32 @@ commands:
       noHome: "Please add your home to rename it."
       invalidHome: "You don't have this home. Please choose a valid one."
     list: 'This is your current list: %list%'
+  tpr:
+    noPlayerSelected: 'Please choose a player!'
+    playerOffline: '%player% is not on the server at the moment!'
+    noOpenRequest: 'Du hast derzeit keine offene Anfrage!'
+    targetNotAccepting: '%player% does not accept any requests at the moment!'
+    rejectedToTarget: 'You rejected the request.'
+    rejectedToSender: '%player% rejected your request.'
+    acceptedToTarget: 'You accepted the request!'
+    acceptedToSender: '%player% accepted your request!'
+    requestExpiredSender: 'Your request to %player% expired!'
+    requestExpiredTarget: 'The request by %sender% to you expired!'
+    requestCanceled: 'You canceled the request.'
+    requestCanceledTarget: '%player% canceled the request.'
+    to:
+      msgSentSender: 'You requested at %player%, if you could teleport to him/her.'
+      msgSentTarget: '%sender% has requested to teleport to you.'
+    here:
+      msgSentSender: 'You requested at %player%, if he/she could teleport to you.'
+      msgSentTarget: '%sender% has requested to teleport you to him/her.'
+    cancelFirst: 'First cancel the request to %player% before sending a new one!'
+    acceptOrRejectFirst: 'Accept or reject the request from %player% before sending a new one!'
+    toggle:
+      on: 'You are accepting requests now.'
+      off: 'You are rejecting requests now.'
+      alreadyOn: 'You are already accepting now.'
+      alreadyOff: 'You are already rejecting now.'
 dimensionAllowance:
   invalidAllowance: 'Invalid permission for the dimension %dimension%. Setting it back to "true".'
   netherNotAllowed: 'Nether is currently closed!'
@@ -116,4 +143,8 @@ teleportation:
   successful: 'You have been teleported!'
   canceled: 'Teleportation canceled!'
   dontMove: "Don't move! You will be teleported in three seconds."
+  tpr:
+    target:
+      successful: '%player% has been teleported!'
+      canceled: 'Teleportation for %player% canceled.'
 testCommand: 'English file is written from'

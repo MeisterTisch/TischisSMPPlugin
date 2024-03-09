@@ -4,6 +4,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import user.meistertisch.tischissmpplugin.commands.CommandHome;
+import user.meistertisch.tischissmpplugin.commands.tpr.CommandTeleportRequest;
+import user.meistertisch.tischissmpplugin.commands.tpr.TPRScheduler;
 import user.meistertisch.tischissmpplugin.forTesting.TestCommand;
 import user.meistertisch.tischissmpplugin.languages.Languages;
 import user.meistertisch.tischissmpplugin.listeners.ListenerChat;
@@ -35,6 +37,7 @@ public final class Main extends JavaPlugin {
         this.saveResource("bannedPlayers.yml", false);
         FilePlayers.setup();
         Teleportation.setup();
+        TPRScheduler.setup();
 
         //Some checks
         ConfigChecker.checkEverything();
@@ -49,6 +52,7 @@ public final class Main extends JavaPlugin {
         getCommand("language").setExecutor(new CommandLanguage());
         getCommand("admin").setExecutor(new CommandAdmin());
         getCommand("home").setExecutor(new CommandHome());
+        getCommand("tpr").setExecutor(new CommandTeleportRequest());
 
         //Listeners
         pluginManager.registerEvents(new ListenerChat(), this);
@@ -66,6 +70,7 @@ public final class Main extends JavaPlugin {
     public void onDisable() {
         //Stopping
         Teleportation.stopScheduler();
+        TPRScheduler.stopScheduler();
     }
 
     //Some static Getters

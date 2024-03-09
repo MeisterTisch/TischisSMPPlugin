@@ -5,6 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitScheduler;
+import org.bukkit.util.BoundingBox;
 import user.meistertisch.tischissmpplugin.Main;
 import user.meistertisch.tischissmpplugin.languages.Text;
 import user.meistertisch.tischissmpplugin.messageMaker.MessageMaker;

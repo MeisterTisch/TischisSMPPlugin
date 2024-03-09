@@ -11,13 +11,9 @@ public class ListenerMove implements Listener {
     @EventHandler
     public void playerMoved(PlayerMoveEvent event){
         if(Teleportation.getPlayersMap().containsKey(event.getPlayer())){
-            //TODO: maybe do with Bounding Box
-            if(event.getFrom().getX() == event.getTo().getX()
-                    && event.getFrom().getY() == event.getTo().getY()
-                    && event.getFrom().getZ() == event.getTo().getZ()
-                    && event.getFrom().getDirection() != event.getTo().getDirection()){
-                return;
-            } else {
+            if(event.getFrom().getBlockX() != event.getTo().getBlockX()
+            || event.getFrom().getBlockY() != event.getTo().getBlockY()
+            || event.getFrom().getBlockZ() != event.getTo().getBlockZ()){
                 Teleportation.removePlayer(event.getPlayer());
                 event.getPlayer().sendMessage(MessageMaker.makeMessage(Text.getText(Text.teleportation_canceled), TextTypes.NO_SUCCESS));
             }

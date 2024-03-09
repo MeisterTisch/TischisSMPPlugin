@@ -14,6 +14,7 @@ chatDisabling:
 commands:
   onlyPlayers: 'Diesen Command kann nur ein Spieler ausführen.'
   invalidArgsLength: 'Ungültige Anzahl an Argumenten!'
+  invalidInput: 'Ungültiges Argument. Bitte überprüfe deine Eingabe.'
   home:
     creation:
       created: 'Home %home% wurde erstellt.'
@@ -38,6 +39,32 @@ commands:
       noHome: 'Bitte füge deinen Home hinzu, um es umzubenennen.'
       invalidHome: 'Diesen Home hast du nicht. Bitte wähle ein gültiges aus.'
     list: 'Das ist deine aktuelle Liste: %list%'
+  tpr:
+    noPlayerSelected: 'Bitte wähle einen Spieler aus!'
+    playerOffline: '%player% ist derzeit nicht auf dem Server!'
+    noOpenRequest: 'Du hast derzeit keine offene Anfrage!'
+    targetNotAccepting: '%player% akzeptiert zurzeit keine Anfragen!'
+    rejectedToTarget: 'Du hast die Anfrage abgelehnt.'
+    rejectedToSender: '%player% hat deine Anfrage abgelehnt.'
+    acceptedToTarget: 'Du hast die Anfrage akzeptiert!'
+    acceptedToSender: '%player% hat die Anfrage akzeptiert!'
+    requestExpiredSender: 'Die Anfrage von dir an %player% ist abgelaufen!'
+    requestExpiredTarget: 'Die Anfrage von %sender% an dich ist abgelaufen!'
+    cancelFirst: 'Brech erst deine Anfrage an %player% ab, bevor du eine neue schickst!'
+    acceptOrRejectFirst: 'Akzeptiere oder lehne erst deine Anfrage von %player% ab, bevor du eine neue verschickst!'
+    requestCanceled: 'Du hast die Anfrage abgebrochen.'
+    requestCanceledTarget: '%player% hat die Anfrage abgebrochen.'
+    to:
+      msgSentSender: 'Du hast %player% angefragt, ob du dich zu ihm/ihr teleportieren darfst.'
+      msgSentTarget: '%sender% hat angefragt, sich zu dir zu teleportieren.'
+    here:
+      msgSentSender: 'Du hast %player% angefragt, ob er/sie sich zu dir teleportieren darf.'
+      msgSentTarget: '%sender% hat angefragt, dich zu ihm/ihr zu teleportieren.'
+    toggle:
+      on: 'Du erlaubst Anfragen nun.'
+      off: 'Du verweigerst Anfragen nun.'
+      alreadyOn: 'Du erlaubst bereits Anfragen.'
+      alreadyOff: 'Du verweigerst bereits Anfragen.'
 dimensionAllowance:
   invalidAllowance: 'Ungültige Erlaubnis bei der Dimension %dimension%. Setze es auf "true" zurück.'
   netherNotAllowed: 'Nether ist zurzeit gesperrt!'
@@ -115,6 +142,10 @@ admin:
         sameAsSender: 'Du kannst dich nicht als Ziel eintragen.'
 teleportation:
   successful: 'Du wurdest teleportiert!'
-  canceled: 'Teleportation abgebrochen'
+  canceled: 'Teleportation abgebrochen.'
   dontMove: 'Nicht bewegen! Du wirst in drei Sekunden teleportiert.'
+  tpr:
+    target:
+      successful: '%player% wurde teleportiert!'
+      canceled: 'Teleportation von %player% abgebrochen.'
 testCommand: 'Deutschland über allem'
