@@ -51,6 +51,7 @@ commands:
     requestExpiredTarget: 'The request by %sender% to you expired!'
     requestCanceled: 'You canceled the request.'
     requestCanceledTarget: '%player% canceled the request.'
+    senderIsTarget: 'You cannot send yourself a request.'
     to:
       msgSentSender: 'You requested at %player%, if you could teleport to him/her.'
       msgSentTarget: '%sender% has requested to teleport to you.'
@@ -60,8 +61,8 @@ commands:
     cancelFirst: 'First cancel the request to %player% before sending a new one!'
     acceptOrRejectFirst: 'Accept or reject the request from %player% before sending a new one!'
     toggle:
-      on: 'You are accepting requests now.'
-      off: 'You are rejecting requests now.'
+      makingOn: 'You are accepting requests now.'
+      makingOff: 'You are rejecting requests now.'
       alreadyOn: 'You are already accepting now.'
       alreadyOff: 'You are already rejecting now.'
 dimensionAllowance:

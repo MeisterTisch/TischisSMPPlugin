@@ -46,11 +46,13 @@ public class TPRScheduler {
         countdown.put(new TeleportationRequest(player, target, isReversed), 30);
     }
 
-    public static void removeRequest(Player sender){
+    public static void removeRequest(Player sender, boolean silent){
         for(TeleportationRequest request : countdown.keySet()){
             if(request.getSender() == sender){
-                request.getSender().sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_requestCanceled), TextTypes.NO_SUCCESS));
-                request.getTarget().sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_requestCanceledTarget), TextTypes.NO_SUCCESS));
+                if(!silent){
+                    request.getSender().sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_requestCanceled), TextTypes.NO_SUCCESS));
+                    request.getTarget().sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_requestCanceledTarget), TextTypes.NO_SUCCESS));
+                }
                 countdown.remove(request);
             }
         }
@@ -59,6 +61,42 @@ public class TPRScheduler {
     public static void stopScheduler(){
         scheduledFuture.cancel(true);
         service.shutdown();
+    }
+
+    public static boolean isSender(Player player){
+        for(TeleportationRequest request : countdown.keySet()){
+            if(request.getSender() == player){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static Player getTarget(Player sender){
+        for(TeleportationRequest request : countdown.keySet()){
+            if(request.getSender() == sender){
+                return request.getTarget();
+            }
+        }
+        return null;
+    }
+
+    public static Player getSender(Player target){
+        for(TeleportationRequest request : countdown.keySet()){
+            if(request.getTarget() == target){
+                return request.getSender();
+            }
+        }
+        return null;
+    }
+
+    public static boolean isTarget(Player player){
+        for(TeleportationRequest request : countdown.keySet()){
+            if(request.getTarget() == player){
+                return true;
+            }
+        }
+        return false;
     }
 
     public static HashMap<TeleportationRequest, Integer> getCountdown() {

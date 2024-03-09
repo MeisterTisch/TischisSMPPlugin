@@ -54,6 +54,7 @@ commands:
     acceptOrRejectFirst: 'Akzeptiere oder lehne erst deine Anfrage von %player% ab, bevor du eine neue verschickst!'
     requestCanceled: 'Du hast die Anfrage abgebrochen.'
     requestCanceledTarget: '%player% hat die Anfrage abgebrochen.'
+    senderIsTarget: 'Du kannst dir selbst keine Anfrage senden!'
     to:
       msgSentSender: 'Du hast %player% angefragt, ob du dich zu ihm/ihr teleportieren darfst.'
       msgSentTarget: '%sender% hat angefragt, sich zu dir zu teleportieren.'
@@ -61,8 +62,8 @@ commands:
       msgSentSender: 'Du hast %player% angefragt, ob er/sie sich zu dir teleportieren darf.'
       msgSentTarget: '%sender% hat angefragt, dich zu ihm/ihr zu teleportieren.'
     toggle:
-      on: 'Du erlaubst Anfragen nun.'
-      off: 'Du verweigerst Anfragen nun.'
+      makingOn: 'Du erlaubst nun Anfragen.'
+      makingOff: 'Du verweigerst nun Anfragen.'
       alreadyOn: 'Du erlaubst bereits Anfragen.'
       alreadyOff: 'Du verweigerst bereits Anfragen.'
 dimensionAllowance:

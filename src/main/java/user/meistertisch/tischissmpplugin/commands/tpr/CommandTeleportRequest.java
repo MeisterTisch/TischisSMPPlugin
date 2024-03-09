@@ -28,7 +28,7 @@ public class CommandTeleportRequest implements TabExecutor {
                         for(TeleportationRequest request : TPRScheduler.getCountdown().keySet()){
                             if(request.getSender() == player){
                                 //CAN CANCEL
-                                TPRScheduler.removeRequest(player);
+                                TPRScheduler.removeRequest(player, false);
                                 return true;
                             }
                         }
@@ -46,6 +46,7 @@ public class CommandTeleportRequest implements TabExecutor {
                                 } else {
                                     Teleportation.teleport(request.getTarget(), request.getSender().getLocation());
                                 }
+                                TPRScheduler.removeRequest(request.getSender(), true);
                                 return true;
                             }
                         }
@@ -56,9 +57,9 @@ public class CommandTeleportRequest implements TabExecutor {
                             if(request.getTarget() == player){
                                 //CAN REJECT
                                 request.getSender().sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_rejectedToSender)
-                                        .replace("%player%", player.getDisplayName()), TextTypes.SUCCESS));
+                                        .replace("%player%", player.getDisplayName()), TextTypes.NO_SUCCESS));
                                 player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_rejectedToTarget), TextTypes.NO_SUCCESS));
-                                TPRScheduler.removeRequest(request.getSender());
+                                TPRScheduler.removeRequest(request.getSender(), true);
                                 return true;
                             }
                         }
@@ -68,10 +69,11 @@ public class CommandTeleportRequest implements TabExecutor {
                 } else if(strings[0].toLowerCase(Locale.ROOT).equals("toggle")){
                     boolean isRejecting = FilePlayers.getConfig().getBoolean(player.getDisplayName() + ".isRejectingTPR");
                     FilePlayers.getConfig().set(player.getDisplayName() + ".isRejectingTPR", !isRejecting);
+                    FilePlayers.saveConfig();
                     if(isRejecting){
-                        player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_toggle_off), TextTypes.NO_SUCCESS));
-                    } else {
                         player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_toggle_on), TextTypes.SUCCESS));
+                    } else {
+                        player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_toggle_off), TextTypes.NO_SUCCESS));
                     }
                 } else {
                     player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_invalidInput), TextTypes.NO_SUCCESS));
@@ -81,11 +83,33 @@ public class CommandTeleportRequest implements TabExecutor {
                     //Sender wants to target
                     if(Bukkit.getPlayer(strings[1]) != null){
                         Player target = Bukkit.getPlayer(strings[1]);
-                        TPRScheduler.request(player, target, false);
-                        player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_to_msgSentSender)
-                                .replace("%player%", target.getDisplayName()), TextTypes.SUCCESS));
-                        target.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_to_msgSentSender)
-                                .replace("%sender%", player.getDisplayName()), TextTypes.SUCCESS));
+                        //Check for sender is target
+                        if(target == player){
+                            player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_senderIsTarget), TextTypes.NO_SUCCESS));
+                            return true;
+                        }
+
+                        if(!FilePlayers.getConfig().getBoolean(target.getDisplayName() + ".isRejectingTPR")) {
+                            //Check for active requests
+                            if(TPRScheduler.isSender(player)){
+                                player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_cancelFirst)
+                                        .replace("%player%", TPRScheduler.getTarget(player).getDisplayName()), TextTypes.NO_SUCCESS));
+                                return true;
+                            }
+                            if(TPRScheduler.isTarget(player)){
+                                player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_acceptOrRejectFirst)
+                                        .replace("%player%", TPRScheduler.getSender(player).getDisplayName()), TextTypes.NO_SUCCESS));
+                                return true;
+                            }
+                            TPRScheduler.request(player, target, false);
+                            player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_to_msgSentSender)
+                                    .replace("%player%", target.getDisplayName()), TextTypes.SUCCESS));
+                            target.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_to_msgSentTarget)
+                                    .replace("%sender%", player.getDisplayName()), TextTypes.SUCCESS));
+                        } else {
+                            player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_targetNotAccepting)
+                                    .replace("%player%", target.getDisplayName()), TextTypes.NO_SUCCESS));
+                        }
                     } else {
                         //player offline
                         player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_playerOffline)
@@ -95,11 +119,32 @@ public class CommandTeleportRequest implements TabExecutor {
                     //Sender wants target to sender
                     if(Bukkit.getPlayer(strings[1]) != null){
                         Player target = Bukkit.getPlayer(strings[1]);
-                        TPRScheduler.request(player, target, true);
-                        player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_here_msgSentSender)
-                                .replace("%player%", target.getDisplayName()), TextTypes.SUCCESS));
-                        target.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_here_msgSentSender)
-                                .replace("%sender%", player.getDisplayName()), TextTypes.SUCCESS));
+                        //Check for sender is target
+                        if(target == player){
+                            player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_senderIsTarget), TextTypes.NO_SUCCESS));
+                            return true;
+                        }
+                        if(!FilePlayers.getConfig().getBoolean(target.getDisplayName() + ".isRejectingTPR")) {
+                            //Check for active requests
+                            if(TPRScheduler.isSender(player)){
+                                player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_cancelFirst)
+                                        .replace("%player%", TPRScheduler.getTarget(player).getDisplayName()), TextTypes.NO_SUCCESS));
+                                return true;
+                            }
+                            if(TPRScheduler.isTarget(player)){
+                                player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_acceptOrRejectFirst)
+                                        .replace("%player%", TPRScheduler.getSender(player).getDisplayName()), TextTypes.NO_SUCCESS));
+                                return true;
+                            }
+                            TPRScheduler.request(player, target, true);
+                            player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_here_msgSentSender)
+                                    .replace("%player%", target.getDisplayName()), TextTypes.SUCCESS));
+                            target.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_here_msgSentTarget)
+                                    .replace("%sender%", player.getDisplayName()), TextTypes.SUCCESS));
+                        } else {
+                            player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_targetNotAccepting)
+                                    .replace("%player%", target.getDisplayName()), TextTypes.NO_SUCCESS));
+                        }
                     } else {
                         //player offline
                         player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_playerOffline)
@@ -136,7 +181,6 @@ public class CommandTeleportRequest implements TabExecutor {
     @Override
     public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
         List<String> list = new ArrayList<>();
-
         if(strings.length == 1){
             list.addAll(List.of("to", "here", "toggle", "accept", "reject", "cancel"));
         } else if(strings.length == 2){
@@ -146,7 +190,6 @@ public class CommandTeleportRequest implements TabExecutor {
                 return null;
             }
         }
-
         return list;
     }
 }

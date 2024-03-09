@@ -3,7 +3,7 @@ UUID: diesdas
 team: curse
     isLeader: false
 isStaff: true
-rejectingTPR: false
+isRejectingTPR: false
 logoutLocation:
     x: 123
     y: 131
