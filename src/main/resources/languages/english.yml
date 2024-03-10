@@ -73,6 +73,22 @@ commands:
     youSending: 'You'
     youReceiving: 'you'
     senderIsTarget: 'You cannot write yourself!'
+  teams:
+    chatOn: 'Teamchat beigetreten!'
+    chatOff: 'Teamchat verlassen!'
+    chatNoTeam: 'Du bist in keinem Team!'
+    add:
+      target: 'Du wurdest zu Team %team% hinzugefügt.'
+      team: '%player% wurde zu euerem Team hinzugefügt.'
+    remove:
+      target: 'Du wurdest von Team %team% entfernt.'
+      team: '%player% wurde von euerem Team entfernt.'
+    edit:
+      name: 'Euer Team heißt nun %name%.'
+      color: 'Euer Team hat nun die Farbe %color%.'
+      effect: 'Euer Team hat nun den Effekt %effect%.'
+      noEffect: 'Euer Team hat nun kein Effekt mehr.'
+    deleted: 'Euer Team wurde gelöscht!'
 dimensionAllowance:
   invalidAllowance: 'Invalid permission for the dimension %dimension%. Setting it back to "true".'
   netherNotAllowed: 'Nether is currently closed!'
@@ -148,6 +164,33 @@ admin:
         addedToAdmin: 'You have been added as an admin.'
         removedFromAdmin: 'You have been removed as admin.'
         sameAsSender: 'You cannot register as a target.'
+    teams:
+      noAction: 'Ungültige Aktion! Bitte überprüfe deine Eingabe.'
+      noName: 'Bitte gib ein Name ein!'
+      createAndEdit:
+        nameTaken: '%name% ist bereits in Nutzung! Bitte wähle einen anderen Namen!'
+        noColor: 'Bitte gib eine Farbe ein!'
+        colorTaken: '%color% ist bereits in Nutzung! Bitte wähle einen anderen Namen!'
+        invalidColor: '%color% ist ungültig. Bitte wähle ein gültiges aus.'
+        invalidEffect: '%effect% ist ungültig. Bitte wähle ein gültiges aus!'
+        createdWithoutEffect: 'Team %team% mit der Farbe %color%, ohne Effekt, wurde erstellt!'
+        createdWithEffect: 'Team %team% mit der Farbe %color%, mit Effekt %effect%, wurde erstellt!'
+        changedEffect: 'Effekt von Team %team% wurde von %oldEffect% zu %newEffect% geändert.'
+        changedColor: 'Farbe von Team %team% wurde von %oldColor% zu %newColor% geändert.'
+        changedName: 'Team %oldTeam% heißt nun Team %newTeam%.'
+      invalidTeam: '%team% gibt es nicht! Bitte gib einen gültigen ein!'
+      confirmDeletion: 'Willst du wirklich %team% löschen? Dann schreibe /teams delete %team% confirm.'
+      deleted: '%team% wurde gelöscht!'
+      noPlayer: 'Bitte gib einen Spieler an!'
+      noTeam: 'Bitte gib ein Team an!'
+      add:
+        playerAlreadyInTeam: '%player% ist bereits bei %team%!'
+        playerAddedToTeam: '%player% wurde zu Team %team% hinzugefügt.'
+        selfJoin: 'Du bist Team %team% beigetreten.'
+      remove:
+        playerInNoTeam: '%player% ist in keinem Team!'
+        playerRemovedFromTeam: '%player% wurde aus Team %team% entfernt!'
+        selfLeave: 'Du hast Team %team% verlassen.'
 teleportation:
   successful: 'You have been teleported!'
   canceled: 'Teleportation canceled!'

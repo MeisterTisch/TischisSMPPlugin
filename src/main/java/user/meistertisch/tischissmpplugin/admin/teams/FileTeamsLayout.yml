@@ -1,0 +1,28 @@
+takenColors:
+  - red
+  - blue
+takenNames:
+  - CURSE
+  - AnitaMaxWynn
+red:
+  name: 'Rotes Armee'
+  players:
+    - Dani
+    - Vero
+    - Julius
+blue:
+  name: 'awd'
+  players:
+    - Kilian
+
+
+      teams:
+        create: <name>, <color>, [effect]
+        delete: <name>, confirm
+        add: <player>, <team>
+        remove: <player>
+        edit: <team>
+          color: <color>
+          effect: <effect>
+          name: <name>
+        chat: [ on/off ]

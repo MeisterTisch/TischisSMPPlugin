@@ -3,6 +3,8 @@ package user.meistertisch.tischissmpplugin;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import user.meistertisch.tischissmpplugin.admin.teams.CommandTeams;
+import user.meistertisch.tischissmpplugin.admin.teams.FileTeams;
 import user.meistertisch.tischissmpplugin.commands.CommandHome;
 import user.meistertisch.tischissmpplugin.commands.dm.CommandDirectMessage;
 import user.meistertisch.tischissmpplugin.commands.dm.DirectMessageScheduler;
@@ -32,12 +34,14 @@ public final class Main extends JavaPlugin {
         plugin = this;
         pluginManager = Bukkit.getPluginManager();
 
-        //Loading Files and other different things
+        //Setups and so on
+            //Files
         this.saveDefaultConfig();
         this.saveResource("languages/english.yml", true);
         this.saveResource("languages/german.yml", true);
-        this.saveResource("bannedPlayers.yml", false);
         FilePlayers.setup();
+        FileTeams.setup();
+            //Schedulers
         Teleportation.setup();
         TPRScheduler.setup();
         DirectMessageScheduler.setup();
@@ -57,6 +61,7 @@ public final class Main extends JavaPlugin {
         getCommand("home").setExecutor(new CommandHome());
         getCommand("tpr").setExecutor(new CommandTeleportRequest());
         getCommand("dm").setExecutor(new CommandDirectMessage());
+        getCommand("teams").setExecutor(new CommandTeams());
 
         //Listeners
         pluginManager.registerEvents(new ListenerChat(), this);

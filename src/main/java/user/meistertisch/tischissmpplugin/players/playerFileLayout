@@ -1,7 +1,6 @@
 displayName: MeisterTisch
 UUID: diesdas
 team: curse
-    isLeader: false
 isStaff: true
 isRejectingTPR: false
 logoutLocation:
