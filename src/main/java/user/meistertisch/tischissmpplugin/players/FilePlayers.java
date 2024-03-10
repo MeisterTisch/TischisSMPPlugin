@@ -13,7 +13,7 @@ public class FilePlayers {
 
     public static void setup(){
         file = new File(
-                Main.getPlugin().getDataFolder(), "playerManagerFile.yml");
+                Main.getPlugin().getDataFolder(), "players.yml"); //playerManagerFile
         if(!file.exists()){
             try {
                 file.createNewFile();
