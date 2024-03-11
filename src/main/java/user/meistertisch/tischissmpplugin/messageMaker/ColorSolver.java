@@ -6,18 +6,24 @@ import user.meistertisch.tischissmpplugin.Main;
 import java.util.Locale;
 
 public class ColorSolver {
-    static String solvedMessage;
     public static String solveColor(String message){
         ChatColor color1 = ChatColor.getByChar(Main.getPlugin().getConfig().getString("color.color1").charAt(0));
         ChatColor color2 = ChatColor.getByChar(Main.getPlugin().getConfig().getString("color.color2").charAt(0));
 
-        solvedMessage = message.replace("%color1%", ""+color1);
-        solvedMessage = solvedMessage.replace("%color2%" , ""+color2);
+        message = message.replace("%color1%", ""+color1);
+        message = message.replace("%color2%" , ""+color2);
 
         for(char color : ChatColor.ALL_CODES.toCharArray()){
-            solvedMessage = solvedMessage.replace("%"+color+"%", ChatColor.getByChar(color)+"");
+            message = message.replace("%"+color+"%", ChatColor.getByChar(color)+"");
         }
-        return solvedMessage;
+        return message;
+    }
+
+    public static String solveColorForChat(String message){
+        for(char color : ChatColor.ALL_CODES.toCharArray()){
+            message = message.replace("&" + color, ChatColor.getByChar(color) + "");
+        }
+        return message;
     }
 
     public static ChatColor giveColorByName(String colorName){

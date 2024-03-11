@@ -1,6 +1,7 @@
 package user.meistertisch.tischissmpplugin.listeners;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Color;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -8,6 +9,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import user.meistertisch.tischissmpplugin.Main;
 import user.meistertisch.tischissmpplugin.admin.teams.FileTeams;
 import user.meistertisch.tischissmpplugin.languages.Text;
+import user.meistertisch.tischissmpplugin.messageMaker.ColorSolver;
 import user.meistertisch.tischissmpplugin.messageMaker.MessageMaker;
 import user.meistertisch.tischissmpplugin.messageMaker.TextTypes;
 import user.meistertisch.tischissmpplugin.misc.PlayerListPrefix;
@@ -16,6 +18,7 @@ import user.meistertisch.tischissmpplugin.players.FilePlayers;
 public class ListenerChat implements Listener {
     @EventHandler
     public void playerSayInChat(AsyncPlayerChatEvent event){
+        String chatMessage = ColorSolver.solveColorForChat(event.getMessage());
         Player player = event.getPlayer();
         if(Main.getPlugin().getConfig().getBoolean("chatDisabled") && !FilePlayers.getConfig().getBoolean(player.getDisplayName() + ".isAdmin")) {
             event.setCancelled(true);
@@ -29,7 +32,7 @@ public class ListenerChat implements Listener {
                     for(String pl : FileTeams.getConfig().getStringList(c + ".players")){
                         if(Bukkit.getPlayer(pl) != null){
                             Bukkit.getPlayer(pl).sendMessage(MessageMaker.makeMessage(
-                                    player.getDisplayName() + ": " + event.getMessage(), TextTypes.CHAT_TEAM));
+                                    player.getDisplayName() + ": " + chatMessage, TextTypes.CHAT_TEAM));
                         }
                     }
                     break;
@@ -40,9 +43,9 @@ public class ListenerChat implements Listener {
         }
 
         if(FilePlayers.getConfig().getString(player.getDisplayName() + ".team") != null){
-            event.setFormat(PlayerListPrefix.givePrefix(player) + ": " + event.getMessage());
+            event.setFormat(PlayerListPrefix.givePrefix(player) + ": " + chatMessage);
         } else {
-            event.setFormat(event.getPlayer().getDisplayName() + ": " + event.getMessage());
+            event.setFormat(event.getPlayer().getDisplayName() + ": " + chatMessage);
         }
     }
 }
