@@ -14,6 +14,7 @@ import user.meistertisch.tischissmpplugin.commands.tpr.TPRScheduler;
 import user.meistertisch.tischissmpplugin.forTesting.TestCommand;
 import user.meistertisch.tischissmpplugin.languages.Languages;
 import user.meistertisch.tischissmpplugin.listeners.ListenerChat;
+import user.meistertisch.tischissmpplugin.listeners.ListenerDeathOfPlayer;
 import user.meistertisch.tischissmpplugin.listeners.ListenerDimensionAllowance;
 import user.meistertisch.tischissmpplugin.admin.*;
 import user.meistertisch.tischissmpplugin.admin.CommandPrefix;
@@ -70,6 +71,7 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new ListenerDimensionAllowance(), this);
         pluginManager.registerEvents(new ListenerJoinAndLeave(), this);
         pluginManager.registerEvents(new ListenerMove(), this);
+        pluginManager.registerEvents(new ListenerDeathOfPlayer(), this);
 
         //Misc
 

@@ -4,6 +4,9 @@ accentColor:
   invalidAccentColor1: 'Accent color 1 is invalid! Setting it back to "9". Make sure you only use colors.'
   invalidAccentColor2: 'Accent color 2 is invalid! Setting it back to "b". Make sure you only use colors.'
 announcement: 'Announcement'
+headDrop:
+  player: 'Head of %player%'
+  killer: 'Killed by %killer%'
 ban:
   withoutDuration: 'You are currently banned!\nReason: %reason%'
   withDuration: 'You are currently banned!\nReason: %reason%\nDuration left: %duration%'

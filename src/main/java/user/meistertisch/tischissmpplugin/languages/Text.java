@@ -49,6 +49,8 @@ public enum Text {
     command_teams_alreadyOn("commands.teams.alreadyOn"),
     command_teams_alreadyOff("commands.teams.alreadyOff"),
     teamchat("teamchat"),
+    headDrop_player("headDrop.player"),
+    headDrop_killer("headDrop.killer"),
     admin_command_chatDisabling_broadcast("admin.commands.chatDisabling.broadcast"),
     command_sign_signed("commands.sign.signed"),
     command_sign_noItem("commands.sign.noItem"),
