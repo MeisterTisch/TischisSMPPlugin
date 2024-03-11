@@ -9,6 +9,15 @@ import user.meistertisch.tischissmpplugin.players.FilePlayers;
 public class PlayerListPrefix {
     public static void makePrefix(Player player){
         //For Teams
+        player.setPlayerListName(getListName(player));
+    }
+
+    public static String givePrefix(Player player){
+        //For Teams
+        return getListName(player);
+    }
+
+    private static String getListName(Player player) {
         String listName = player.getDisplayName();
 
         if(FilePlayers.getConfig().getString(player.getDisplayName() + ".team") != null){
@@ -33,9 +42,8 @@ public class PlayerListPrefix {
 
             }
         }
-        player.setPlayerListName(listName);
+        return listName;
     }
-
     public static void removePrefix(Player player){
         player.setPlayerListName(player.getDisplayName());
     }

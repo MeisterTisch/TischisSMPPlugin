@@ -76,6 +76,8 @@ commands:
     senderIsTarget: 'Du kannst dir selbst nicht schreiben!'
   teams:
     chatOn: 'Teamchat beigetreten!'
+    alreadyOn: 'Du bist bereits im Teamchat!'
+    alreadyOff: 'Du bist nicht im Teamchat!'
     chatOff: 'Teamchat verlassen!'
     chatNoTeam: 'Du bist in keinem Team!'
     add:
@@ -167,6 +169,7 @@ admin:
         sameAsSender: 'Du kannst dich nicht als Ziel eintragen.'
     teams:
       noAction: 'Ungültige Aktion! Bitte überprüfe deine Eingabe.'
+      noValue: 'Ungültiger Wert! Bitte überprüfe deine Eingabe.'
       noName: 'Bitte gib ein Name ein!'
       createAndEdit:
         nameTaken: '%name% ist bereits in Nutzung! Bitte wähle einen anderen Namen!'
@@ -179,6 +182,9 @@ admin:
         changedEffect: 'Effekt von Team %team% wurde von %oldEffect% zu %newEffect% geändert.'
         changedColor: 'Farbe von Team %team% wurde von %oldColor% zu %newColor% geändert.'
         changedName: 'Team %oldTeam% heißt nun Team %newTeam%.'
+        sameEffect: 'Diesen Effect hat schon das Team %team%!'
+        sameColor: 'Diese Farbe hat schon das Team %team%!'
+        sameName: 'Diesen Namen hat schon das Team %team%!'
       invalidTeam: '%team% gibt es nicht! Bitte gib einen gültigen ein!'
       confirmDeletion: 'Willst du wirklich %team% löschen? Dann schreibe /teams delete %team% confirm.'
       deleted: '%team% wurde gelöscht!'
@@ -194,6 +200,7 @@ admin:
         playerRemovedFromTeam: '%player% wurde aus Team %team% entfernt!'
         selfInNoTeam: 'Du bist in keinem Team!'
         selfLeave: 'Du hast Team %team% verlassen.'
+teamchat: 'Teamchat'
 teleportation:
   successful: 'Du wurdest teleportiert!'
   canceled: 'Teleportation abgebrochen.'

@@ -23,7 +23,7 @@ public class MessageMaker {
                 makedMessage = Main.getPlugin().getConfig().getString("prefix") + ChatColor.RED + message;
             }
             case CHAT_TEAM -> {
-                //TODO: STILL NEED TEAM ROLES
+                makedMessage = color1 + "[" + color2 + Text.getText(Text.teamchat) + color1 + "] " + ChatColor.RESET + message;
             }
             case IMPORTANT -> {
                 makedMessage = Main.getPlugin().getConfig().getString("prefix") + ChatColor.GOLD + "[" + Text.getText(Text.important) + "]" + ChatColor.WHITE + "\n" + message;
