@@ -26,13 +26,6 @@ homes:
         y: 623
         z: 235
         world: wadoaw
-ban:
-    isBanned: true
-    withReason: false
-    reason: "Du idiot"
-    withDuration: true
-    bannedTime: DATE
-    until: DATE TODO:     
 mute:
     isMuted: true
     reason: "Du opfa"

@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommandPrefix implements TabExecutor {
-    //TODO: ONLY STAFF
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         //CHECK FOR ADMIN

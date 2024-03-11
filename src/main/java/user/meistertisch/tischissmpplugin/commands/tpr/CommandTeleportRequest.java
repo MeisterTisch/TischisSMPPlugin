@@ -23,7 +23,6 @@ public class CommandTeleportRequest implements TabExecutor {
                 if(List.of("to", "here").contains(strings[0].toLowerCase(Locale.ROOT))){
                     player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_noPlayerSelected), TextTypes.NO_SUCCESS));
                 } else if(List.of("accept", "reject", "cancel").contains(strings[0].toLowerCase(Locale.ROOT))){
-                    //TODO
                     if(strings[0].toLowerCase(Locale.ROOT).equals("cancel")){
                         for(TeleportationRequest request : TPRScheduler.getCountdown().keySet()){
                             if(request.getSender() == player){

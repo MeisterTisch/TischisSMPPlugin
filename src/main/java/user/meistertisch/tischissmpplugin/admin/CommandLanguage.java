@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.Locale;
 
 public class CommandLanguage implements TabExecutor {
-    //TODO: Staff only
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         //CHECK FOR ADMIN

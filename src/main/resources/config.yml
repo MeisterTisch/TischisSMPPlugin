@@ -19,7 +19,7 @@ dimensionAllowance:
 # language: self-explanatory, following languages are available and need to be written exactly like that.
 # german, english
 # For easier changing, do it with the /language command in-game or in the console.
-# command: /language <language> TODO
+# command: /language <language>
 language: german
 # prefix: This is the prefix of your plugin. You can change it here or easier in-game or in the console with the command /prefix
 # Leave after the prefix a blank space!!!
