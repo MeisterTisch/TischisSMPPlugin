@@ -6,6 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import user.meistertisch.tischissmpplugin.admin.teams.CommandTeams;
 import user.meistertisch.tischissmpplugin.admin.teams.FileTeams;
 import user.meistertisch.tischissmpplugin.commands.CommandHome;
+import user.meistertisch.tischissmpplugin.commands.CommandSign;
 import user.meistertisch.tischissmpplugin.commands.dm.CommandDirectMessage;
 import user.meistertisch.tischissmpplugin.commands.dm.DirectMessageScheduler;
 import user.meistertisch.tischissmpplugin.commands.tpr.CommandTeleportRequest;
@@ -62,6 +63,7 @@ public final class Main extends JavaPlugin {
         getCommand("tpr").setExecutor(new CommandTeleportRequest());
         getCommand("dm").setExecutor(new CommandDirectMessage());
         getCommand("teams").setExecutor(new CommandTeams());
+        getCommand("sign").setExecutor(new CommandSign());
 
         //Listeners
         pluginManager.registerEvents(new ListenerChat(), this);

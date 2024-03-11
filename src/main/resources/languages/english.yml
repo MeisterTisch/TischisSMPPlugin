@@ -14,6 +14,10 @@ commands:
   onlyPlayers: 'Only a player can execute this command.'
   invalidArgsLength: 'Invalid length of arguments!'
   invalidInput: 'Invalid argument. Please check your input!'
+  sign:
+    text: 'Signed by %player%'
+    signed: 'Your item has been signed!'
+    noItem: 'Please hold a item in your hand!'
   home:
     creation:
       created: 'Home %home% has been created.'

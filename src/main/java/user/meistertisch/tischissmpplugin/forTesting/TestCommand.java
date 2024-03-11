@@ -12,7 +12,7 @@ public class TestCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if(commandSender instanceof Player player){
-            Teleportation.teleport(player, new Location(player.getWorld(), 7.5, 83, -3.5, 0, 0));
+            player.sendMessage(String.valueOf(player.getInventory().getItemInMainHand()));
         }
         return true;
     }

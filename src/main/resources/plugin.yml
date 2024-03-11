@@ -18,6 +18,7 @@ commands:
   admin:
   home:
   tpr:
+  sign:
   dm:
     aliases:
       - msg
