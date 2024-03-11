@@ -1,5 +1,6 @@
 package user.meistertisch.tischissmpplugin.admin;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -16,7 +17,6 @@ import java.util.List;
 import java.util.Locale;
 
 public class CommandChatDisabling implements TabExecutor {
-    //TODO: ONLY STAFF
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         //CHECK FOR ADMIN
@@ -51,14 +51,16 @@ public class CommandChatDisabling implements TabExecutor {
                         //making disable
                         Main.getPlugin().getConfig().set("chatDisabled", true);
                         Main.getPlugin().saveConfig();
-                        Main.getPlugin().reloadConfig();
-                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_chatDisabling_disabled), TextTypes.SUCCESS));
+//                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_chatDisabling_disabled), TextTypes.SUCCESS));
+                        Bukkit.broadcastMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_chatDisabling_broadcast)
+                                .replace("%status%", Text.getText(Text.admin_commands_chatDisabling_status_disabled)), TextTypes.NO_SUCCESS));
                     } else {
                         //making enabled
                         Main.getPlugin().getConfig().set("chatDisabled", false);
                         Main.getPlugin().saveConfig();
-                        Main.getPlugin().reloadConfig();
-                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_chatDisabling_enabled), TextTypes.SUCCESS));
+//                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_chatDisabling_enabled), TextTypes.SUCCESS));
+                        Bukkit.broadcastMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_chatDisabling_broadcast)
+                                .replace("%status%", Text.getText(Text.admin_commands_chatDisabling_status_enabled)), TextTypes.SUCCESS));
                     }
                 }
             } else {

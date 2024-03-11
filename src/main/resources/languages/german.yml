@@ -145,6 +145,7 @@ admin:
       disabled: 'Chat wurde deaktiviert.'
       statusAlreadyThere: 'Chat ist schon %status%.'
       invalidStatusInput: 'Ungültiger Status. Bitte überprüfe deine Eingabe!'
+      broadcast: 'Chat wurde %status%!'
       status:
         enabled: 'aktiviert'
         disabled: 'deaktiviert'

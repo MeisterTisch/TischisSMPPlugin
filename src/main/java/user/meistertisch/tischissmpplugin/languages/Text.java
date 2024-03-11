@@ -49,6 +49,7 @@ public enum Text {
     command_teams_alreadyOn("commands.teams.alreadyOn"),
     command_teams_alreadyOff("commands.teams.alreadyOff"),
     teamchat("teamchat"),
+    admin_command_chatDisabling_broadcast("admin.commands.chatDisabling.broadcast"),
     command_tpr_toggle_alreadyOn("commands.tpr.toggle.alreadyOn"),
     command_tpr_toggle_alreadyOff("commands.tpr.toggle.alreadyOff"),
     admin_command_teams_noValue("admin.commands.teams.noValue"),
