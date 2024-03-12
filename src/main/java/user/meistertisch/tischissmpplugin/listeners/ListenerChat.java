@@ -2,6 +2,8 @@ package user.meistertisch.tischissmpplugin.listeners;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
+import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -33,6 +35,8 @@ public class ListenerChat implements Listener {
                         if(Bukkit.getPlayer(pl) != null){
                             Bukkit.getPlayer(pl).sendMessage(MessageMaker.makeMessage(
                                     player.getDisplayName() + ": " + chatMessage, TextTypes.CHAT_TEAM));
+                            Bukkit.getPlayer(pl)
+                                    .playSound(Bukkit.getPlayer(pl), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 1,1,1);
                         }
                     }
                     break;

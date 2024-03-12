@@ -2,6 +2,8 @@ package user.meistertisch.tischissmpplugin.admin;
 
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -82,6 +84,9 @@ public class CommandDimensionAllowance implements TabExecutor {
 
                     commandSender.sendMessage(MessageMaker.makeMessage(successfulExecution, TextTypes.SUCCESS));
                     Bukkit.broadcastMessage(MessageMaker.makeMessage(announcement, TextTypes.ANNOUNCEMENT));
+                    for(Player player : Bukkit.getOnlinePlayers()){
+                        player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 1,1,1);
+                    }
                 } else {
                     //allowance passt nicht
                     commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_dimension_invalidAllowance), TextTypes.NO_SUCCESS));

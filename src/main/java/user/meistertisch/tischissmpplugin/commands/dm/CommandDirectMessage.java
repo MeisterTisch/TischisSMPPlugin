@@ -1,6 +1,8 @@
 package user.meistertisch.tischissmpplugin.commands.dm;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -43,6 +45,8 @@ public class CommandDirectMessage implements TabExecutor {
                         Bukkit.getPlayer(strings[0]).sendMessage(MessageMaker.makeMessage(message, TextTypes.DM)
                                 .replace("%sender%", player.getDisplayName())
                                 .replace("%target%", Text.getText(Text.command_dm_youReceiving)));
+                        Bukkit.getPlayer(strings[0])
+                                .playSound(Bukkit.getPlayer(strings[0]), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 1,1,1);
                         DirectMessageScheduler.addToList(player, Bukkit.getPlayer(strings[0]));
                     } else {
                         player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_dm_playerOffline)
@@ -69,6 +73,8 @@ public class CommandDirectMessage implements TabExecutor {
                             DirectMessageScheduler.getLastTarget(player).sendMessage(MessageMaker.makeMessage(message, TextTypes.DM)
                                     .replace("%sender%", player.getDisplayName())
                                     .replace("%target%", Text.getText(Text.command_dm_youReceiving)));
+                            DirectMessageScheduler.getLastTarget(player)
+                                    .playSound(DirectMessageScheduler.getLastTarget(player), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 1,1,1);
                             DirectMessageScheduler.addToList(player, Bukkit.getPlayer(target.getDisplayName()));
                         } else {
                             player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_dm_playerOffline)

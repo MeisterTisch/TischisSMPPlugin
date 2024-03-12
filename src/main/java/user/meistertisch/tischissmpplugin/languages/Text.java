@@ -26,6 +26,7 @@ public enum Text {
     command_tpr_requestCanceled("commands.tpr.requestCanceled"),
     command_tpr_requestCanceledTarget("commands.tpr.requestCanceledTarget"),
     command_tpr_senderIsTarget("commands.tpr.senderIsTarget"),
+
     command_dm_noPlayer("commands.dm.noPlayer"),
     command_teams_chatOn("commands.teams.chatOn"),
     command_teams_chatOff("commands.teams.chatOff"),
@@ -44,7 +45,7 @@ public enum Text {
     command_dm_noMessage("commands.dm.noMessage"),
     command_dm_youSending("commands.dm.youSending"),
     command_dm_youReceiving("commands.dm.youReceiving"),
-    command_dm_senderIsTarget("commands.dm:senderIsTarget"),
+    command_dm_senderIsTarget("commands.dm.senderIsTarget"),
     command_invalidInput("commands.invalidInput"),
     command_teams_alreadyOn("commands.teams.alreadyOn"),
     command_teams_alreadyOff("commands.teams.alreadyOff"),

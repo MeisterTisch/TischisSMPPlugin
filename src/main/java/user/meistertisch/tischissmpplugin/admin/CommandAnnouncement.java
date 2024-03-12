@@ -1,6 +1,8 @@
 package user.meistertisch.tischissmpplugin.admin;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -28,6 +30,9 @@ public class CommandAnnouncement implements CommandExecutor {
                 message.append(" ").append(string);
             }
             Bukkit.broadcastMessage(MessageMaker.makeMessage(message.toString(), TextTypes.ANNOUNCEMENT));
+            for(Player player : Bukkit.getOnlinePlayers()){
+                player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 1,1,1);
+            }
         } else commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_announcement_invalidMessageLength), TextTypes.NO_SUCCESS));
         return true;
     }

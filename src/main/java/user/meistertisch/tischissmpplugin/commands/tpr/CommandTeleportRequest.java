@@ -1,6 +1,8 @@
 package user.meistertisch.tischissmpplugin.commands.tpr;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -22,7 +24,8 @@ public class CommandTeleportRequest implements TabExecutor {
             if(strings.length == 1){
                 if(List.of("to", "here").contains(strings[0].toLowerCase(Locale.ROOT))){
                     player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_noPlayerSelected), TextTypes.NO_SUCCESS));
-                } else if(List.of("accept", "reject", "cancel").contains(strings[0].toLowerCase(Locale.ROOT))){
+                }
+                else if(List.of("accept", "reject", "cancel").contains(strings[0].toLowerCase(Locale.ROOT))){
                     if(strings[0].toLowerCase(Locale.ROOT).equals("cancel")){
                         for(TeleportationRequest request : TPRScheduler.getCountdown().keySet()){
                             if(request.getSender() == player){
@@ -105,6 +108,7 @@ public class CommandTeleportRequest implements TabExecutor {
                                     .replace("%player%", target.getDisplayName()), TextTypes.SUCCESS));
                             target.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_to_msgSentTarget)
                                     .replace("%sender%", player.getDisplayName()), TextTypes.SUCCESS));
+                            target.playSound(target, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 1,1,1);
                         } else {
                             player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_targetNotAccepting)
                                     .replace("%player%", target.getDisplayName()), TextTypes.NO_SUCCESS));
@@ -140,6 +144,7 @@ public class CommandTeleportRequest implements TabExecutor {
                                     .replace("%player%", target.getDisplayName()), TextTypes.SUCCESS));
                             target.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_here_msgSentTarget)
                                     .replace("%sender%", player.getDisplayName()), TextTypes.SUCCESS));
+                            target.playSound(target, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 1,1,1);
                         } else {
                             player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_tpr_targetNotAccepting)
                                     .replace("%player%", target.getDisplayName()), TextTypes.NO_SUCCESS));
