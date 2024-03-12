@@ -16,7 +16,7 @@ import java.util.List;
 public class ListenerDeathOfPlayer implements Listener {
     @EventHandler
     public void playerDied(PlayerDeathEvent event){
-        if(!(event.getEntity().getKiller().getType() == EntityType.PLAYER)){
+        if(event.getEntity().getKiller() == null || !(event.getEntity().getKiller().getType() == EntityType.PLAYER)){
             return;
         }
 
