@@ -45,6 +45,15 @@ commands:
       noHome: "Please add your home to rename it."
       invalidHome: "You don't have this home. Please choose a valid one."
     list: 'This is your current list: %list%'
+  slimechunk:
+    checkConfirm: 'Do you really want to check for slimechunks? Then write /slimechunk check confirm.'
+    checked: 'Here are the results:'
+    noSlimeChunks: 'No slimechunks found!'
+    foundSlimeChunk: 'Slimechunk at %chunk%'
+    list: 'Here is your list of found slimechunks:'
+    emptyList: 'Your list is still empty!'
+    leftUsages: 'You have %leftUsages% usages left!'
+    noUsagesLeft: "You don't have no usages left!"
   tpr:
     noPlayerSelected: 'Please choose a player!'
     playerOffline: '%player% is not on the server at the moment!'
@@ -207,6 +216,11 @@ admin:
         playerRemovedFromTeam: '%player% has been removed from team %team%!'
         selfInNoTeam: 'You are in no team!'
         selfLeave: 'You have left team %team%.'
+    slimechunk:
+      madeTrue: 'Solo has been set on true!'
+      madeFalse: 'Solo has been set on false!'
+      alreadyTrue: 'Solo is already true!'
+      alreadyFalse: 'Solo is already false!'
 teamchat: 'Teamchat'
 teleportation:
   successful: 'You have been teleported!'

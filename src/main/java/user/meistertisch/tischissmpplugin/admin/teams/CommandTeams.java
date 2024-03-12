@@ -308,6 +308,7 @@ public class CommandTeams implements TabExecutor {
                                             list.remove(target);
                                             FileTeams.getConfig().set(c + ".players", list);
                                             FilePlayers.getConfig().set(target + ".team", null);
+                                            FilePlayers.getConfig().set(target + ".isInTeamChat", false);
                                             FileTeams.saveConfig();
                                             FilePlayers.saveConfig();
 
@@ -353,6 +354,7 @@ public class CommandTeams implements TabExecutor {
                                             list.remove(player.getDisplayName());
                                             FileTeams.getConfig().set(c + ".players", list);
                                             FilePlayers.getConfig().set(player.getDisplayName() + ".team", null);
+                                            FilePlayers.getConfig().set(player.getDisplayName() + ".isInTeamChat", false);
                                             FileTeams.saveConfig();
                                             FilePlayers.saveConfig();
                                             PlayerListPrefix.removePrefix(player);
@@ -514,8 +516,349 @@ public class CommandTeams implements TabExecutor {
                 }
             }
         } else {
-            //TODO: Make console tauglich
-            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.commands_onlyPlayers), TextTypes.NO_SUCCESS));
+            switch (strings[0].toLowerCase(Locale.ROOT)) {
+                case "create" -> {
+                    if (strings.length == 1) {
+                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_noName), TextTypes.NO_SUCCESS));
+                    } else if (strings.length == 2) {
+                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_createAndEdit_noColor), TextTypes.NO_SUCCESS));
+                    } else if (strings.length == 3 || strings.length == 4) {
+                        String team = strings[1];
+                        String color = strings[2].toLowerCase(Locale.ROOT);
+                        String effect = "";
+                        if (strings.length == 4) {
+                            effect = strings[3].toLowerCase(Locale.ROOT);
+                            //check for valid effect
+                            if (!effectList.contains(effect)) {
+                                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_createAndEdit_invalidEffect)
+                                        .replace("%effect%", effect), TextTypes.NO_SUCCESS));
+                                return true;
+                            }
+                        } else {
+                            effect = "none";
+                        }
+
+                        if (colorsList.contains(color)) {
+                            //Valid Color
+                            if (!FileTeams.getConfig().getStringList("takenColors").contains(color)) {
+                                //Color not taken
+                                if (!FileTeams.getConfig().getStringList("takenNames").contains(team)) {
+                                    //name not taken
+                                    FileTeams.getConfig().set(color + ".name", team);
+                                    FileTeams.getConfig().set(color + ".effect", effect);
+                                    List<String> takenColors = FileTeams.getConfig().getStringList("takenColors");
+                                    takenColors.add(color);
+                                    FileTeams.getConfig().set("takenColors", takenColors);
+                                    List<String> takenNames = FileTeams.getConfig().getStringList("takenNames");
+                                    takenNames.add(team);
+                                    FileTeams.getConfig().set("takenNames", takenNames);
+                                    FileTeams.saveConfig();
+                                    if (effect.equals("none")) {
+                                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_createAndEdit_createdWithoutEffect)
+                                                .replace("%team%", team).replace("%color%", color), TextTypes.SUCCESS));
+                                    } else {
+                                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_createAndEdit_createdWithEffect)
+                                                .replace("%team%", team).replace("%color%", color).replace("%effect%", effect), TextTypes.SUCCESS));
+                                    }
+                                } else {
+                                    //name taken
+                                    commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_createAndEdit_nameTaken)
+                                            .replace("%name%", team), TextTypes.NO_SUCCESS));
+                                }
+                            } else {
+                                //color Taken
+                                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_createAndEdit_colorTaken)
+                                        .replace("%color%", color), TextTypes.NO_SUCCESS));
+                            }
+                        } else {
+                            //invalid Color
+                            commandSender.sendMessage(colorsList.toString());
+                            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_createAndEdit_invalidColor)
+                                    .replace("%color%", color), TextTypes.NO_SUCCESS));
+                        }
+                    } else {
+                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_invalidArgsLength), TextTypes.NO_SUCCESS));
+                    }
+                }
+                case "delete" -> {
+                    if (strings.length == 2 || strings.length == 3) {
+                        String team = strings[1];
+                        List<String> teams = FileTeams.getConfig().getStringList("takenNames");
+                        if (teams.contains(team)) {
+                            //team exists
+                            if (strings.length == 2) {
+                                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_confirmDeletion)
+                                        .replace("%team%", team), TextTypes.NO_SUCCESS));
+                            } else {
+                                List<String> playerList = new ArrayList<>();
+                                String c = "";
+                                for (String color : FileTeams.getConfig().getStringList("takenColors")) {
+                                    if (FileTeams.getConfig().getString(color + ".name").equals(team)) {
+                                        playerList.addAll(FileTeams.getConfig().getStringList(color + ".players"));
+                                        FileTeams.getConfig().set(color, null);
+                                        c = color;
+                                    }
+                                }
+                                List<String> takenColors = FileTeams.getConfig().getStringList("takenColors");
+                                takenColors.remove(c);
+                                FileTeams.getConfig().set("takenColors", takenColors);
+                                List<String> takenNames = FileTeams.getConfig().getStringList("takenNames");
+                                takenNames.remove(team);
+                                FileTeams.getConfig().set("takenNames", takenNames);
+                                FileTeams.saveConfig();
+                                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_deleted)
+                                        .replace("%team%", team), TextTypes.SUCCESS));
+
+                                for (String pName : playerList) {
+                                    FilePlayers.getConfig().set(pName + ".team", null);
+                                    Player p = Bukkit.getPlayer(pName);
+                                    if (p != null) {
+                                        p.setPlayerListName(p.getDisplayName());
+                                        p.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_teams_deleted), TextTypes.NO_SUCCESS));
+                                    }
+                                }
+                                FilePlayers.saveConfig();
+                            }
+                        } else {
+                            //team does not exist
+                            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_invalidTeam)
+                                    .replace("%team%", team), TextTypes.NO_SUCCESS));
+                        }
+                    } else {
+                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_invalidArgsLength), TextTypes.NO_SUCCESS));
+                    }
+                }
+                case "add" -> {
+                    if (strings.length == 2) {
+                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_noTeam), TextTypes.NO_SUCCESS));
+                    } else if (strings.length == 3) {
+                        String target = strings[1];
+                        String team = strings[2];
+                        if (FilePlayers.getConfig().getString(target + ".team") == null) {
+                            //player is in no team
+                            if (FileTeams.getConfig().getStringList("takenNames").contains(team)) {
+                                //team exists
+                                List<String> playerList = new ArrayList<>();
+                                for (String c : FileTeams.getConfig().getStringList("takenColors")) {
+                                    if (FileTeams.getConfig().getString(c + ".name").equals(team)) {
+                                        playerList = FileTeams.getConfig().getStringList(c + ".players");
+                                        List<String> list = FileTeams.getConfig().getStringList(c + ".players");
+                                        list.add(target);
+                                        FileTeams.getConfig().set(c + ".players", list);
+                                        FileTeams.saveConfig();
+                                        break;
+                                    }
+                                }
+                                FilePlayers.getConfig().set(target + ".team", team);
+                                FilePlayers.saveConfig();
+                                Player t = Bukkit.getPlayer(target);
+                                if (t != null) {
+                                    t.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_teams_add_target)
+                                            .replace("%team%", team), TextTypes.SUCCESS));
+                                    PlayerListPrefix.makePrefix(t);
+                                    commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_add_playerAddedToTeam)
+                                            .replace("%player%", target).replace("%team%", team), TextTypes.SUCCESS));
+                                }
+                                for (String pName : playerList) {
+                                    Player p = Bukkit.getPlayer(pName);
+                                    if (p != null) {
+                                        p.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_teams_add_team)
+                                                .replace("%player%", target), TextTypes.SUCCESS));
+                                    }
+                                }
+                            } else {
+                                //team does not exist
+                                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_invalidTeam)
+                                        .replace("%team%", team), TextTypes.NO_SUCCESS));
+                            }
+                        } else {
+                            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_add_playerAlreadyInTeam)
+                                                .replace("%player%", target).replace("%team%", FilePlayers.getConfig().getString(target + ".team")),
+                                        TextTypes.NO_SUCCESS));
+
+                        }
+                    } else {
+                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_invalidArgsLength), TextTypes.NO_SUCCESS));
+                    }
+                }
+                case "remove" -> {
+                    if (strings.length == 2) {
+                        String target = strings[1];
+                        if (FilePlayers.getConfig().getString(target + ".team") != null) {
+                            //target is in a team
+                            String team = FilePlayers.getConfig().getString(target + ".team");
+                            for (String c : FileTeams.getConfig().getStringList("takenColors")) {
+                                if (FileTeams.getConfig().getString(c + ".name").equals(team)) {
+                                    List<String> list = FileTeams.getConfig().getStringList(c + ".players");
+                                    list.remove(target);
+                                    FileTeams.getConfig().set(c + ".players", list);
+                                    FilePlayers.getConfig().set(target + ".team", null);
+                                    FilePlayers.getConfig().set(target + ".isInTeamChat", false);
+                                    FileTeams.saveConfig();
+                                    FilePlayers.saveConfig();
+
+                                    if (Bukkit.getPlayer(target) != null) {
+                                        PlayerListPrefix.removePrefix(Bukkit.getPlayer(target));
+                                        Bukkit.getPlayer(target).sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_teams_remove_target)
+                                                .replace("%team%", team), TextTypes.NO_SUCCESS));
+                                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_remove_playerRemovedFromTeam)
+                                                .replace("%player%", target).replace("%team%", team), TextTypes.SUCCESS));
+                                    }
+                                    for (String pl : FileTeams.getConfig().getStringList(c + ".players")) {
+                                        if (Bukkit.getPlayer(pl) != null) {
+                                            Bukkit.getPlayer(pl).sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_teams_remove_team)
+                                                    .replace("%player%", target), TextTypes.NO_SUCCESS));
+                                        }
+                                    }
+                                }
+                            }
+                        } else {
+                            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_remove_playerInNoTeam)
+                                        .replace("%player%", target), TextTypes.NO_SUCCESS));
+                        }
+                    } else {
+                        //invalid Args length
+                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_commands_invalidArgsLength), TextTypes.NO_SUCCESS));
+                    }
+                }
+                case "edit" -> {
+                    if (strings.length == 1) {
+                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_noAction), TextTypes.NO_SUCCESS));
+                    } else if (strings.length == 2) {
+                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_noTeam), TextTypes.NO_SUCCESS));
+                    } else if (strings.length == 3) {
+                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_noValue), TextTypes.NO_SUCCESS));
+                    } else if (strings.length == 4) {
+                        String team = strings[1];
+                        String editing = strings[2].toLowerCase(Locale.ROOT);
+                        String value = strings[3];
+                        String teamColor = "";
+
+                        if (FileTeams.getConfig().getStringList("takenNames").contains(team)) {
+                            String color = "";
+                            for (String c : FileTeams.getConfig().getStringList("takenColors")) {
+                                if (FileTeams.getConfig().getString(c + ".name").equals(team)) {
+                                    color = c;
+                                    break;
+                                }
+                            }
+
+                            if (List.of("color", "name", "effect").contains(editing)) {
+                                switch (editing) {
+                                    case "color" -> {
+                                        value = value.toLowerCase(Locale.ROOT);
+                                        if (colorsList.contains(value)) {
+                                            //valid color
+                                            if (!FileTeams.getConfig().getStringList("takenColors").contains(value)) {
+                                                //color not taken
+                                                FileTeams.getConfig().set(value + ".name", FileTeams.getConfig().getString(color + ".name"));
+                                                FileTeams.getConfig().set(value + ".effect", FileTeams.getConfig().getString(color + ".effect"));
+                                                FileTeams.getConfig().set(value + ".players", FileTeams.getConfig().getStringList(color + ".players"));
+                                                FileTeams.getConfig().set(color, null);
+                                                List<String> list = FileTeams.getConfig().getStringList("takenColors");
+                                                list.remove(color);
+                                                list.add(value);
+                                                FileTeams.getConfig().set("takenColors", list);
+                                                FileTeams.saveConfig();
+                                                for (String pl : FileTeams.getConfig().getStringList(value + ".players")) {
+                                                    if (Bukkit.getPlayer(pl) != null) {
+                                                        Bukkit.getPlayer(pl).sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_teams_edit_color)
+                                                                .replace("%color%", value), TextTypes.SUCCESS));
+                                                    }
+                                                }
+                                                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_createAndEdit_changedColor)
+                                                        .replace("%newColor%", value).replace("%team%", team).replace("%oldColor%", color), TextTypes.SUCCESS));
+                                                teamColor = value;
+                                            } else {
+                                                //color taken
+                                                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_createAndEdit_sameColor)
+                                                        .replace("%team%", FileTeams.getConfig().getString(value + ".name")), TextTypes.NO_SUCCESS));
+                                            }
+                                        } else {
+                                            //invalid color
+                                            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_createAndEdit_invalidColor)
+                                                    .replace("%color%", value), TextTypes.NO_SUCCESS));
+                                        }
+                                    }
+                                    case "name" -> {
+                                        if (!FileTeams.getConfig().getStringList("takenNames").contains(value)) {
+                                            //name not taken
+                                            FileTeams.getConfig().set(color + ".name", value);
+                                            List<String> list = FileTeams.getConfig().getStringList("takenNames");
+                                            list.remove(team);
+                                            list.add(value);
+                                            FileTeams.getConfig().set("takenNames", list);
+                                            FileTeams.saveConfig();
+                                            for (String pl : FileTeams.getConfig().getStringList(color + ".players")) {
+                                                FilePlayers.getConfig().set(pl + ".team", value);
+                                                if (Bukkit.getPlayer(pl) != null) {
+                                                    Bukkit.getPlayer(pl).sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_teams_edit_name)
+                                                            .replace("%name%", value), TextTypes.SUCCESS));
+                                                }
+                                            }
+                                            FilePlayers.saveConfig();
+                                            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_createAndEdit_changedName)
+                                                    .replace("%newTeam%", value).replace("%oldTeam%", team), TextTypes.SUCCESS));
+                                            teamColor = color;
+                                        } else {
+                                            //name taken
+                                            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_createAndEdit_sameName)
+                                                    .replace("%team%", value), TextTypes.NO_SUCCESS));
+                                        }
+                                    }
+                                    case "effect" -> {
+                                        value = value.toLowerCase(Locale.ROOT);
+                                        if (effectList.contains(value)) {
+                                            //valid effect
+                                            if (!FileTeams.getConfig().getString(color + ".effect").equals(value)) {
+                                                //not same effect
+                                                String oldEffect = FileTeams.getConfig().getString(color + ".effect");
+                                                FileTeams.getConfig().set(color + ".effect", value);
+                                                FileTeams.saveConfig();
+                                                for (String pl : FileTeams.getConfig().getStringList(color + ".players")) {
+                                                    if (Bukkit.getPlayer(pl) != null) {
+                                                        if (!value.equals("none")) {
+                                                            Bukkit.getPlayer(pl).sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_teams_edit_effect)
+                                                                    .replace("%effect%", value), TextTypes.SUCCESS));
+                                                        } else {
+                                                            Bukkit.getPlayer(pl).sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_teams_edit_noEffect), TextTypes.SUCCESS));
+                                                        }
+                                                    }
+                                                }
+                                                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_createAndEdit_changedEffect)
+                                                        .replace("%newEffect%", value).replace("%team%", team).replace("%oldEffect%", oldEffect), TextTypes.SUCCESS));
+                                                teamColor = color;
+                                            } else {
+                                                //same effect
+                                                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_createAndEdit_sameEffect)
+                                                        .replace("%team%", team), TextTypes.NO_SUCCESS));
+                                            }
+                                        } else {
+                                            //invalid effect
+                                            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_createAndEdit_invalidEffect)
+                                                    .replace("%effect%", value), TextTypes.NO_SUCCESS));
+                                        }
+                                    }
+                                }
+                            } else {
+                                commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_invalidInput), TextTypes.NO_SUCCESS));
+                            }
+                        } else {
+                            commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_invalidTeam)
+                                    .replace("%team%", team), TextTypes.NO_SUCCESS));
+                        }
+
+                        for (String pl : FileTeams.getConfig().getStringList(teamColor + ".players")) {
+                            if (Bukkit.getPlayer(pl) != null) {
+                                PlayerListPrefix.makePrefix(Bukkit.getPlayer(pl));
+                            }
+                        }
+                    } else {
+                        commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_teams_noValue), TextTypes.NO_SUCCESS));
+                    }
+                }
+                default -> commandSender.sendMessage(MessageMaker.makeMessage(Text.getText(Text.commands_onlyPlayers), TextTypes.NO_SUCCESS));
+            }
         }
         if (commandSender instanceof Player p) {
             boolean isAdmin = FilePlayers.getConfig().getBoolean(p.getDisplayName() + ".isAdmin");

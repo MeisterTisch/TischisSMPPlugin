@@ -51,6 +51,21 @@ public enum Text {
     teamchat("teamchat"),
     headDrop_player("headDrop.player"),
     headDrop_killer("headDrop.killer"),
+    command_slimechunk_checkConfirm("commands.slimechunk.checkConfirm"),
+    command_slimechunk_checked("commands.slimechunk.checked"),
+    command_slimechunk_noSlimeChunks("commands.slimechunk.noSlimeChunks"),
+    command_slimechunk_foundSlimeChunk("commands.slimechunk.foundSlimeChunk"),
+    command_slimechunk_list("commands.slimechunk.list"),
+    command_slimechunk_emptyList("commands.slimechunk.emptyList"),
+    command_slimechunk_leftUsages("commands.slimechunk.leftUsages"),
+    command_slimechunk_noUsagesLeft("commands.slimechunk.noUsagesLeft"),
+    admin_command_slimechunk_madeTrue("admin.commands.slimechunk.madeTrue"),
+    admin_command_slimechunk_madeFalse("admin.commands.slimechunk.madeFalse"),
+    admin_command_slimechunk_alreadyTrue("admin.commands.slimechunk.alreadyTrue"),
+
+    admin_command_slimechunk_alreadyFalse("admin.commands.slimechunk.alreadyFalse"),
+
+
     admin_command_chatDisabling_broadcast("admin.commands.chatDisabling.broadcast"),
     command_sign_signed("commands.sign.signed"),
     command_sign_noItem("commands.sign.noItem"),

@@ -12,7 +12,7 @@ public class TestCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if(commandSender instanceof Player player){
-            player.sendMessage(String.valueOf(player.getInventory().getItemInMainHand()));
+            player.sendMessage(String.valueOf(player.getLocation().getChunk().isSlimeChunk()));
         }
         return true;
     }

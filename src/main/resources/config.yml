@@ -41,7 +41,14 @@ homes:
   status: true
   maxNumber: 5
   instant: false
-
+# slimechunk: Here you can set up the slimechunk command.
+# - status
+# - maxTime: the number, each user can check for slimechunks
+# - solo: can the player check the surrounding chunks too, or only the chunk he is in?
+#         true for only he's in, false surrounding chunks too.
+slimechunk:
+  maxTime: 3
+  solo: false
 
 # !FROM HERE ON DO NOT CHANGE ANYTHING, EXCEPT YOU KNOW WHAT YOU DO!
 # If you change something here and the plugin breaks as a result, then it is either due to your change or to my programming skills.

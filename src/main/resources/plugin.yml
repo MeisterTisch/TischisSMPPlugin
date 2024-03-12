@@ -19,6 +19,9 @@ commands:
   home:
   tpr:
   sign:
+  slimechunk:
+    aliases:
+      - sc
   dm:
     aliases:
       - msg
