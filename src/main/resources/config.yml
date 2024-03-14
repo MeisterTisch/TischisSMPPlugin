@@ -49,6 +49,15 @@ homes:
 slimechunk:
   maxTime: 3
   solo: false
+# spawn: Here you can set up the spawn command
+# - status
+# - location: this is the location of your spawn. DON'T CHANGE IT HERE, CHANGE IT WITH THE COMMAND IN-GAME!
+# - mustBeNearby: this flag changes, how the players can teleport to the spawn.
+#                 If set to true, then the player must be in the 500*500*500 area to be teleported to spawn. Center of that area is the spawn location.
+spawn:
+  status: true
+  location:
+  mustBeNearby: false
 
 # !FROM HERE ON DO NOT CHANGE ANYTHING, EXCEPT YOU KNOW WHAT YOU DO!
 # If you change something here and the plugin breaks as a result, then it is either due to your change or to my programming skills.

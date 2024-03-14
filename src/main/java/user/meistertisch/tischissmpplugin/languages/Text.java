@@ -26,6 +26,12 @@ public enum Text {
     command_tpr_requestCanceled("commands.tpr.requestCanceled"),
     command_tpr_requestCanceledTarget("commands.tpr.requestCanceledTarget"),
     command_tpr_senderIsTarget("commands.tpr.senderIsTarget"),
+    command_commandDisabled("commands.commandDisabled"),
+    command_spawn_spawnNotSetYet("commands.spawn.spawnNotSetYet"),
+    command_spawn_teleported("commands.spawn.teleported"),
+    command_spawn_notInArea("commands.spawn.notInArea"),
+    admin_command_spawn_notSetYet("admin.commands.spawn.notSetYet"),
+    admin_command_spawn_set("admin.commands.spawn.set"),
 
     command_dm_noPlayer("commands.dm.noPlayer"),
     command_teams_chatOn("commands.teams.chatOn"),

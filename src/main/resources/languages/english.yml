@@ -21,6 +21,10 @@ commands:
     text: 'Signed by %player%'
     signed: 'Your item has been signed!'
     noItem: 'Please hold a item in your hand!'
+  spawn:
+    teleported: 'You got teleported to spawn.'
+    notInArea: 'You are not in the teleportation area!'
+    spawnNotSetYet: 'The spawn has not yet been set by the admin team.'
   home:
     creation:
       created: 'Home %home% has been created.'
@@ -134,6 +138,9 @@ admin:
       noReason: 'Reason: No reason specified'
       withReason: 'Reason: %reason%'
       noPlayer: 'Please choose a player!'
+    spawn:
+      set: 'Spawn has been set!'
+      notSetYet: 'The spawn is not set yet!'
     dimension:
       invalidDimension: 'Invalid dimension! Please check your input!'
       noDimension: 'No dimension selected!'
@@ -220,7 +227,7 @@ admin:
       madeTrue: 'Solo has been set on true!'
       madeFalse: 'Solo has been set on false!'
       alreadyTrue: 'Solo is already true!'
-      alreadyFalse: 'Solo is already false!'
+      alreadyFalse: 'Solo is alreadyf false!'
 teamchat: 'Teamchat'
 teleportation:
   successful: 'You have been teleported!'

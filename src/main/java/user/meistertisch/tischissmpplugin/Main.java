@@ -8,6 +8,7 @@ import user.meistertisch.tischissmpplugin.admin.teams.FileTeams;
 import user.meistertisch.tischissmpplugin.commands.CommandHome;
 import user.meistertisch.tischissmpplugin.commands.CommandSign;
 import user.meistertisch.tischissmpplugin.commands.CommandSlimeChunks;
+import user.meistertisch.tischissmpplugin.commands.CommandSpawn;
 import user.meistertisch.tischissmpplugin.commands.dm.CommandDirectMessage;
 import user.meistertisch.tischissmpplugin.commands.dm.DirectMessageScheduler;
 import user.meistertisch.tischissmpplugin.commands.tpr.CommandTeleportRequest;
@@ -67,6 +68,7 @@ public final class Main extends JavaPlugin {
         getCommand("teams").setExecutor(new CommandTeams());
         getCommand("sign").setExecutor(new CommandSign());
         getCommand("slimechunk").setExecutor(new CommandSlimeChunks());
+        getCommand("spawn").setExecutor(new CommandSpawn());
 
         //Listeners
         pluginManager.registerEvents(new ListenerChat(), this);

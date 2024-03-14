@@ -22,6 +22,7 @@ commands:
   slimechunk:
     aliases:
       - sc
+  spawn:
   dm:
     aliases:
       - msg

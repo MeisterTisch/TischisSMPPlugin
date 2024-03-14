@@ -15,6 +15,7 @@ chatDisabling:
   invalidInput: 'Ungültige Eingabe bei der Chatsperre. Setze es auf "false" zurück.'
   chatIsDisabled: 'Der Chat ist derzeit gesperrt! Versuchs später erneut.'
 commands:
+  commandDisabled: 'Dieser Command ist deaktiviert.'
   onlyPlayers: 'Diesen Command kann nur ein Spieler ausführen.'
   invalidArgsLength: 'Ungültige Anzahl an Argumenten!'
   invalidInput: 'Ungültiges Argument. Bitte überprüfe deine Eingabe.'
@@ -108,6 +109,10 @@ commands:
       effect: 'Dein Team hat nun den Effekt %effect%.'
       noEffect: 'Dein Team hat nun kein Effekt mehr.'
     deleted: 'Dein Team wurde gelöscht!'
+  spawn:
+    teleported: 'Du wurdest zum Spawn teleportiert.'
+    notInArea: 'Du bist nicht im Teleportationsbereich!'
+    spawnNotSetYet: 'Der Spawn wurde vom Admin Team noch nicht gesetzt.'
 dimensionAllowance:
   invalidAllowance: 'Ungültige Erlaubnis bei der Dimension %dimension%. Setze es auf "true" zurück.'
   netherNotAllowed: 'Nether ist zurzeit gesperrt!'
@@ -127,6 +132,9 @@ admin:
     invalidArgsLength: 'Ungültige Anzahl an Argumenten!'
     announcement:
       invalidMessageLength: 'Ungültige Nachricht!'
+    spawn:
+      set: 'Spawn wurde gesetzt!'
+      notSetYet: 'Der Spawn ist noch nicht gesetzt!'
     ban:
       playerAlreadyBanned: '%player% ist schon gebannt!'
       playerBanned: '%player% wurde gebannt!'
