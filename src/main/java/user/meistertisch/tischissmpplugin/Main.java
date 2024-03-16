@@ -21,8 +21,10 @@ import user.meistertisch.tischissmpplugin.listeners.ListenerDimensionAllowance;
 import user.meistertisch.tischissmpplugin.admin.*;
 import user.meistertisch.tischissmpplugin.admin.CommandPrefix;
 import user.meistertisch.tischissmpplugin.listeners.ListenerJoinAndLeave;
+import user.meistertisch.tischissmpplugin.players.elytra.ElytraFlyAway;
 import user.meistertisch.tischissmpplugin.players.FilePlayers;
-import user.meistertisch.tischissmpplugin.players.teleportation.ListenerMove;
+import user.meistertisch.tischissmpplugin.globalListeners.ListenerMove;
+import user.meistertisch.tischissmpplugin.players.elytra.ListenerForElytra;
 import user.meistertisch.tischissmpplugin.players.teleportation.Teleportation;
 import user.meistertisch.tischissmpplugin.start.ConfigChecker;
 
@@ -49,6 +51,7 @@ public final class Main extends JavaPlugin {
         Teleportation.setup();
         TPRScheduler.setup();
         DirectMessageScheduler.setup();
+        ElytraFlyAway.setup();
 
         //Some checks
         ConfigChecker.checkEverything();
@@ -76,6 +79,7 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new ListenerJoinAndLeave(), this);
         pluginManager.registerEvents(new ListenerMove(), this);
         pluginManager.registerEvents(new ListenerDeathOfPlayer(), this);
+        pluginManager.registerEvents(new ListenerForElytra(), this);
 
         //Misc
 
@@ -89,6 +93,7 @@ public final class Main extends JavaPlugin {
         Teleportation.stopScheduler();
         TPRScheduler.stopScheduler();
         DirectMessageScheduler.stopScheduler();
+        ElytraFlyAway.stop();
     }
 
     //Some static Getters

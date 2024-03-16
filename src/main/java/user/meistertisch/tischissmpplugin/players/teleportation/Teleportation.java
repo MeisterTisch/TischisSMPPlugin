@@ -3,13 +3,11 @@ package user.meistertisch.tischissmpplugin.players.teleportation;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.scheduler.BukkitScheduler;
-import org.bukkit.util.BoundingBox;
 import user.meistertisch.tischissmpplugin.Main;
 import user.meistertisch.tischissmpplugin.languages.Text;
 import user.meistertisch.tischissmpplugin.messageMaker.MessageMaker;
 import user.meistertisch.tischissmpplugin.messageMaker.TextTypes;
+import user.meistertisch.tischissmpplugin.players.teleportation.ParticlesForTeleportation;
 
 import java.util.HashMap;
 import java.util.concurrent.Executors;
@@ -49,6 +47,7 @@ public class Teleportation {
         countdown.put(player, 3);
         location.put(player, newLocation);
         player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.teleportation_dontMove), TextTypes.IMPORTANT));
+        new ParticlesForTeleportation(player.getLocation(), newLocation);
     }
 
     private static void makeTeleportation(Player player){
