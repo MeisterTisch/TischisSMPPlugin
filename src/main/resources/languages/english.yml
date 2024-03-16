@@ -227,7 +227,12 @@ admin:
       madeTrue: 'Solo has been set on true!'
       madeFalse: 'Solo has been set on false!'
       alreadyTrue: 'Solo is already true!'
-      alreadyFalse: 'Solo is alreadyf false!'
+      alreadyFalse: 'Solo is already false!'
+spawn:
+  noBuild: "You can't build here!"
+  noDestroy: "You can't destroy here!"
+  noInteract: "You can't interact here!"
+  noHit: "You can't hit here!"
 teamchat: 'Teamchat'
 teleportation:
   successful: 'You have been teleported!'

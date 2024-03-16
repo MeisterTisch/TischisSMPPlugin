@@ -1,4 +1,4 @@
-package user.meistertisch.tischissmpplugin.misc;
+package user.meistertisch.tischissmpplugin.players;
 
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.entity.Player;

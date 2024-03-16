@@ -230,6 +230,11 @@ admin:
       madeFalse: 'Solo wurde auf false gestellt!'
       alreadyTrue: 'Solo ist bereits auf true!'
       alreadyFalse: 'Solo ist bereits auf false!'
+spawn:
+  noBuild: 'Hier kannst du nicht bauen!'
+  noDestroy: 'Hier kannst du nicht abbauen!'
+  noInteract: 'Hier kannst du nicht interagieren!'
+  noHit: 'Hier kannst du keinen angreifen!'
 teamchat: 'Teamchat'
 teleportation:
   successful: 'Du wurdest teleportiert!'

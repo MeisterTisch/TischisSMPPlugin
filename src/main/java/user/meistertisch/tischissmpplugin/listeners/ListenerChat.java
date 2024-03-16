@@ -1,7 +1,6 @@
 package user.meistertisch.tischissmpplugin.listeners;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Color;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
@@ -14,7 +13,7 @@ import user.meistertisch.tischissmpplugin.languages.Text;
 import user.meistertisch.tischissmpplugin.messageMaker.ColorSolver;
 import user.meistertisch.tischissmpplugin.messageMaker.MessageMaker;
 import user.meistertisch.tischissmpplugin.messageMaker.TextTypes;
-import user.meistertisch.tischissmpplugin.misc.PlayerListPrefix;
+import user.meistertisch.tischissmpplugin.players.PlayerListPrefix;
 import user.meistertisch.tischissmpplugin.players.FilePlayers;
 
 public class ListenerChat implements Listener {
