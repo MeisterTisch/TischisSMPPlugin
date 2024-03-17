@@ -1,6 +1,7 @@
 package user.meistertisch.tischissmpplugin.messageMaker;
 
 public enum TextTypes {
+    DEFAULT,
     NORMAL, //Normal Message for one player or console
     CHAT_TEAM, //Chat message from one player to team
     IMPORTANT, //Important or warning Message for one player or console

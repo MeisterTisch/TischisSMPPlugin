@@ -13,6 +13,9 @@ public class MessageMaker {
         ChatColor color2 = ChatColor.getByChar(Main.getPlugin().getConfig().getString("color.color2").charAt(0));
 
         switch(type){
+            case DEFAULT -> {
+                makedMessage = message;
+            }
             case NORMAL -> {
                 makedMessage = Main.getPlugin().getConfig().getString("prefix") + ChatColor.WHITE + message;
             }

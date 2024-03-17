@@ -22,6 +22,7 @@ import user.meistertisch.tischissmpplugin.admin.*;
 import user.meistertisch.tischissmpplugin.admin.CommandPrefix;
 import user.meistertisch.tischissmpplugin.listeners.ListenerJoinAndLeave;
 import user.meistertisch.tischissmpplugin.misc.spawn.ListenerSpawn;
+import user.meistertisch.tischissmpplugin.misc.spawn.SpawnChecker;
 import user.meistertisch.tischissmpplugin.players.elytra.ElytraFlyAway;
 import user.meistertisch.tischissmpplugin.players.FilePlayers;
 import user.meistertisch.tischissmpplugin.globalListeners.ListenerMove;
@@ -56,6 +57,7 @@ public final class Main extends JavaPlugin {
 
         //Some checks
         ConfigChecker.checkEverything();
+        SpawnChecker.checkForSpawn();
 
         //Commands
         getCommand("test").setExecutor(new TestCommand());

@@ -60,6 +60,30 @@ spawn:
   location:
   mustBeNearby: false
   elytraFlyAway: true
+# messages:
+messages:
+  join:
+    random1: '%player% spielt nun bei einer Partie Craft Mining mit!'
+    random2: '%player% ist auch wieder da!'
+    random3: 'Lange nicht mehr gesehen, %player%!'
+    random4: 'Da Craft Mining so viel Spaß macht, ist %player% wieder zurückgekehrt.'
+    random5: '%player% ist zum Craften und Minen wieder da!'
+    random6: '%player% spielt wieder mit!'
+    random7: '%player% ist wieder da!'
+    random8: '%player% hat Bock auf Craft Mining bekommen!'
+    random9: 'Hallo %player%!'
+    random10: 'Willkommen zurück %player%!'
+  leave:
+    random1: '%player% spielt nicht mehr Craft Mining!'
+    random2: '%player% ist auch wieder weg!'
+    random3: 'Bis zum nächsten Wiedersehen, %player%!'
+    random4: 'Da Craft Mining doch nicht so viel Spaß macht, ist %player% wieder gegangen.'
+    random5: '%player% hat genug vom Craften und Minen!'
+    random6: '%player% spielt nicht mehr mit!'
+    random7: '%player% ist wieder weg!'
+    random8: '%player% hat kein Bock mehr auf Craft Mining!'
+    random9: 'Tschüß %player%!'
+    random10: 'Bis zum nächsten mal %player%!'
 
 # !FROM HERE ON DO NOT CHANGE ANYTHING, EXCEPT YOU KNOW WHAT YOU DO!
 # If you change something here and the plugin breaks as a result, then it is either due to your change or to my programming skills.
