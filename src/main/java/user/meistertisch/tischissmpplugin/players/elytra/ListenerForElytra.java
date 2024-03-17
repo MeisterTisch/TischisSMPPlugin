@@ -1,6 +1,5 @@
 package user.meistertisch.tischissmpplugin.players.elytra;
 
-import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;

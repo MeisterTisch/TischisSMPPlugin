@@ -64,3 +64,4 @@ spawn:
 # !FROM HERE ON DO NOT CHANGE ANYTHING, EXCEPT YOU KNOW WHAT YOU DO!
 # If you change something here and the plugin breaks as a result, then it is either due to your change or to my programming skills.
 firstTimeSetupDone: false
+isStarted: false

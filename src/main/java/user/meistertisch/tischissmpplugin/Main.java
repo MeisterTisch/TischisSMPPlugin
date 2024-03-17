@@ -21,6 +21,7 @@ import user.meistertisch.tischissmpplugin.listeners.ListenerDimensionAllowance;
 import user.meistertisch.tischissmpplugin.admin.*;
 import user.meistertisch.tischissmpplugin.admin.CommandPrefix;
 import user.meistertisch.tischissmpplugin.listeners.ListenerJoinAndLeave;
+import user.meistertisch.tischissmpplugin.misc.spawn.ListenerSpawn;
 import user.meistertisch.tischissmpplugin.players.elytra.ElytraFlyAway;
 import user.meistertisch.tischissmpplugin.players.FilePlayers;
 import user.meistertisch.tischissmpplugin.globalListeners.ListenerMove;
@@ -72,6 +73,7 @@ public final class Main extends JavaPlugin {
         getCommand("sign").setExecutor(new CommandSign());
         getCommand("slimechunk").setExecutor(new CommandSlimeChunks());
         getCommand("spawn").setExecutor(new CommandSpawn());
+        getCommand("start").setExecutor(new CommandStart());
 
         //Listeners
         pluginManager.registerEvents(new ListenerChat(), this);
@@ -80,6 +82,7 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new ListenerMove(), this);
         pluginManager.registerEvents(new ListenerDeathOfPlayer(), this);
         pluginManager.registerEvents(new ListenerForElytra(), this);
+        pluginManager.registerEvents(new ListenerSpawn(), this);
 
         //Misc
 
