@@ -65,7 +65,9 @@ public class ListenerSpawn implements Listener {
     @EventHandler
     public void noLeave(PlayerMoveEvent event){
         Location spawn = Main.getPlugin().getConfig().getLocation("spawn.location");
+        boolean isStarted = Main.getPlugin().getConfig().getBoolean("isStarted");
         if(spawn == null) return;
+        if(isStarted) return;
         if(!boundingBox.contains(event.getPlayer().getBoundingBox())){
             event.getPlayer().teleport(spawn);
         }
