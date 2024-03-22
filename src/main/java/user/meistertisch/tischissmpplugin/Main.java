@@ -5,10 +5,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import user.meistertisch.tischissmpplugin.admin.teams.CommandTeams;
 import user.meistertisch.tischissmpplugin.admin.teams.FileTeams;
-import user.meistertisch.tischissmpplugin.commands.CommandHome;
-import user.meistertisch.tischissmpplugin.commands.CommandSign;
-import user.meistertisch.tischissmpplugin.commands.CommandSlimeChunks;
-import user.meistertisch.tischissmpplugin.commands.CommandSpawn;
+import user.meistertisch.tischissmpplugin.commands.*;
 import user.meistertisch.tischissmpplugin.commands.dm.CommandDirectMessage;
 import user.meistertisch.tischissmpplugin.commands.dm.DirectMessageScheduler;
 import user.meistertisch.tischissmpplugin.commands.tpr.CommandTeleportRequest;
@@ -76,6 +73,7 @@ public final class Main extends JavaPlugin {
         getCommand("slimechunk").setExecutor(new CommandSlimeChunks());
         getCommand("spawn").setExecutor(new CommandSpawn());
         getCommand("start").setExecutor(new CommandStart());
+        getCommand("spit").setExecutor(new CommandSpit());
 
         //Listeners
         pluginManager.registerEvents(new ListenerChat(), this);
