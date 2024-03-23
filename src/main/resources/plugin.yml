@@ -7,28 +7,43 @@ description: Das ist ein Plugin für sogenannte Survival Multiplayer Server, kur
 website: https://github.com/MeisterTisch/TischisSMPPlugin
 commands:
   test:
+    description: A command for testing. Only for developers of this plugin.
   announce:
+    description: Announce something to all currently online players.
   dimension:
+    description: Allow or disallow the dimensions nether or end.
   reloadconfig:
   chat:
+    description: Turn chat on or off.
   prefix:
+    description: Change the prefix of this plugin.
   language:
+    description: Change the language of this plugin
     aliases:
       - lang
   admin:
+    description: Add or remove someone as an admin.
   home:
+    description: Create homes and teleport to them.
   tpr:
+    description: Send someone a teleport request.
   sign:
+    description: Sign your own item.
   slimechunk:
+    description: Check your chunks for slimechunk.
     aliases:
       - sc
   spawn:
+    description: Teleport back to spawn.
   dm:
+    description: Send someone on the server a private message.
     aliases:
       - msg
       - r
       - reply
       - message
   teams:
+    description: Create and manage teams.
   start:
   spit:
+    description: Spit at someone.

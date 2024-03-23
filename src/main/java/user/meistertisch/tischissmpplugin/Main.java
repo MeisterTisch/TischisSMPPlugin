@@ -57,7 +57,7 @@ public final class Main extends JavaPlugin {
         SpawnChecker.checkForSpawn();
 
         //Commands
-        getCommand("test").setExecutor(new TestCommand());
+//        getCommand("test").setExecutor(new TestCommand());
         getCommand("announce").setExecutor(new CommandAnnouncement());
         getCommand("dimension").setExecutor(new CommandDimensionAllowance());
         getCommand("reloadconfig").setExecutor(new CommandReloadConfig());
@@ -72,8 +72,9 @@ public final class Main extends JavaPlugin {
         getCommand("sign").setExecutor(new CommandSign());
         getCommand("slimechunk").setExecutor(new CommandSlimeChunks());
         getCommand("spawn").setExecutor(new CommandSpawn());
-        getCommand("start").setExecutor(new CommandStart());
         getCommand("spit").setExecutor(new CommandSpit());
+        getCommand("start").setExecutor(new CommandStart());
+
 
         //Listeners
         pluginManager.registerEvents(new ListenerChat(), this);
