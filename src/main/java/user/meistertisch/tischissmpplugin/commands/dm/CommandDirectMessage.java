@@ -48,6 +48,7 @@ public class CommandDirectMessage implements TabExecutor {
                         Bukkit.getPlayer(strings[0])
                                 .playSound(Bukkit.getPlayer(strings[0]), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 1,1,1);
                         DirectMessageScheduler.addToList(player, Bukkit.getPlayer(strings[0]));
+                        DirectMessageScheduler.addToList(Bukkit.getPlayer(strings[0]), player);
                     } else {
                         player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.command_dm_playerOffline)
                                 .replace("%player%", strings[0]), TextTypes.NO_SUCCESS));
