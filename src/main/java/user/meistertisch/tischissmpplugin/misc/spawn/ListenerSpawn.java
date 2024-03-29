@@ -2,6 +2,7 @@ package user.meistertisch.tischissmpplugin.misc.spawn;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -16,6 +17,7 @@ import user.meistertisch.tischissmpplugin.Main;
 import user.meistertisch.tischissmpplugin.languages.Text;
 import user.meistertisch.tischissmpplugin.messageMaker.MessageMaker;
 import user.meistertisch.tischissmpplugin.messageMaker.TextTypes;
+import user.meistertisch.tischissmpplugin.players.FilePlayers;
 
 import javax.print.attribute.standard.MediaSize;
 
@@ -25,6 +27,9 @@ public class ListenerSpawn implements Listener {
             spawn.getX()+75, spawn.getY()+75, spawn.getZ()+75);
     @EventHandler
     public void antiBuild(BlockPlaceEvent event){
+        if(FilePlayers.getConfig().getBoolean(event.getPlayer().getDisplayName() + ".isBypassingSpawnProt")){
+            return;
+        }
         if(boundingBox.contains(event.getBlock().getBoundingBox())){
             event.setCancelled(true);
             event.getPlayer().sendMessage(MessageMaker.makeMessage(Text.getText(Text.spawn_noBuild), TextTypes.NO_SUCCESS));
@@ -32,6 +37,9 @@ public class ListenerSpawn implements Listener {
     }
     @EventHandler
     public void antiBreak(BlockBreakEvent event){
+        if(FilePlayers.getConfig().getBoolean(event.getPlayer().getDisplayName() + ".isBypassingSpawnProt")){
+            return;
+        }
         if(boundingBox.contains(event.getBlock().getBoundingBox())){
             event.setCancelled(true);
             event.getPlayer().sendMessage(MessageMaker.makeMessage(Text.getText(Text.spawn_noDestroy), TextTypes.NO_SUCCESS));
@@ -40,6 +48,9 @@ public class ListenerSpawn implements Listener {
 
     @EventHandler
     public void antiInteract(PlayerInteractEvent event){
+        if(FilePlayers.getConfig().getBoolean(event.getPlayer().getDisplayName() + ".isBypassingSpawnProt")){
+            return;
+        }
         if(event.getClickedBlock() == null) return;
         if(event.getAction() != Action.RIGHT_CLICK_BLOCK) return;
         if(event.getPlayer().getInventory().getItemInMainHand().getType() != Material.AIR) return;
@@ -51,6 +62,9 @@ public class ListenerSpawn implements Listener {
 
     @EventHandler
     public void antiBreak(EntityDamageEvent event){
+        if(event.getDamageSource().getCausingEntity() instanceof Player player && FilePlayers.getConfig().getBoolean(player.getDisplayName() + ".isBypassingSpawnProt")){
+            return;
+        }
         if(boundingBox.contains(event.getEntity().getBoundingBox())){
             event.setCancelled(true);
         }
@@ -58,12 +72,17 @@ public class ListenerSpawn implements Listener {
 
     @EventHandler
     public void noHunger(FoodLevelChangeEvent event){
-        event.setFoodLevel(20);
-        event.setCancelled(true);
+        if(boundingBox.contains(event.getEntity().getBoundingBox())){
+            event.setFoodLevel(20);
+            event.setCancelled(true);
+        }
     }
 
     @EventHandler
     public void noLeave(PlayerMoveEvent event){
+        if(FilePlayers.getConfig().getBoolean(event.getPlayer().getDisplayName() + ".isBypassingSpawnProt")){
+            return;
+        }
         Location spawn = Main.getPlugin().getConfig().getLocation("spawn.location");
         boolean isStarted = Main.getPlugin().getConfig().getBoolean("isStarted");
         if(spawn == null) return;

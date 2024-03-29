@@ -130,8 +130,26 @@ admin:
   noAdmin: 'Diesen Command kannst du nur als Admin ausführen!'
   commands:
     invalidArgsLength: 'Ungültige Anzahl an Argumenten!'
+    mute:
+      alreadyMuted: '%player% ist bereits gemutet!'
+      notMuted: '%player% ist nicht gemutet!'
+      muted: '%player% wurde gemutet.'
+      targetMuted: 'Du wurdest gemuted!'
+      targetUnmuted: 'Du wurdest unmuted!'
+      unmuted: '%player% wurde unmuted!'
+      isMuted: 'Du bist gemutet!'
     announcement:
       invalidMessageLength: 'Ungültige Nachricht!'
+    chest:
+      playerNotOnline: '%player% ist nicht online!'
+      senderIsTarget: 'Bitte wähle nicht dich selbst aus!'
+    freeze:
+      frozen: '%player% wurde eingefroren.'
+      alreadyFrozen: '%player% ist bereits eingefroren!'
+      notFrozen: '%player% ist nicht eingefroren!'
+      targetFrozen: 'Du wurdest eingefroren.'
+      unfrozen: '%player% wurde entfroren.'
+      targetUnfrozen: 'Du wurdest entfroren.'
     spawn:
       set: 'Spawn wurde gesetzt!'
       notSetYet: 'Der Spawn ist noch nicht gesetzt!'
@@ -235,6 +253,9 @@ spawn:
   noDestroy: 'Hier kannst du nicht abbauen!'
   noInteract: 'Hier kannst du nicht interagieren!'
   noHit: 'Hier kannst du keinen angreifen!'
+  bypass:
+    turnedOn: 'Für dich gilt die Spawn Protection nicht mehr.'
+    turnedOff: 'Für dich gilt die Spawn Protection wieder.'
 teamchat: 'Teamchat'
 teleportation:
   successful: 'Du wurdest teleportiert!'

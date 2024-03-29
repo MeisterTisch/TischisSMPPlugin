@@ -27,6 +27,11 @@ public class ListenerChat implements Listener {
             return;
         }
 
+        if(FilePlayers.getConfig().getBoolean(player.getDisplayName() + ".isMuted")){
+            event.setCancelled(true);
+            player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.admin_command_mute_isMuted), TextTypes.NO_SUCCESS));
+        }
+
         if(FilePlayers.getConfig().getBoolean(player.getDisplayName() + ".isInTeamChat")){
             for(String c : FileTeams.getConfig().getStringList("takenColors")){
                 if(FileTeams.getConfig().getString(c+".name").equals(FilePlayers.getConfig().getString(player.getDisplayName()+".team"))){

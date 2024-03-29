@@ -44,10 +44,15 @@ public class Teleportation {
     }
 
     public static void teleport(Player player, Location newLocation){
-        countdown.put(player, 3);
-        location.put(player, newLocation);
-        player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.teleportation_dontMove), TextTypes.IMPORTANT));
-        new ParticlesForTeleportation(player.getLocation(), newLocation);
+        if(Main.getPlugin().getConfig().getBoolean("teleportation.isInstant")){
+            location.put(player, newLocation);
+            makeTeleportation(player);
+        } else {
+            countdown.put(player, 3);
+            location.put(player, newLocation);
+            player.sendMessage(MessageMaker.makeMessage(Text.getText(Text.teleportation_dontMove), TextTypes.IMPORTANT));
+            new ParticlesForTeleportation(player.getLocation(), newLocation);
+        }
     }
 
     private static void makeTeleportation(Player player){

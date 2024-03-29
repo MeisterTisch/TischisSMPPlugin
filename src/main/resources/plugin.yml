@@ -47,3 +47,13 @@ commands:
   start:
   spit:
     description: Spit at someone.
+  bypass:
+  chest:
+    aliases:
+      - echest
+  freeze:
+    aliases:
+      - unfreeze
+  mute:
+    aliases:
+      - unmute

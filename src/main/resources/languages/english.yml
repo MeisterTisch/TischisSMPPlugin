@@ -128,6 +128,13 @@ admin:
   noAdmin: 'You can only execute this command as a admin!'
   commands:
     invalidArgsLength: 'Invalid length of arguments!'
+    freeze:
+      frozen: '%player% has been frozen.'
+      alreadyFrozen: '%player% is already frozen!'
+      notFrozen: '%player% is not frozen!'
+      targetFrozen: 'You have been frozen.'
+      unfrozen: '%player% has been unfrozen.'
+      targetUnfrozen: 'You have been unfrozen.'
     announcement:
       invalidMessageLength: 'Invalid message!'
     ban:
@@ -178,6 +185,14 @@ admin:
       languageChanged: 'Language has been successfully changed to English.'
       statusAlreadyThere: 'The language is already in English!'
       statusCheck: 'The language is currently set to English.'
+    mute:
+      alreadyMuted: '%player% is already muted!'
+      notMuted: '%player% is not muted!'
+      muted: '%player% has been muted.'
+      targetMuted: 'You have been muted!'
+      targetUnmuted: 'You have been unmuted!'
+      unmuted: '%player% has been unmuted!'
+      isMuted: 'You are muted!'
     admin:
       playerAdded: '%player% was added as an admin.'
       playerRemoved: '%player% has been removed as an admin.'
@@ -190,6 +205,9 @@ admin:
         addedToAdmin: 'You have been added as an admin.'
         removedFromAdmin: 'You have been removed as admin.'
         sameAsSender: 'You cannot register as a target.'
+    chest:
+      playerNotOnline: '%player% is not online!'
+      senderIsTarget: 'Please choose someone other then yourself!'
     teams:
       noAction: 'Invalid action! Please check your input.'
       noValue: 'Invalid value! Please check your input.'
@@ -233,6 +251,9 @@ spawn:
   noDestroy: "You can't destroy here!"
   noInteract: "You can't interact here!"
   noHit: "You can't hit here!"
+  bypass:
+    turnedOn: 'The spawn protection does not affect you anymore.'
+    turnedOff: 'The spawn protection affects you again.'
 teamchat: 'Teamchat'
 teleportation:
   successful: 'You have been teleported!'

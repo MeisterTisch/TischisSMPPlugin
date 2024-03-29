@@ -3,6 +3,8 @@ package user.meistertisch.tischissmpplugin;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import user.meistertisch.tischissmpplugin.admin.freezing.CommandFreezePlayer;
+import user.meistertisch.tischissmpplugin.admin.freezing.ListenerFreeze;
 import user.meistertisch.tischissmpplugin.admin.teams.CommandTeams;
 import user.meistertisch.tischissmpplugin.admin.teams.FileTeams;
 import user.meistertisch.tischissmpplugin.commands.*;
@@ -74,6 +76,10 @@ public final class Main extends JavaPlugin {
         getCommand("spawn").setExecutor(new CommandSpawn());
         getCommand("spit").setExecutor(new CommandSpit());
         getCommand("start").setExecutor(new CommandStart());
+        getCommand("bypass").setExecutor(new CommandBypassSpawnProt());
+        getCommand("freeze").setExecutor(new CommandFreezePlayer());
+        getCommand("chest").setExecutor(new CommandGetChest());
+        getCommand("mute").setExecutor(new CommandMute());
 
 
         //Listeners
@@ -84,6 +90,7 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new ListenerDeathOfPlayer(), this);
         pluginManager.registerEvents(new ListenerForElytra(), this);
         pluginManager.registerEvents(new ListenerSpawn(), this);
+        pluginManager.registerEvents(new ListenerFreeze(), this);
 
         //Misc
 

@@ -41,6 +41,8 @@ homes:
   status: true
   maxNumber: 5
   instant: false
+teleportation:
+  isInstant: false
 # slimechunk: Here you can set up the slimechunk command.
 # - status
 # - maxTime: the number, each user can check for slimechunks
